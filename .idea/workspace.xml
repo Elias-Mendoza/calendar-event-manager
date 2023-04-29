@@ -4,14 +4,48 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45f3f758-b802-4de9-937c-f1bb85aeb606" name="Changes" comment="" />
+    <list default="true" id="45f3f758-b802-4de9-937c-f1bb85aeb606" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Actividad.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Alarma.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Calendario.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Evento.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/EventoConFechaYHora.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/EventoDiaCompleto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Frecuencia.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/FrecuenciaAnual.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/FrecuenciaDiaria.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/FrecuenciaMensual.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/FrecuenciaSemanal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/RepeticionEvento.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Tarea.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/TareaConFechaYHoraVencimiento.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/TareaDiaCompleto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
@@ -30,7 +64,12 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -42,7 +81,34 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1682778459773</updated>
+      <workItem from="1682778460848" duration="608000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="Etapa-1" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

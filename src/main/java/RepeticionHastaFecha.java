@@ -1,0 +1,33 @@
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
+public class RepeticionHastaFecha extends RepeticionEvento {
+    public RepeticionHastaFecha(Frecuencia frecuencia, LocalDate fechaLimite) {
+        super(frecuencia);
+        super.fechaLimite = fechaLimite;
+        super.cantidadRepeticiones = calcularCantidadRepeticiones(this.fechaLimite);
+        this.tipoRepeticion = TipoRepeticion.HASTA_X_FECHA;
+        this.esRepeticionInfinita = false;
+    }
+
+    public int calcularCantidadRepeticiones(LocalDate fechaLimite){
+        int contador = 0;
+        LocalDateTime fechaYHora = LocalDateTime.now();
+        while(fechaYHora.isBefore(fechaLimite.atStartOfDay()) ){
+            fechaYHora = this.frecuencia.siguienteFechaYHora(fechaYHora);
+            if(fechaYHora.isBefore(fechaLimite.atStartOfDay())){
+                contador++;
+            }
+        }
+        return contador;
+    }
+
+    @Override
+    public boolean esRecurrente(LocalDateTime fecha) {
+        return false;
+    }
+    @Override
+    public LocalDateTime proximaFechaInicio(LocalDateTime fecha) {
+        return null;
+    }
+}
