@@ -7,7 +7,6 @@ public class Main {
         Calendario miCalendario = new Calendario();
 
 
-
         LocalDateTime inicioEvento1 = LocalDateTime.of(2023, 4, 23, 17, 0);
         LocalDateTime finalEvento1 = LocalDateTime.of(2023, 4, 23, 18, 0);
         EventoConFechaYHora evento1 = new EventoConFechaYHora("Fulbo", "Con los pi en Sanca", inicioEvento1, finalEvento1);
@@ -39,11 +38,11 @@ public class Main {
 
 //        miCalendario.mostrarDatosEvento(evento4);
 
-        LocalDateTime fechaVencimientoTarea1 = LocalDateTime.of(2023,4,24,23,59);
+        LocalDateTime fechaVencimientoTarea1 = LocalDateTime.of(2023, 4, 24, 23, 59);
         TareaConFechaYHoraVencimiento tarea1 = new TareaConFechaYHoraVencimiento("Entregar TP Algo3", "Si no lo entrego recurso", fechaVencimientoTarea1);
         miCalendario.agregarTarea(tarea1);
 
-        LocalDate fechaTarea2 = LocalDate.of(2023,4,26);
+        LocalDate fechaTarea2 = LocalDate.of(2023, 4, 26);
         TareaDiaCompleto tarea2 = new TareaDiaCompleto("Ordenar la casa", "", fechaTarea2);
         miCalendario.agregarTarea(tarea2);
 
@@ -53,7 +52,7 @@ public class Main {
 
         LocalDateTime inicioEvento5 = LocalDateTime.of(2023, 4, 28, 16, 0);
         LocalDateTime finalEvento5 = LocalDateTime.of(2023, 4, 28, 17, 0);
-        Frecuencia frecuenciaEvento5 = new FrecuenciaSemanal(EnumSet.of(DayOfWeek.FRIDAY, DayOfWeek.SUNDAY,DayOfWeek.WEDNESDAY));
+        Frecuencia frecuenciaEvento5 = new FrecuenciaSemanal(EnumSet.of(DayOfWeek.FRIDAY, DayOfWeek.SUNDAY, DayOfWeek.WEDNESDAY));
         RepeticionEvento repeticionEvento5 = new RepeticionHastaNRepeticiones(frecuenciaEvento5, 10);
         EventoConFechaYHora evento5 = new EventoConFechaYHora("Fulboooooooooo con los virgos", "En Sanca", inicioEvento5, finalEvento5, repeticionEvento5);
         miCalendario.agregarEvento(evento5);
@@ -84,12 +83,13 @@ public class Main {
 //            miCalendario.obtenerEventos().get(i).mostrarRepeticiones();
         }
         System.out.println("\nEl evento se repite en:");
-        System.out.println(evento7.siguienteRepeticionAFecha(LocalDateTime.of(2023, 4, 26,0,0)));
+        System.out.println(evento7.siguienteRepeticionAFecha(LocalDateTime.of(2023, 4, 26, 0, 0)));
 
+
+        miCalendario.modificarTitulo(tarea2, "Este es un nuevo título");
 
         for (int i = 0; i < miCalendario.obtenerTareas().size(); i++){
             miCalendario.obtenerTareas().get(i).mostrarDatos();
         }
-
     }
 }

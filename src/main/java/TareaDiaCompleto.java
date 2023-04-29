@@ -3,7 +3,6 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class TareaDiaCompleto extends Tarea{
-
     private LocalDate fechaTarea;
 
     public TareaDiaCompleto(String titulo, String descripcion, LocalDate fechaTarea) {

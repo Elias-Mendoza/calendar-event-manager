@@ -9,7 +9,7 @@ public abstract class Actividad {
         this.descripcion = descripcion;
     }
 
-    public void modificarTitulo(Actividad actividad, String titulo){
+    public void modificarTituloActividad(String titulo){
         this.titulo = titulo;
     }
     public void modificarDescripcion(Actividad actividad, String descripcion){

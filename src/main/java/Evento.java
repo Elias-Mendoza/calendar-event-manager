@@ -31,6 +31,9 @@ public abstract class Evento extends Actividad{
         }
         return (repeticionADevolver);
     }
+    public void modificarFrecuencia(Frecuencia nuevaFecuencia){
+        this.getRepeticion().setFrecuencia(nuevaFecuencia);
+    }
     public LocalDateTime getInicio(){
         return (this.inicio);
     }

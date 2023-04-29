@@ -26,6 +26,24 @@ public class Calendario {
         return (this.tareas);
     }
 
+    public void modificarTitulo(Actividad actividad, String nuevoTitulo) {
+        if (actividad instanceof Evento) {
+            int i = eventos.indexOf(actividad);
+            if (i != -1) {
+                eventos.get(i).modificarTituloActividad(nuevoTitulo);
+            }
+        } else if (actividad instanceof Tarea) {
+            int i = tareas.indexOf(actividad);
+            if (i != -1) {
+                tareas.get(i).modificarTituloActividad(nuevoTitulo);
+            }
+        }
+    }
+
+    public void modificarFrecuenciaEvento(Evento evento, Frecuencia nuevaFrecuencia){
+        evento.modificarFrecuencia(nuevaFrecuencia);
+    }
+
     public void mostrarDatosEvento(Evento evento) {
         evento.mostrarDatos();
     }

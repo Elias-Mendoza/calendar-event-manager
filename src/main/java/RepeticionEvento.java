@@ -15,7 +15,10 @@ public abstract class RepeticionEvento {
     }
 
     public Frecuencia getFrecuencia() {
-        return frecuencia;
+        return this.frecuencia;
+    }
+    public void setFrecuencia(Frecuencia frecuencia){
+        this.frecuencia = frecuencia;
     }
 
     //Recibe una fecha y hora, y devuelve True en caso que el evento deba repetirse en esa fecha, false en caso contrario.

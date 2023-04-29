@@ -4,13 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45f3f758-b802-4de9-937c-f1bb85aeb606" name="Changes" comment="Pequeñísimos cambios para sacar advertencias que tira el IDE">
+    <list default="true" id="45f3f758-b802-4de9-937c-f1bb85aeb606" name="Changes" comment="Pequeños cambios para sacar advertencias que tira el IDE">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Actividad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Actividad.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Calendario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Calendario.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Evento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Evento.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/RepeticionEvento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RepeticionEvento.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RepeticionHastaNRepeticiones.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RepeticionHastaNRepeticiones.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RepeticionInfinita.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RepeticionInfinita.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Tarea.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tarea.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TareaConFechaYHoraVencimiento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TareaConFechaYHoraVencimiento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TareaDiaCompleto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TareaDiaCompleto.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,8 +62,8 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -72,7 +75,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1682778459773</updated>
-      <workItem from="1682778460848" duration="2982000" />
+      <workItem from="1682778460848" duration="8581000" />
     </task>
     <task id="LOCAL-00001" summary="Se agregan las clases que tenía hasta el momento.">
       <created>1682779312021</created>
@@ -88,7 +91,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682780652510</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Pequeños cambios para sacar advertencias que tira el IDE">
+      <created>1682798178524</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1682798178524</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -120,6 +130,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Se agregan las clases que tenía hasta el momento." />
     <MESSAGE value="Pequeñísimos cambios para sacar advertencias que tira el IDE" />
-    <option name="LAST_COMMIT_MESSAGE" value="Pequeñísimos cambios para sacar advertencias que tira el IDE" />
+    <MESSAGE value="Pequeños cambios para sacar advertencias que tira el IDE" />
+    <option name="LAST_COMMIT_MESSAGE" value="Pequeños cambios para sacar advertencias que tira el IDE" />
   </component>
 </project>

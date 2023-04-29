@@ -13,6 +13,22 @@ public class TareaConFechaYHoraVencimiento extends Tarea{
     public LocalDateTime getFechaYHoraVencimiento() {
         return this.fechaYHoraVencimiento;
     }
+    public void setFechaYHoraVencimiento(LocalDateTime fechaYHoraVencimiento) {
+        this.fechaYHoraVencimiento = fechaYHoraVencimiento;
+    }
+    public Duration tiempoRestanteAlVencimiento() {
+        Duration tiempoRestante;
+        LocalDateTime ahora = LocalDateTime.now();
+        if (ahora.isAfter(this.fechaYHoraVencimiento)) {
+            tiempoRestante = Duration.ZERO;
+//            return Duration.ZERO;
+        } else {
+            tiempoRestante = Duration.between(ahora, this.fechaYHoraVencimiento);
+//            return Duration.between(ahora, this.fechaVencimiento);
+        }
+        return tiempoRestante;
+    }
+
     @Override
     public String tiempoRestanteLegible() {
         Duration duracionRestante = Duration.between(LocalDateTime.now(), this.fechaYHoraVencimiento);
