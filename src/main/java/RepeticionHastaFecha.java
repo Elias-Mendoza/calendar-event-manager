@@ -22,12 +22,4 @@ public class RepeticionHastaFecha extends RepeticionEvento {
         return contador;
     }
 
-    @Override
-    public boolean esRecurrente(LocalDateTime fecha) {
-        return false;
-    }
-    @Override
-    public LocalDateTime proximaFechaInicio(LocalDateTime fecha) {
-        return null;
-    }
 }

@@ -7,14 +7,4 @@ public class RepeticionInfinita extends RepeticionEvento {
         this.esRepeticionInfinita = true;
     }
 
-    @Override
-    public boolean esRecurrente(LocalDateTime fecha) {
-        return false;
-    }
-
-    @Override
-    public LocalDateTime proximaFechaInicio(LocalDateTime fecha) {
-        return null;
-    }
-
 }

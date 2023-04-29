@@ -21,11 +21,4 @@ public abstract class RepeticionEvento {
         this.frecuencia = frecuencia;
     }
 
-    //Recibe una fecha y hora, y devuelve True en caso que el evento deba repetirse en esa fecha, false en caso contrario.
-    public abstract boolean esRecurrente(LocalDateTime fecha);
-
-    //Recibe una fecha por parámetro, y devuelve la fecha de la próxima repetición del evento
-    public abstract LocalDateTime proximaFechaInicio(LocalDateTime fecha);
-
-
 }

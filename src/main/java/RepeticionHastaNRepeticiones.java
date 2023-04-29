@@ -8,14 +8,4 @@ public class RepeticionHastaNRepeticiones extends RepeticionEvento {
         this.tipoRepeticion = TipoRepeticion.HASTA_N_REPETICIONES;
         this.esRepeticionInfinita = false;
     }
-
-    @Override
-    public boolean esRecurrente(LocalDateTime fecha) {
-        return false;
-    }
-
-    @Override
-    public LocalDateTime proximaFechaInicio(LocalDateTime fecha) {
-        return null;
-    }
 }
