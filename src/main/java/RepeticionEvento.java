@@ -17,9 +17,6 @@ public abstract class RepeticionEvento {
     public Frecuencia getFrecuencia() {
         return frecuencia;
     }
-    public LocalDate getFechaSiguiente(LocalDate fecha) {
-        return null;
-    }
 
     //Recibe una fecha y hora, y devuelve True en caso que el evento deba repetirse en esa fecha, false en caso contrario.
     public abstract boolean esRecurrente(LocalDateTime fecha);

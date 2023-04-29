@@ -10,20 +10,6 @@ public class FrecuenciaDiaria extends Frecuencia {
         this.tipoFrecuencia = TipoFrecuencia.DIARIA;
     }
 
-    @Override
-    public int calcularCantidadRepeticionesHechas(LocalDateTime fechaYHoraOrigen) {
-        int contadorCantidad = 0;
-        LocalDateTime fechaYHora = fechaYHoraOrigen;
-        if(fechaYHora.isBefore(LocalDateTime.now())){
-            contadorCantidad++;
-        }
-        while(fechaYHora.plusDays(getIntervalo()).isBefore(LocalDateTime.now()) ){
-            fechaYHora = fechaYHora.plusDays(getIntervalo());
-            contadorCantidad++;
-        }
-        return contadorCantidad;
-    }
-
     public int getIntervalo() {
         return intervalo;
     }

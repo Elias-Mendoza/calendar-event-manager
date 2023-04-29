@@ -7,20 +7,6 @@ public class FrecuenciaMensual extends Frecuencia {
     }
 
     @Override
-    public int calcularCantidadRepeticionesHechas(LocalDateTime fechaYHoraOrigen) {
-        int cantidadRepeticiones = 0;
-        LocalDateTime fechaYHora = fechaYHoraOrigen;
-        if(fechaYHora.isBefore(LocalDateTime.now())){
-            cantidadRepeticiones++;
-        }
-        while(siguienteFechaYHora(fechaYHora).isBefore(LocalDateTime.now())){
-            fechaYHora = siguienteFechaYHora(fechaYHora);
-            cantidadRepeticiones++;
-        }
-        return cantidadRepeticiones;
-    }
-
-    @Override
     public LocalDateTime siguienteFechaYHora(LocalDateTime fecha) {
         LocalDate siguienteFecha = fecha.plusMonths(1).toLocalDate(); // Convertir a LocalDate
         int maxDia = siguienteFecha.getMonth().length(siguienteFecha.isLeapYear());

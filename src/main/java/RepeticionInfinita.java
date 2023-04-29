@@ -17,10 +17,4 @@ public class RepeticionInfinita extends RepeticionEvento {
         return null;
     }
 
-/*    @Override
-    public LocalDate calcularFechaLimite() {
-        return null;
-    }
-
- */
 }

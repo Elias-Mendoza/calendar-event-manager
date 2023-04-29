@@ -21,20 +21,6 @@ public class FrecuenciaSemanal extends Frecuencia {
     }
 
     @Override
-    public int calcularCantidadRepeticionesHechas(LocalDateTime fechaYHoraOrigen) {
-        int contadorRepeticiones = 0;
-        LocalDateTime fechaYHora = fechaYHoraOrigen;
-        if(fechaYHora.isBefore(LocalDateTime.now())){
-            contadorRepeticiones++;
-        }
-        while(siguienteFechaYHora(fechaYHora).isBefore(LocalDateTime.now() )){
-            fechaYHora = siguienteFechaYHora(fechaYHora);
-            contadorRepeticiones++;
-        }
-        return contadorRepeticiones;
-    }
-
-    @Override
     public LocalDateTime siguienteFechaYHora(LocalDateTime fechaHoraEvento) {
         EnumSet<DayOfWeek> diasQueSeRepite = this.diasSemana;
         LocalDateTime siguienteFechaHora = fechaHoraEvento.plusDays(1);

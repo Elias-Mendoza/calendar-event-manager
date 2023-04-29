@@ -1,4 +1,3 @@
-import java.time.Duration;
 import java.time.LocalDateTime;
 
 public class EventoConFechaYHora extends Evento{
@@ -17,15 +16,7 @@ public class EventoConFechaYHora extends Evento{
     public LocalDateTime getFin() {
         return (this.fin);
     }
-    @Override
-    public String tiempoRestanteLegible() {
-        Duration duracionRestante = Duration.between(LocalDateTime.now(), this.fin);
-        long diasRestantes = duracionRestante.toDays();
-        long horasRestantes = duracionRestante.toHours() % 24L;
-        long minutosRestantes = duracionRestante.toMinutes() % 60L;
-        long segundosRestantes = duracionRestante.getSeconds() % 60L;
-        return String.format("%d días, %d horas, %d minutos, %d segundos", diasRestantes, horasRestantes, minutosRestantes, segundosRestantes);
-    }
+
     @Override
     public void mostrarDatos(){
         System.out.println("\nInformación del evento:");

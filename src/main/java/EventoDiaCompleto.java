@@ -1,4 +1,3 @@
-import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -14,16 +13,6 @@ public class EventoDiaCompleto extends Evento {
         super(titulo, descripcion, inicio.atStartOfDay(), LocalDateTime.of(fin.getYear(), fin.getMonth(), fin.getDayOfMonth(), 23, 59 ) );
         super.repeticion = repeticionEvento;
 //        super.crearRepeticiones();
-    }
-
-    @Override
-    public String tiempoRestanteLegible() {
-        Duration duracionRestante = Duration.between(LocalDateTime.now(), this.fin);
-        long diasRestantes = duracionRestante.toDays();
-        long horasRestantes = duracionRestante.toHours() % 24L;
-        long minutosRestantes = duracionRestante.toMinutes() % 60L;
-        long segundosRestantes = duracionRestante.getSeconds() % 60L;
-        return String.format("%d días, %d horas, %d minutos, %d segundos", diasRestantes, horasRestantes, minutosRestantes, segundosRestantes);
     }
 
     @Override

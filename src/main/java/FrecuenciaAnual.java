@@ -7,20 +7,6 @@ public class FrecuenciaAnual extends Frecuencia {
     }
 
     @Override
-    public int calcularCantidadRepeticionesHechas(LocalDateTime fechaYHoraOrigen) {
-        LocalDateTime fechaYHora = fechaYHoraOrigen;
-        int cantidadRepeticiones = 0;
-        if(fechaYHora.isBefore((LocalDateTime.now()))){
-            cantidadRepeticiones++;
-        }
-        while(siguienteFechaYHora(fechaYHora).isBefore(LocalDateTime.now())){
-            cantidadRepeticiones++;
-            fechaYHora = siguienteFechaYHora(fechaYHora);
-        }
-        return cantidadRepeticiones;
-    }
-
-    @Override
     public LocalDateTime siguienteFechaYHora(LocalDateTime fechaYHoraOrigen) {
         LocalDateTime siguienteFechaHora = fechaYHoraOrigen.plusYears(1);
         LocalDate fechaAniversario = LocalDate.of(fechaYHoraOrigen.getYear(), fechaYHoraOrigen.getMonthValue(), fechaYHoraOrigen.getDayOfMonth());

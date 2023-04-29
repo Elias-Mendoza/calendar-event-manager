@@ -19,18 +19,3 @@ public class RepeticionHastaNRepeticiones extends RepeticionEvento {
         return null;
     }
 }
-
-
-/*    public LocalDate calcularFechaLimite(){
-        switch (this.frecuencia.getTipoFrecuencia()){
-            case DIARIA:
-                return CalcularFechaLimiteConFrecuenciaDiaria();
-            case SEMANAL:
-                return CalcularFechaLimiteConFrecuenciaSemanal();
-            case MENSUAL:
-                return CalcularFechaLimiteConFrecuenciaMensual();
-            case ANUAL:
-                return CalcularFechaLimiteConFrecuenciaAnual();
-        }
-    }
- */

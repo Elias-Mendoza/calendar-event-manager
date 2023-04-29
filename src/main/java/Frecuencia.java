@@ -10,7 +10,6 @@ public abstract class Frecuencia {
     public Frecuencia() {
     }
 
-    public abstract int calcularCantidadRepeticionesHechas(LocalDateTime fechaYHoraOrigen);
     public TipoFrecuencia getTipoFrecuencia(){
         return this.tipoFrecuencia;
     }

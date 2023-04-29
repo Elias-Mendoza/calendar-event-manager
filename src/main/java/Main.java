@@ -84,7 +84,7 @@ public class Main {
 //            miCalendario.obtenerEventos().get(i).mostrarRepeticiones();
         }
         System.out.println("\nEl evento se repite en:");
-        System.out.println(evento8.siguienteRepeticionAFecha(LocalDateTime.of(2030, 3, 2,0,0)));
+        System.out.println(evento7.siguienteRepeticionAFecha(LocalDateTime.of(2023, 4, 26,0,0)));
 
 
         for (int i = 0; i < miCalendario.obtenerTareas().size(); i++){
@@ -93,10 +93,3 @@ public class Main {
 
     }
 }
-/*
-        List<DayOfWeek> diasDeSemana = new ArrayList<>();
-        diasDeSemana.add(DayOfWeek.SUNDAY);
-        Frecuencia frecuenciaEvento1 = new FrecuenciaSemanal(inicioEvento1, finalEvento1, diasDeSemana);
-        Repeticion repeticionEvento1 = new Repeticion(frecuenciaEvento1);
-        Repeticion repeticion = new Repeticion(frecuenciaEvento1);
- */
