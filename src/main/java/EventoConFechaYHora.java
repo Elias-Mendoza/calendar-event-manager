@@ -10,7 +10,6 @@ public class EventoConFechaYHora extends Evento{
     public EventoConFechaYHora(String titulo, String descripcion, LocalDateTime inicio, LocalDateTime fin, RepeticionEvento repeticionEvento){
         super(titulo, descripcion, inicio, fin);
         super.repeticion = repeticionEvento;
-//        super.crearRepeticiones();
     }
 
     public LocalDateTime getFin() {

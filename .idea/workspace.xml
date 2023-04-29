@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45f3f758-b802-4de9-937c-f1bb85aeb606" name="Changes" comment="Se agrega un metodo para cambiar la frecuencia&#10;Se cambian algunas variables de Tarea y sus subclases">
-      <change beforePath="$PROJECT_DIR$/src/main/java/RepeticionEvento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RepeticionEvento.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RepeticionHastaFecha.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RepeticionHastaFecha.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RepeticionHastaNRepeticiones.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RepeticionHastaNRepeticiones.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RepeticionInfinita.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RepeticionInfinita.java" afterDir="false" />
+    <list default="true" id="45f3f758-b802-4de9-937c-f1bb85aeb606" name="Changes" comment="Se sacan métodos abstractos esRecurrente() y seRepiteEnFecha() que no es usaban en RepeticionEvento y sus subclases">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Evento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Evento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/EventoConFechaYHora.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/EventoConFechaYHora.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/EventoDiaCompleto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/EventoDiaCompleto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TareaDiaCompleto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TareaDiaCompleto.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +71,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1682778459773</updated>
-      <workItem from="1682778460848" duration="9003000" />
+      <workItem from="1682778460848" duration="10454000" />
     </task>
     <task id="LOCAL-00001" summary="Se agregan las clases que tenía hasta el momento.">
       <created>1682779312021</created>
@@ -100,7 +101,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682804786129</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Se sacan métodos abstractos esRecurrente() y seRepiteEnFecha() que no es usaban en RepeticionEvento y sus subclases">
+      <created>1682805106780</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1682805106780</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -134,6 +142,7 @@
     <MESSAGE value="Pequeñísimos cambios para sacar advertencias que tira el IDE" />
     <MESSAGE value="Pequeños cambios para sacar advertencias que tira el IDE" />
     <MESSAGE value="Se agrega un metodo para cambiar la frecuencia&#10;Se cambian algunas variables de Tarea y sus subclases" />
-    <option name="LAST_COMMIT_MESSAGE" value="Se agrega un metodo para cambiar la frecuencia&#10;Se cambian algunas variables de Tarea y sus subclases" />
+    <MESSAGE value="Se sacan métodos abstractos esRecurrente() y seRepiteEnFecha() que no es usaban en RepeticionEvento y sus subclases" />
+    <option name="LAST_COMMIT_MESSAGE" value="Se sacan métodos abstractos esRecurrente() y seRepiteEnFecha() que no es usaban en RepeticionEvento y sus subclases" />
   </component>
 </project>

@@ -12,7 +12,6 @@ public class EventoDiaCompleto extends Evento {
     public EventoDiaCompleto(String titulo, String descripcion, LocalDate inicio, LocalDate fin, RepeticionEvento repeticionEvento) {
         super(titulo, descripcion, inicio.atStartOfDay(), LocalDateTime.of(fin.getYear(), fin.getMonth(), fin.getDayOfMonth(), 23, 59 ) );
         super.repeticion = repeticionEvento;
-//        super.crearRepeticiones();
     }
 
     @Override

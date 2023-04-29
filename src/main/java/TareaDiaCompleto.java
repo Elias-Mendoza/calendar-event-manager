@@ -28,7 +28,7 @@ public class TareaDiaCompleto extends Tarea{
         System.out.println("Título: " + super.getTitulo());
         System.out.println("Estado de la tarea: ");
         System.out.println("Descripción: " + super.getDescripcion());
-        System.out.println("Tipo de tarea: Con fecha y hora de vencimiento");
+        System.out.println("Tipo de tarea: De dia completo");
         System.out.println("Fecha y hora de vencimiento: " + getFechaTarea() );
         System.out.println("Tiempo restante: " + tiempoRestanteLegible());
     }

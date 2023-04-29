@@ -40,8 +40,8 @@ public class Calendario {
         }
     }
 
-    public void modificarFrecuenciaEvento(Evento evento, Frecuencia nuevaFrecuencia){
-        evento.modificarFrecuencia(nuevaFrecuencia);
+    public void modificarRepeticionEvento(Evento evento, RepeticionEvento nuevaRepeticionEvento){
+        evento.modificarRepeticionEvento(nuevaRepeticionEvento);
     }
 
     public void mostrarDatosEvento(Evento evento) {
