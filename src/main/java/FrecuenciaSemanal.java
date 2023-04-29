@@ -1,11 +1,7 @@
 import java.time.DayOfWeek;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.time.temporal.TemporalAdjusters;
 import java.util.EnumSet;
-import java.util.Iterator;
-import java.util.Optional;
 
 public class FrecuenciaSemanal extends Frecuencia {
     EnumSet<DayOfWeek> diasSemana;

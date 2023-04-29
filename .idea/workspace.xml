@@ -4,25 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45f3f758-b802-4de9-937c-f1bb85aeb606" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Actividad.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Alarma.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Calendario.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Evento.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/EventoConFechaYHora.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/EventoDiaCompleto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Frecuencia.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/FrecuenciaAnual.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/FrecuenciaDiaria.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/FrecuenciaMensual.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/FrecuenciaSemanal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/RepeticionEvento.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Tarea.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/TareaConFechaYHoraVencimiento.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/TareaDiaCompleto.java" afterDir="false" />
+    <list default="true" id="45f3f758-b802-4de9-937c-f1bb85aeb606" name="Changes" comment="Se agregan las clases que tenía hasta el momento.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Alarma.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Alarma.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/FrecuenciaDiaria.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FrecuenciaDiaria.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/FrecuenciaSemanal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FrecuenciaSemanal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,6 +57,9 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -81,8 +71,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1682778459773</updated>
-      <workItem from="1682778460848" duration="608000" />
+      <workItem from="1682778460848" duration="1767000" />
     </task>
+    <task id="LOCAL-00001" summary="Se agregan las clases que tenía hasta el momento.">
+      <created>1682779312021</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1682779312021</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -110,5 +108,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Se agregan las clases que tenía hasta el momento." />
+    <option name="LAST_COMMIT_MESSAGE" value="Se agregan las clases que tenía hasta el momento." />
   </component>
 </project>

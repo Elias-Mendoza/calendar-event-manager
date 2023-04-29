@@ -44,5 +44,5 @@ public class Alarma {
 }
 enum TipoAlarma {
     FECHA_HORA_ABSOLUTA,
-    TIEMPO_RELATIVO;
+    TIEMPO_RELATIVO
 }
