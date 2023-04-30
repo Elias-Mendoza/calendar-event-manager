@@ -18,11 +18,3 @@ public class FrecuenciaMensual extends Frecuencia {
     }
 
 }
-
-/*    @Override
-    public boolean seRepiteEn(LocalDate fecha) {
-        if (!super.seRepiteEn(fecha)) {
-            return false;
-        }
-        return fecha.getDayOfMonth() == diaDelMes;
-    }*/

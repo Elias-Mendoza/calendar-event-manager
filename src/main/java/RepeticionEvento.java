@@ -1,12 +1,11 @@
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 public abstract class RepeticionEvento {
     protected Frecuencia frecuencia;
-    protected TipoRepeticion tipoRepeticion;
     protected LocalDate fechaLimite;
     protected int cantidadRepeticiones;
     boolean esRepeticionInfinita;
+    protected TipoRepeticion tipoRepeticion;
     enum TipoRepeticion{
         INFINITA, HASTA_X_FECHA, HASTA_N_REPETICIONES
     }

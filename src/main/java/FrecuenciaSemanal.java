@@ -9,15 +9,6 @@ public class FrecuenciaSemanal extends Frecuencia {
     public FrecuenciaSemanal(EnumSet<DayOfWeek> diasSemana) {
         this.diasSemana = diasSemana;
         this.tipoFrecuencia = TipoFrecuencia.SEMANAL;
-        System.out.println("DIAS DE LA SEMANA QUE SE REPITE: "+ diasSemana.toString() );
-    }
-
-    public void agregarDiaSemana(DayOfWeek dia) {
-        this.diasSemana.add(dia);
-    }
-
-    public void eliminarDiaSemana(DayOfWeek dia) {
-        this.diasSemana.remove(dia);
     }
 
     @Override

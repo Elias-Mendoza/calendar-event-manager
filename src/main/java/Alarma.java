@@ -2,47 +2,53 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 
 public class Alarma {
-    private LocalDateTime momento;
-    private Duration minutosAntes;
+    private LocalDateTime momentoActivacion;
+    private int minutosAntes;
     private TipoAlarma tipoAlarma;
+    private enum TipoAlarma {
+        FECHA_HORA_ABSOLUTA,
+        TIEMPO_RELATIVO
+    }
 
+    //Constructor de una alarma con una fecha y hora de activación.
     public Alarma(LocalDateTime momento) {
-        this.momento = momento;
+        this.momentoActivacion = momento;
         this.tipoAlarma = TipoAlarma.FECHA_HORA_ABSOLUTA;
     }
 
-    public Alarma(Duration minutosAntes) {
+    //Constructor de una alarma con parámetro como los minutos antes al evento para su activación
+    public Alarma(int minutosAntes) {
         this.minutosAntes = minutosAntes;
+        this.calcularFechaYHoraActivacion();
         this.tipoAlarma = TipoAlarma.TIEMPO_RELATIVO;
     }
 
-    public LocalDateTime getMomento() {
-        return this.momento;
+    private void calcularFechaYHoraActivacion(){
+
     }
 
-    public void setMomento(LocalDateTime momento) {
-        this.momento = momento;
+    public LocalDateTime getMomentoActivacion() {
+        return this.momentoActivacion;
     }
 
-    public Duration getMinutosAntes() {
+    public void setMomentoActivacion(LocalDateTime momentoActivacion) {
+        this.momentoActivacion = momentoActivacion;
+    }
+
+    public int getMinutosAntes() {
         return this.minutosAntes;
     }
 
-    public void setMinutosAntes(Duration minutosAntes) {
+    public void setMinutosAntes(int minutosAntes) {
         this.minutosAntes = minutosAntes;
     }
-
-    public boolean debeSonar(LocalDateTime ahora) {
-        LocalDateTime momentoAlarma = this.momento.minus(this.minutosAntes);
-        return ahora.isAfter(momentoAlarma);
+    //Devuelve true en caso que la fecha y hora pasada por parámetro coincida con la fecha y hora de activacion la alarma
+    public boolean debeSonar(LocalDateTime fechaYHora){
+        return (this.momentoActivacion.isEqual(fechaYHora));
     }
 
-    public Duration tiempoRestante(LocalDateTime ahora) {
-        LocalDateTime momentoAlarma = this.momento.minus(this.minutosAntes);
-        return Duration.between(ahora, momentoAlarma);
+    //Devuelve la duración del tiempo restante entre la fecha y hora pasada por parámetro y la hora que debe sonar la alarma
+    public Duration tiempoRestante(LocalDateTime fechaYHora){
+        return Duration.between(this.momentoActivacion, fechaYHora);
     }
-}
-enum TipoAlarma {
-    FECHA_HORA_ABSOLUTA,
-    TIEMPO_RELATIVO
 }

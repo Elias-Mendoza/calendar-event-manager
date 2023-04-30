@@ -1,3 +1,4 @@
+import javax.accessibility.AccessibleIcon;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,9 +40,27 @@ public class Calendario {
             }
         }
     }
+    public void agregarAlarma(Actividad actividad, Alarma alarma) {
+        if (actividad instanceof Evento) {
+            int i = eventos.indexOf(actividad);
+            if (i != -1) {
+                eventos.get(i).agregarAlarmaActividad(alarma);
+            }
+        } else if (actividad instanceof Tarea) {
+            int i = tareas.indexOf(actividad);
+            if (i != -1) {
+                tareas.get(i).agregarAlarmaActividad(alarma);
+            }
+        }
+    }
 
-    public void modificarRepeticionEvento(Evento evento, RepeticionEvento nuevaRepeticionEvento){
+
+
+    public void modificarRepeticion(Evento evento, RepeticionEvento nuevaRepeticionEvento){
         evento.modificarRepeticionEvento(nuevaRepeticionEvento);
+    }
+    public void modificarFrecuencia(Evento evento, Frecuencia nuevaFrecuencia){
+        evento.modificarFrecuenciaEvento(nuevaFrecuencia);
     }
 
     public void mostrarDatosEvento(Evento evento) {

@@ -16,6 +16,10 @@ public abstract class Actividad {
         this.descripcion = descripcion;
     }
 
+    public void agregarAlarmaActividad(Alarma alarma){
+        this.alarmas.add(alarma);
+    }
+
     public abstract void mostrarDatos();
 
     public void setDescripcion(String descripcion) {

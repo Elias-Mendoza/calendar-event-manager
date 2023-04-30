@@ -84,6 +84,7 @@ public class Main {
         }
         System.out.println("\nEl evento se repite en:");
         System.out.println(evento7.siguienteRepeticionAFecha(LocalDateTime.of(2023, 4, 26, 0, 0)));
+        miCalendario.agregarAlarma(tarea2, new Alarma(30));
 
 
         miCalendario.modificarTitulo(tarea2, "Este es un nuevo título");
