@@ -34,7 +34,9 @@ public class Calendario {
     public void modificarDescripcion(Actividad actividad, String nuevaDescripcion){
         actividad.modificarDescripcionActividad(nuevaDescripcion);
     }
-
+    public void agregarRepeticionEvento(Evento evento, RepeticionEvento repeticion){
+        evento.agregarRepeticion(repeticion);
+    }
     public void agregarAlarma(Actividad actividad, Alarma alarma) {
         actividad.agregarAlarmaActividad(alarma);
     }
@@ -79,7 +81,6 @@ public class Calendario {
     public void modificarInicioYFinEvento(EventoDiaCompleto evento, LocalDate nuevoInicio, LocalDate nuevoFin){
         evento.modificarInicioYFin(nuevoInicio, nuevoFin);
     }
-
     public void mostrarDatosEvento(Evento evento) {
         evento.mostrarDatos();
     }

@@ -60,21 +60,24 @@ public class Main {
         LocalDateTime finalEvento5 = LocalDateTime.of(2023, 4, 28, 17, 0);
         Frecuencia frecuenciaEvento5 = new FrecuenciaSemanal(EnumSet.of(DayOfWeek.FRIDAY, DayOfWeek.SUNDAY, DayOfWeek.WEDNESDAY));
         RepeticionEvento repeticionEvento5 = new RepeticionHastaNRepeticiones(frecuenciaEvento5, 10);
-        EventoConFechaYHora evento5 = new EventoConFechaYHora("Fulboooooooooo con los virgos", "En Sanca", inicioEvento5, finalEvento5, repeticionEvento5);
+        EventoConFechaYHora evento5 = new EventoConFechaYHora("Fulboooooooooo con los virgos", "En Sanca", inicioEvento5, finalEvento5);
+        evento5.agregarRepeticion(repeticionEvento5);
         miCalendario.agregarEvento(evento5);
 
         LocalDateTime inicioEvento6 = LocalDateTime.of(2024, 3, 31, 22, 30);
         LocalDateTime finalEvento6 = LocalDateTime.of(2024, 3, 31, 23, 30);
         Frecuencia frecuenciaEvento6 = new FrecuenciaMensual();
         RepeticionEvento repeticionEvento6 = new RepeticionHastaNRepeticiones(frecuenciaEvento6, 10);
-        EventoConFechaYHora evento6 = new EventoConFechaYHora("Meditación del mes", "En casa", inicioEvento6, finalEvento6, repeticionEvento6);
+        EventoConFechaYHora evento6 = new EventoConFechaYHora("Meditación del mes", "En casa", inicioEvento6, finalEvento6);
+        miCalendario.agregarRepeticionEvento(evento6, repeticionEvento6);
         miCalendario.agregarEvento(evento6);
 
         LocalDateTime inicioEvento7 = LocalDateTime.of(2023, 4, 25, 22, 0);
         LocalDateTime finalEvento7 = LocalDateTime.of(2023, 4, 25, 22, 30);
         Frecuencia frecuenciaEvento7 = new FrecuenciaDiaria(1);
         RepeticionEvento repeticionEvento7 = new RepeticionHastaNRepeticiones(frecuenciaEvento7, 10);
-        EventoConFechaYHora evento7 = new EventoConFechaYHora("Cenar", "En casa", inicioEvento7, finalEvento7, repeticionEvento7);
+        EventoConFechaYHora evento7 = new EventoConFechaYHora("Cenar", "En casa", inicioEvento7, finalEvento7);
+        miCalendario.agregarRepeticionEvento(evento7, repeticionEvento7);
         miCalendario.agregarEvento(evento7);
 
         System.out.println("\nEL EVENTO 7 TIENE: " + evento7.getRepeticion().cantidadRepeticiones + " REPETICIONES.");
@@ -87,7 +90,8 @@ public class Main {
         LocalDate finalEvento8 = LocalDate.of(2023, 5, 27);
         Frecuencia frecuenciaEvento8 = new FrecuenciaAnual();
         RepeticionEvento repeticionEvento8 = new RepeticionInfinita(frecuenciaEvento8);
-        EventoDiaCompleto evento8 = new EventoDiaCompleto("Cumpleaños de Elias", "", inicioEvento8, finalEvento8, repeticionEvento8);
+        EventoDiaCompleto evento8 = new EventoDiaCompleto("Cumpleaños de Elias", "", inicioEvento8, finalEvento8);
+        miCalendario.agregarRepeticionEvento(evento8, repeticionEvento8);
         miCalendario.agregarEvento(evento8);
 
 
@@ -117,7 +121,8 @@ public class Main {
         LocalDateTime finalEvento9 = LocalDateTime.of(2023, 5, 1, 18, 0);
         Frecuencia frecuenciaEvento9 = new FrecuenciaDiaria(1);
         RepeticionEvento repeticionEvento9 = new RepeticionHastaFecha(frecuenciaEvento9, LocalDate.of(2023,5,5));
-        EventoConFechaYHora evento9 = new EventoConFechaYHora("PROGRAMAR", "En casa", inicioEvento9, finalEvento9, repeticionEvento9);
+        EventoConFechaYHora evento9 = new EventoConFechaYHora("PROGRAMAR", "En casa", inicioEvento9, finalEvento9);
+        miCalendario.agregarRepeticionEvento(evento9, repeticionEvento9);
         miCalendario.agregarEvento(evento9);
 
         System.out.println("\nEL EVENTO 9 TIENE: " + evento9.getRepeticion().cantidadRepeticiones + " REPETICIONES.");

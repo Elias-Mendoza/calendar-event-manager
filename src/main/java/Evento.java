@@ -1,4 +1,5 @@
 import java.time.Duration;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public abstract class Evento extends Actividad{
@@ -67,6 +68,24 @@ public abstract class Evento extends Actividad{
         }
         return proximoHorarioAlarma;
     }
+    public void agregarRepeticion(RepeticionEvento repeticion){
+        this.repeticion = repeticion;
+        if(repeticion.tipoRepeticion == RepeticionEvento.TipoRepeticion.HASTA_X_FECHA){
+            repeticion.setCantidadRepeticiones(calcularCantidadRepeticiones(repeticion));
+        }
+    }
+    private int calcularCantidadRepeticiones(RepeticionEvento repeticion){
+        int contadorRepeticiones = 1;
+        LocalDateTime fechaYHora = this.inicio;
+        LocalDateTime momentoLimite = repeticion.getFechaLimite().plusDays(1).atStartOfDay();
+        while(fechaYHora.isBefore(momentoLimite)){
+            fechaYHora = repeticion.frecuencia.siguienteFechaYHoraDeInicioEvento(fechaYHora);
+            if(fechaYHora.isBefore(momentoLimite)){
+                contadorRepeticiones++;
+            }
+        }
+        return contadorRepeticiones;
+    }
     public boolean hayRepeticion(){
         return (this.repeticion != null);
     }
@@ -78,6 +97,7 @@ public abstract class Evento extends Actividad{
     }
     public void modificarFrecuenciaEvento(Frecuencia frecuencia){
         this.getRepeticion().setFrecuencia(frecuencia);
+        this.getRepeticion().setCantidadRepeticiones( calcularCantidadRepeticiones(this.getRepeticion()) );
     }
     public void setRepeticionEvento(RepeticionEvento repeticion){
         this.repeticion = repeticion;

@@ -25,6 +25,9 @@ public abstract class Tarea extends Actividad{
         return proximoHorarioAlarma;
     }
 
+    public boolean getEstaCompletada(){
+        return this.estaCompletada;
+    }
     public abstract String tiempoRestanteLegible();
 
 /*    public void agregarAlarma(Alarma alarma) {

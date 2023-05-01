@@ -8,11 +8,11 @@ public class EventoDiaCompleto extends Evento {
         super(titulo, descripcion, inicio.atStartOfDay(), LocalDateTime.of(fin.getYear(), fin.getMonth(), fin.getDayOfMonth(), 23, 59 ) );
     }
 
-    //Crea un evento de dia completo con Repeticiones
+/*    //Crea un evento de dia completo con Repeticiones
     public EventoDiaCompleto(String titulo, String descripcion, LocalDate inicio, LocalDate fin, RepeticionEvento repeticionEvento) {
         super(titulo, descripcion, inicio.atStartOfDay(), LocalDateTime.of(fin.getYear(), fin.getMonth(), fin.getDayOfMonth(), 23, 59 ) );
         super.repeticion = repeticionEvento;
-    }
+    }*/
 
     public void modificarInicioYFin(LocalDate nuevoInicio, LocalDate nuevoFin){
         this.inicio = nuevoInicio.atStartOfDay();

@@ -4,11 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45f3f758-b802-4de9-937c-f1bb85aeb606" name="Changes" comment="Ahora los eventos al ser modificado su horario de inicio y fin, se modifican también sus alarmas.">
-      <change beforePath="$PROJECT_DIR$/src/main/java/Actividad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Actividad.java" afterDir="false" />
+    <list default="true" id="45f3f758-b802-4de9-937c-f1bb85aeb606" name="Changes" comment="Ahora las tareas al ser modificado su fecha de vencimiento o fecha de tarea, se modifican también sus alarmas.">
+      <change afterPath="$PROJECT_DIR$/src/test/java/CalendarioTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/EventoConFechaYHoraTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/EventoDiaCompletoTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/TareaConFechaYHoraVencimientoTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/TareaDiaCompletoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Calendario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Calendario.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Evento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Evento.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TareaConFechaYHoraVencimiento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TareaConFechaYHoraVencimiento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/EventoConFechaYHora.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/EventoConFechaYHora.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/EventoDiaCompleto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/EventoDiaCompleto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RepeticionEvento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RepeticionEvento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RepeticionHastaFecha.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RepeticionHastaFecha.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Tarea.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tarea.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +30,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="JUnit4 Test Class" />
       </list>
     </option>
   </component>
@@ -46,22 +58,91 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.All in TP_Algo3">
+    <configuration name="All in TP_Algo3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TP_Algo3" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CalendarioTest.alarmaEnRepeticionInfinitaEnEventoDelAnio1000" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TP_Algo3" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="CalendarioTest" />
+      <option name="METHOD_NAME" value="alarmaEnRepeticionInfinitaEnEventoDelAnio1000" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CalendarioTest.alarmaEnRepeticionInfinitaEnEventoFrecuenciaMensualDelAnio1000" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TP_Algo3" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="CalendarioTest" />
+      <option name="METHOD_NAME" value="alarmaEnRepeticionInfinitaEnEventoFrecuenciaMensualDelAnio1000" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TareaDiaCompletoTest.alarmaMinutosAntesEnTareaDiaCompleto" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TP_Algo3" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TareaDiaCompletoTest" />
+      <option name="METHOD_NAME" value="alarmaMinutosAntesEnTareaDiaCompleto" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TareaDiaCompletoTest.modificarFecha" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TP_Algo3" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TareaDiaCompletoTest" />
+      <option name="METHOD_NAME" value="modificarFecha" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.All in TP_Algo3" />
+        <item itemvalue="JUnit.TareaDiaCompletoTest.alarmaMinutosAntesEnTareaDiaCompleto" />
+        <item itemvalue="JUnit.TareaDiaCompletoTest.modificarFecha" />
+        <item itemvalue="JUnit.CalendarioTest.alarmaEnRepeticionInfinitaEnEventoFrecuenciaMensualDelAnio1000" />
+        <item itemvalue="JUnit.CalendarioTest.alarmaEnRepeticionInfinitaEnEventoDelAnio1000" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -71,7 +152,7 @@
       <option name="presentableId" value="Default" />
       <updated>1682778459773</updated>
       <workItem from="1682778460848" duration="14527000" />
-      <workItem from="1682842207194" duration="43905000" />
+      <workItem from="1682842207194" duration="56396000" />
     </task>
     <task id="LOCAL-00001" summary="Se agregan las clases que tenía hasta el momento.">
       <created>1682779312021</created>
@@ -143,7 +224,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682958830828</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Ahora las tareas al ser modificado su fecha de vencimiento o fecha de tarea, se modifican también sus alarmas.">
+      <created>1682959507321</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1682959507321</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -183,6 +271,12 @@
     <MESSAGE value="Se agregan métodos para obtener la próxima alarma entre todos los eventos y tareas&#10;Además se limpia código que no servía" />
     <MESSAGE value="Se arreglaron varios errores:&#10;Ahora se calcula bien la cantidad de repeticiones en RepeticionHastaFecha. &#10;SiguienteRepeticionAFecha ahora está corregido y funciona en todos los casos.&#10;Además, se añade un método modificarInicioYFin() para EventoConFechaYHora y EventoDiaCompleto" />
     <MESSAGE value="Ahora los eventos al ser modificado su horario de inicio y fin, se modifican también sus alarmas." />
-    <option name="LAST_COMMIT_MESSAGE" value="Ahora los eventos al ser modificado su horario de inicio y fin, se modifican también sus alarmas." />
+    <MESSAGE value="Ahora las tareas al ser modificado su fecha de vencimiento o fecha de tarea, se modifican también sus alarmas." />
+    <option name="LAST_COMMIT_MESSAGE" value="Ahora las tareas al ser modificado su fecha de vencimiento o fecha de tarea, se modifican también sus alarmas." />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/TP_Algo3$TareaConFechaYHoraVencimientoTest.ic" NAME="TareaConFechaYHoraVencimientoTest Coverage Results" MODIFIED="1682971474552" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/TP_Algo3$EventoConFechaYHoraTest.ic" NAME="EventoConFechaYHoraTest Coverage Results" MODIFIED="1682961802047" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/TP_Algo3$All_in_TP_Algo3.ic" NAME="All in TP_Algo3 Coverage Results" MODIFIED="1682975112405" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
