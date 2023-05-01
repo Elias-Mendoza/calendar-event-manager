@@ -6,12 +6,12 @@ public class FrecuenciaAnual extends Frecuencia {
     }
 
     @Override
-    public LocalDateTime siguienteFechaYHora(LocalDateTime fechaYHoraOrigen) {
-        LocalDateTime siguienteFechaHora = fechaYHoraOrigen.plusYears(1);
-        LocalDate fechaAniversario = LocalDate.of(fechaYHoraOrigen.getYear(), fechaYHoraOrigen.getMonthValue(), fechaYHoraOrigen.getDayOfMonth());
+    public LocalDateTime siguienteFechaYHoraDeInicioEvento(LocalDateTime fechaYHora) {
+        LocalDateTime siguienteFechaHora = fechaYHora.plusYears(1);
+        LocalDate fechaAniversario = LocalDate.of(fechaYHora.getYear(), fechaYHora.getMonthValue(), fechaYHora.getDayOfMonth());
         if (!siguienteFechaHora.toLocalDate().isEqual(fechaAniversario)) {
             siguienteFechaHora = siguienteFechaHora.withMonth(fechaAniversario.getMonthValue()).withDayOfMonth(fechaAniversario.getDayOfMonth());
-            if (siguienteFechaHora.isBefore(fechaYHoraOrigen)) {
+            if (siguienteFechaHora.isBefore(fechaYHora)) {
                 siguienteFechaHora = siguienteFechaHora.plusYears(1);
             }
         }

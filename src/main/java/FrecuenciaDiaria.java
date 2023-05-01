@@ -14,7 +14,7 @@ public class FrecuenciaDiaria extends Frecuencia {
     }
 
     @Override
-    public LocalDateTime siguienteFechaYHora(LocalDateTime fechaYHora) {
+    public LocalDateTime siguienteFechaYHoraDeInicioEvento(LocalDateTime fechaYHora) {
         LocalDateTime siguienteFecha = fechaYHora.plusDays(intervalo);
         return siguienteFecha;
     }

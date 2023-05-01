@@ -6,7 +6,7 @@ public class FrecuenciaMensual extends Frecuencia {
     }
 
     @Override
-    public LocalDateTime siguienteFechaYHora(LocalDateTime fecha) {
+    public LocalDateTime siguienteFechaYHoraDeInicioEvento(LocalDateTime fecha) {
         LocalDate siguienteFecha = fecha.plusMonths(1).toLocalDate(); // Convertir a LocalDate
         int maxDia = siguienteFecha.getMonth().length(siguienteFecha.isLeapYear());
         LocalDate siguienteFechaValida = LocalDate.of(siguienteFecha.getYear(), siguienteFecha.getMonth(), Math.min(fecha.getDayOfMonth(), maxDia));

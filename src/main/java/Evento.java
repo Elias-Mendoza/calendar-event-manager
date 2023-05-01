@@ -11,29 +11,32 @@ public abstract class Evento extends Actividad{
         this.fin = fin;
     }
 
+
     //Se devuelve la fecha y hora de la siguiente repetición después de la fecha pasada por parámetro. devuelve NULL en caso que no haya repetición.
     public LocalDateTime siguienteRepeticionAFecha(LocalDateTime fechaYHora){
         LocalDateTime repeticionADevolver = null;
-        if(hayRepeticion()){
-            int contador = this.repeticion.cantidadRepeticiones;
-            repeticionADevolver = this.repeticion.frecuencia.siguienteFechaYHora(inicio);
-            if(repeticionADevolver != null){
-                if(this.repeticion.esRepeticionInfinita){
-                    while(repeticionADevolver.isBefore(fechaYHora)){
-                        repeticionADevolver = this.repeticion.frecuencia.siguienteFechaYHora(repeticionADevolver);
-                    }
+        if(fechaYHora.isBefore(this.inicio)){
+            repeticionADevolver = this.inicio;
+        }
+        else if(hayRepeticion()){
+            repeticionADevolver = this.repeticion.frecuencia.siguienteFechaYHoraDeInicioEvento(this.inicio);
+            if(this.repeticion.esRepeticionInfinita){
+                while(repeticionADevolver.isBefore(fechaYHora)){
+                    repeticionADevolver = this.repeticion.frecuencia.siguienteFechaYHoraDeInicioEvento(repeticionADevolver);
                 }
-                else{
-                    while(repeticionADevolver.isBefore(fechaYHora) && contador > 0){
-                        repeticionADevolver = this.repeticion.frecuencia.siguienteFechaYHora(repeticionADevolver);
-                        contador--;
-                    }
-                    if(contador==0){
-                        repeticionADevolver = null;
-                    }
+            }
+            else{
+                int contador = this.repeticion.cantidadRepeticiones;
+                while(repeticionADevolver.isBefore(fechaYHora) && contador > 0){
+                    repeticionADevolver = this.repeticion.frecuencia.siguienteFechaYHoraDeInicioEvento(repeticionADevolver);
+                    contador--;
+                }
+                if(contador==0){
+                    repeticionADevolver = null;
                 }
             }
         }
+
         return (repeticionADevolver);
     }
 
@@ -46,6 +49,9 @@ public abstract class Evento extends Actividad{
     }
     private LocalDateTime calcularProximaActivacionAlarmaMinutosAntes(Alarma alarma){
         LocalDateTime horarioRepeticion = this.siguienteRepeticionAFecha(LocalDateTime.now());
+        if(horarioRepeticion == null){
+            return null;
+        }
         return (horarioRepeticion.minusMinutes(alarma.getMinutosAntes()));
     }
     public LocalDateTime proximaActivacionAlarma(){
@@ -63,10 +69,6 @@ public abstract class Evento extends Actividad{
 
     public boolean hayRepeticion(){
         return (this.repeticion != null);
-    }
-
-    public void modificarInicio(LocalDateTime inicio){
-        this.inicio = inicio;
     }
     public void modificarFin(LocalDateTime fin){
         this.fin = fin;
@@ -97,5 +99,30 @@ public abstract class Evento extends Actividad{
         long segundosRestantes = duracionRestante.getSeconds() % 60L;
         return String.format("%d días, %d horas, %d minutos, %d segundos", diasRestantes, horasRestantes, minutosRestantes, segundosRestantes);
     }
-
 }
+
+/*//Se devuelve la fecha y hora de la siguiente repetición después de la fecha pasada por parámetro. devuelve NULL en caso que no haya repetición.
+    public LocalDateTime siguienteRepeticionAFecha(LocalDateTime fechaYHora){
+        LocalDateTime repeticionADevolver = null;
+        if(hayRepeticion()){
+            int contador = this.repeticion.cantidadRepeticiones;
+            repeticionADevolver = this.repeticion.frecuencia.siguienteFechaYHora(inicio);
+            if(repeticionADevolver != null){
+                if(this.repeticion.esRepeticionInfinita){
+                    while(repeticionADevolver.isBefore(fechaYHora)){
+                        repeticionADevolver = this.repeticion.frecuencia.siguienteFechaYHora(repeticionADevolver);
+                    }
+                }
+                else{
+                    while(repeticionADevolver.isBefore(fechaYHora) && contador > 0){
+                        repeticionADevolver = this.repeticion.frecuencia.siguienteFechaYHora(repeticionADevolver);
+                        contador--;
+                    }
+                    if(contador==0){
+                        repeticionADevolver = null;
+                    }
+                }
+            }
+        }
+        return (repeticionADevolver);
+    }*/

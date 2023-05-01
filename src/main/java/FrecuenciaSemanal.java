@@ -11,7 +11,7 @@ public class FrecuenciaSemanal extends Frecuencia {
     }
 
     @Override
-    public LocalDateTime siguienteFechaYHora(LocalDateTime fechaHoraEvento) {
+    public LocalDateTime siguienteFechaYHoraDeInicioEvento(LocalDateTime fechaHoraEvento) {
         EnumSet<DayOfWeek> diasQueSeRepite = this.diasSemana;
         LocalDateTime siguienteFechaHora = fechaHoraEvento.plusDays(1);
 

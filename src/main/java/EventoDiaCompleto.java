@@ -14,6 +14,11 @@ public class EventoDiaCompleto extends Evento {
         super.repeticion = repeticionEvento;
     }
 
+    public void modificarInicioYFin(LocalDate nuevoInicio, LocalDate nuevoFin){
+        this.inicio = nuevoInicio.atStartOfDay();
+        this.fin = nuevoFin.plusDays(1).atStartOfDay();
+    }
+
     @Override
     public void mostrarDatos(){
         System.out.println("\nInformación del evento:");

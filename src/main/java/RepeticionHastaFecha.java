@@ -11,10 +11,10 @@ public class RepeticionHastaFecha extends RepeticionEvento {
     }
 
     public int calcularCantidadRepeticiones(LocalDate fechaLimite){
-        int contador = 0;
+        int contador = 1;
         LocalDateTime fechaYHora = LocalDateTime.now();
         while(fechaYHora.isBefore(fechaLimite.atStartOfDay()) ){
-            fechaYHora = this.frecuencia.siguienteFechaYHora(fechaYHora);
+            fechaYHora = this.frecuencia.siguienteFechaYHoraDeInicioEvento(fechaYHora);
             if(fechaYHora.isBefore(fechaLimite.atStartOfDay())){
                 contador++;
             }
