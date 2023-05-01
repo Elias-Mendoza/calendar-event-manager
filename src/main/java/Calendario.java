@@ -1,4 +1,4 @@
-import javax.accessibility.AccessibleIcon;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,34 +28,37 @@ public class Calendario {
     }
 
     public void modificarTitulo(Actividad actividad, String nuevoTitulo) {
-        if (actividad instanceof Evento) {
-            int i = eventos.indexOf(actividad);
-            if (i != -1) {
-                eventos.get(i).modificarTituloActividad(nuevoTitulo);
-            }
-        } else if (actividad instanceof Tarea) {
-            int i = tareas.indexOf(actividad);
-            if (i != -1) {
-                tareas.get(i).modificarTituloActividad(nuevoTitulo);
-            }
-        }
+        actividad.modificarTituloActividad(nuevoTitulo);
     }
+    public void modificarDescripcion(Actividad actividad, String nuevaDescripcion){
+        actividad.modificarDescripcionActividad(nuevaDescripcion);
+    }
+
     public void agregarAlarma(Actividad actividad, Alarma alarma) {
-        if (actividad instanceof Evento) {
-            int i = eventos.indexOf(actividad);
-            if (i != -1) {
-                eventos.get(i).agregarAlarmaActividad(alarma);
-            }
-        } else if (actividad instanceof Tarea) {
-            int i = tareas.indexOf(actividad);
-            if (i != -1) {
-                tareas.get(i).agregarAlarmaActividad(alarma);
-            }
-        }
+        actividad.agregarAlarmaActividad(alarma);
     }
 
-
-
+    public LocalDateTime calcularSiguienteHorarioAlarma(){
+        LocalDateTime proximoHorarioAlarma = LocalDateTime.MAX;
+        for(Evento evento : obtenerEventos()){
+            if(evento.proximaActivacionAlarma() != null){
+                if(evento.proximaActivacionAlarma().isBefore(proximoHorarioAlarma) && evento.proximaActivacionAlarma().isAfter(LocalDateTime.now()) ){
+                    proximoHorarioAlarma = evento.proximaActivacionAlarma();
+                }
+            }
+        }
+        for(Tarea tarea : obtenerTareas()){
+            if(tarea.proximaActivacionAlarma() != null){
+                if(tarea.proximaActivacionAlarma().isBefore(proximoHorarioAlarma) && tarea.proximaActivacionAlarma().isAfter(LocalDateTime.now()) ){
+                    proximoHorarioAlarma = tarea.proximaActivacionAlarma();
+                }
+            }
+        }
+        if(proximoHorarioAlarma == LocalDateTime.MAX){
+            proximoHorarioAlarma = null;
+        }
+        return proximoHorarioAlarma;
+    }
     public void modificarRepeticion(Evento evento, RepeticionEvento nuevaRepeticionEvento){
         evento.modificarRepeticionEvento(nuevaRepeticionEvento);
     }

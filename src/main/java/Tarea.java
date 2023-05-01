@@ -3,9 +3,26 @@ import java.time.LocalDateTime;
 
 public abstract class Tarea extends Actividad{
     private boolean estaCompletada;
+    private TipoTarea tipoTarea;
+    private enum TipoTarea{
+        FECHA_Y_HORA_VENCIMIENTO,
+        DIA_COMPLETO
+    }
     public Tarea(String titulo, String descripcion){
         super(titulo, descripcion);
         this.estaCompletada = false;
+    }
+    public LocalDateTime proximaActivacionAlarma(){
+        LocalDateTime proximoHorarioAlarma = LocalDateTime.MAX;
+        for(Alarma alarma : alarmas){
+            if(alarma.getMomentoActivacion().isBefore(proximoHorarioAlarma)){
+                proximoHorarioAlarma = alarma.getMomentoActivacion();
+            }
+        }
+        if(proximoHorarioAlarma == LocalDateTime.MAX){
+            proximoHorarioAlarma = null;
+        }
+        return proximoHorarioAlarma;
     }
 
     public abstract String tiempoRestanteLegible();

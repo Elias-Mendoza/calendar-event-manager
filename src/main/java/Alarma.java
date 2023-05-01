@@ -3,28 +3,29 @@ import java.time.LocalDateTime;
 
 public class Alarma {
     private LocalDateTime momentoActivacion;
-    private int minutosAntes;
     private TipoAlarma tipoAlarma;
-    private enum TipoAlarma {
+
+    private int minutosAntes;
+    public enum TipoAlarma {
         FECHA_HORA_ABSOLUTA,
-        TIEMPO_RELATIVO
+        DE_MINUTOS_ANTES
     }
 
     //Constructor de una alarma con una fecha y hora de activación.
     public Alarma(LocalDateTime momento) {
         this.momentoActivacion = momento;
         this.tipoAlarma = TipoAlarma.FECHA_HORA_ABSOLUTA;
+        this.minutosAntes = -1;
     }
 
     //Constructor de una alarma con parámetro como los minutos antes al evento para su activación
     public Alarma(int minutosAntes) {
+        this.tipoAlarma = TipoAlarma.DE_MINUTOS_ANTES;
         this.minutosAntes = minutosAntes;
-        this.calcularFechaYHoraActivacion();
-        this.tipoAlarma = TipoAlarma.TIEMPO_RELATIVO;
     }
 
-    private void calcularFechaYHoraActivacion(){
-
+    public TipoAlarma getTipo(){
+        return tipoAlarma;
     }
 
     public LocalDateTime getMomentoActivacion() {
@@ -38,7 +39,6 @@ public class Alarma {
     public int getMinutosAntes() {
         return this.minutosAntes;
     }
-
     public void setMinutosAntes(int minutosAntes) {
         this.minutosAntes = minutosAntes;
     }

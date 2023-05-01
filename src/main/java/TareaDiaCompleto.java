@@ -13,6 +13,16 @@ public class TareaDiaCompleto extends Tarea{
     public LocalDate getFechaTarea(){
         return this.fechaTarea;
     }
+
+    @Override
+    public void agregarAlarmaActividad(Alarma alarma) {
+        if(alarma.getTipo() == Alarma.TipoAlarma.DE_MINUTOS_ANTES){
+            alarma.setMomentoActivacion(this.fechaTarea.atStartOfDay().minusMinutes(alarma.getMinutosAntes()));
+        }
+        this.alarmas.add(alarma);
+    }
+
+
     @Override
     public String tiempoRestanteLegible() {
         Duration duracionRestante = Duration.between(LocalDateTime.now(), this.fechaTarea.atStartOfDay());

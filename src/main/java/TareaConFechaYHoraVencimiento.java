@@ -30,6 +30,14 @@ public class TareaConFechaYHoraVencimiento extends Tarea{
     }
 
     @Override
+    public void agregarAlarmaActividad(Alarma alarma) {
+        if(alarma.getTipo() == Alarma.TipoAlarma.DE_MINUTOS_ANTES){
+            alarma.setMomentoActivacion(this.fechaYHoraVencimiento.minusMinutes(alarma.getMinutosAntes()));
+        }
+        this.alarmas.add(alarma);
+    }
+
+    @Override
     public String tiempoRestanteLegible() {
         Duration duracionRestante = Duration.between(LocalDateTime.now(), this.fechaYHoraVencimiento);
         long diasRestantes = duracionRestante.toDays();

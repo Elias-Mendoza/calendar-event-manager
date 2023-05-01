@@ -3,7 +3,6 @@ import java.time.LocalDateTime;
 
 public class FrecuenciaMensual extends Frecuencia {
     public FrecuenciaMensual() {
-        this.tipoFrecuencia = TipoFrecuencia.MENSUAL;
     }
 
     @Override

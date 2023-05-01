@@ -4,17 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45f3f758-b802-4de9-937c-f1bb85aeb606" name="Changes" comment="Se añade un método para cambiar el tipo de repetición, sacando el método para modificar la frecuencia">
+    <list default="true" id="45f3f758-b802-4de9-937c-f1bb85aeb606" name="Changes" comment="Se agrega método para agregar alarmas">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Actividad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Actividad.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Alarma.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Alarma.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Calendario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Calendario.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Evento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Evento.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Frecuencia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Frecuencia.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/FrecuenciaMensual.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FrecuenciaMensual.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/FrecuenciaSemanal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FrecuenciaSemanal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RepeticionEvento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RepeticionEvento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Tarea.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tarea.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TareaConFechaYHoraVencimiento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TareaConFechaYHoraVencimiento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TareaDiaCompleto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TareaDiaCompleto.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +76,7 @@
       <option name="presentableId" value="Default" />
       <updated>1682778459773</updated>
       <workItem from="1682778460848" duration="14527000" />
-      <workItem from="1682842207194" duration="7125000" />
+      <workItem from="1682842207194" duration="32152000" />
     </task>
     <task id="LOCAL-00001" summary="Se agregan las clases que tenía hasta el momento.">
       <created>1682779312021</created>
@@ -121,7 +120,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682806637804</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Se agrega método para agregar alarmas">
+      <created>1682853891934</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1682853891934</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -157,6 +163,7 @@
     <MESSAGE value="Se agrega un metodo para cambiar la frecuencia&#10;Se cambian algunas variables de Tarea y sus subclases" />
     <MESSAGE value="Se sacan métodos abstractos esRecurrente() y seRepiteEnFecha() que no es usaban en RepeticionEvento y sus subclases" />
     <MESSAGE value="Se añade un método para cambiar el tipo de repetición, sacando el método para modificar la frecuencia" />
-    <option name="LAST_COMMIT_MESSAGE" value="Se añade un método para cambiar el tipo de repetición, sacando el método para modificar la frecuencia" />
+    <MESSAGE value="Se agrega método para agregar alarmas" />
+    <option name="LAST_COMMIT_MESSAGE" value="Se agrega método para agregar alarmas" />
   </component>
 </project>

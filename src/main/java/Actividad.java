@@ -1,24 +1,24 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Actividad {
     private String titulo;
     private String descripcion;
-    private List<Alarma> alarmas;
+    protected List<Alarma> alarmas;
     public Actividad(String titulo, String descripcion){
         this.titulo = titulo;
         this.descripcion = descripcion;
+        this.alarmas = new ArrayList<>();
     }
 
     public void modificarTituloActividad(String titulo){
         this.titulo = titulo;
     }
-    public void modificarDescripcion(Actividad actividad, String descripcion){
+    public void modificarDescripcionActividad(String descripcion){
         this.descripcion = descripcion;
     }
 
-    public void agregarAlarmaActividad(Alarma alarma){
-        this.alarmas.add(alarma);
-    }
+    public abstract void agregarAlarmaActividad(Alarma alarma);
 
     public abstract void mostrarDatos();
 

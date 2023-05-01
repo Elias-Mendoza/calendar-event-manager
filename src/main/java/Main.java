@@ -77,6 +77,8 @@ public class Main {
         RepeticionEvento repeticionEvento8 = new RepeticionInfinita(frecuenciaEvento8);
         EventoDiaCompleto evento8 = new EventoDiaCompleto("Cumpleaños de Elias", "", inicioEvento8, finalEvento8, repeticionEvento8);
         miCalendario.agregarEvento(evento8);
+        miCalendario.agregarAlarma(evento7, new Alarma(20));
+        miCalendario.agregarAlarma(evento7, new Alarma(30));
 
         for (int i = 0; i < miCalendario.obtenerEventos().size(); i++) {
             miCalendario.obtenerEventos().get(i).mostrarDatos();
@@ -86,11 +88,17 @@ public class Main {
         System.out.println(evento7.siguienteRepeticionAFecha(LocalDateTime.of(2023, 4, 26, 0, 0)));
         miCalendario.agregarAlarma(tarea2, new Alarma(30));
 
+        evento3.siguienteRepeticionAFecha(LocalDateTime.of(2023,4,6,5,30));
+
+
 
         miCalendario.modificarTitulo(tarea2, "Este es un nuevo título");
 
         for (int i = 0; i < miCalendario.obtenerTareas().size(); i++){
             miCalendario.obtenerTareas().get(i).mostrarDatos();
         }
+
+        System.out.println("\nSIGUIENTE HORARIO ALARMA: " + miCalendario.calcularSiguienteHorarioAlarma());
     }
+
 }

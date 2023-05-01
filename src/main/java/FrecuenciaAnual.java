@@ -3,7 +3,6 @@ import java.time.LocalDateTime;
 
 public class FrecuenciaAnual extends Frecuencia {
     public FrecuenciaAnual() {
-        super.tipoFrecuencia = TipoFrecuencia.ANUAL;
     }
 
     @Override

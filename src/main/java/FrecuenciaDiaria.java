@@ -7,7 +7,6 @@ public class FrecuenciaDiaria extends Frecuencia {
 
     public FrecuenciaDiaria(int intervalo) {
         this.intervalo = intervalo;
-        this.tipoFrecuencia = TipoFrecuencia.DIARIA;
     }
 
     public int getIntervalo() {

@@ -8,7 +8,6 @@ public class FrecuenciaSemanal extends Frecuencia {
 
     public FrecuenciaSemanal(EnumSet<DayOfWeek> diasSemana) {
         this.diasSemana = diasSemana;
-        this.tipoFrecuencia = TipoFrecuencia.SEMANAL;
     }
 
     @Override
