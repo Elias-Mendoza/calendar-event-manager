@@ -1,5 +1,4 @@
 import java.time.Duration;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public abstract class Evento extends Actividad{
@@ -56,6 +55,8 @@ public abstract class Evento extends Actividad{
         }
         return (horarioRepeticion.minusMinutes(alarma.getMinutosAntes()));
     }
+
+    //Devuelve la hora de la próxima alarma del evento, devuelve null en caso que no haya.
     public LocalDateTime proximaActivacionAlarma(){
         LocalDateTime proximoHorarioAlarma = LocalDateTime.MAX;
         for(Alarma alarma : alarmas){
@@ -68,13 +69,17 @@ public abstract class Evento extends Actividad{
         }
         return proximoHorarioAlarma;
     }
+
+    //Agrega la repetición pasada por parámetro, y actualiza la cantidad de repeticiones en caso de ser
+    //necesario (que sea un evento con tipo de repetición hasta una fecha)
     public void agregarRepeticion(RepeticionEvento repeticion){
         this.repeticion = repeticion;
         if(repeticion.tipoRepeticion == RepeticionEvento.TipoRepeticion.HASTA_X_FECHA){
-            repeticion.setCantidadRepeticiones(calcularCantidadRepeticiones(repeticion));
+            repeticion.setCantidadRepeticiones(calcularCantidadRepeticionesEventoHastaFecha(repeticion));
         }
     }
-    private int calcularCantidadRepeticiones(RepeticionEvento repeticion){
+    //Calcula la cantidad de repeticiones de un evento con repetición de tipo "hasta fecha determinada"
+    private int calcularCantidadRepeticionesEventoHastaFecha(RepeticionEvento repeticion){
         int contadorRepeticiones = 1;
         LocalDateTime fechaYHora = this.inicio;
         LocalDateTime momentoLimite = repeticion.getFechaLimite().plusDays(1).atStartOfDay();
@@ -86,31 +91,37 @@ public abstract class Evento extends Actividad{
         }
         return contadorRepeticiones;
     }
+
+    //Devuelve true en caso que el evento tenga repetición.
     public boolean hayRepeticion(){
         return (this.repeticion != null);
     }
-    public void modificarFin(LocalDateTime fin){
-        this.fin = fin;
-    }
+
+    //Modifica el tipo de repetición del evento por el pasado por parámetro.
     public void modificarRepeticionEvento(RepeticionEvento nuevaRepeticionEvento){
         this.setRepeticionEvento(nuevaRepeticionEvento);
     }
+
+    //Modifica la frecuencia del evento y actualiza su cantidad de repeticiones.
     public void modificarFrecuenciaEvento(Frecuencia frecuencia){
         this.getRepeticion().setFrecuencia(frecuencia);
-        this.getRepeticion().setCantidadRepeticiones( calcularCantidadRepeticiones(this.getRepeticion()) );
+        this.getRepeticion().setCantidadRepeticiones( calcularCantidadRepeticionesEventoHastaFecha(this.getRepeticion()) );
     }
     public void setRepeticionEvento(RepeticionEvento repeticion){
         this.repeticion = repeticion;
     }
+
     public LocalDateTime getInicio(){
         return (this.inicio);
     }
     public LocalDateTime getFin(){
         return (this.fin);
     }
+
     public RepeticionEvento getRepeticion() {
         return this.repeticion;
     }
+
     public String tiempoRestanteLegible() {
         Duration duracionRestante = Duration.between(LocalDateTime.now(), this.fin);
         long diasRestantes = duracionRestante.toDays();
@@ -120,29 +131,3 @@ public abstract class Evento extends Actividad{
         return String.format("%d días, %d horas, %d minutos, %d segundos", diasRestantes, horasRestantes, minutosRestantes, segundosRestantes);
     }
 }
-
-/*//Se devuelve la fecha y hora de la siguiente repetición después de la fecha pasada por parámetro. devuelve NULL en caso que no haya repetición.
-    public LocalDateTime siguienteRepeticionAFecha(LocalDateTime fechaYHora){
-        LocalDateTime repeticionADevolver = null;
-        if(hayRepeticion()){
-            int contador = this.repeticion.cantidadRepeticiones;
-            repeticionADevolver = this.repeticion.frecuencia.siguienteFechaYHora(inicio);
-            if(repeticionADevolver != null){
-                if(this.repeticion.esRepeticionInfinita){
-                    while(repeticionADevolver.isBefore(fechaYHora)){
-                        repeticionADevolver = this.repeticion.frecuencia.siguienteFechaYHora(repeticionADevolver);
-                    }
-                }
-                else{
-                    while(repeticionADevolver.isBefore(fechaYHora) && contador > 0){
-                        repeticionADevolver = this.repeticion.frecuencia.siguienteFechaYHora(repeticionADevolver);
-                        contador--;
-                    }
-                    if(contador==0){
-                        repeticionADevolver = null;
-                    }
-                }
-            }
-        }
-        return (repeticionADevolver);
-    }*/

@@ -3,11 +3,6 @@ import java.time.LocalDateTime;
 
 public abstract class Tarea extends Actividad{
     private boolean estaCompletada;
-    private TipoTarea tipoTarea;
-    private enum TipoTarea{
-        FECHA_Y_HORA_VENCIMIENTO,
-        DIA_COMPLETO
-    }
     public Tarea(String titulo, String descripcion){
         super(titulo, descripcion);
         this.estaCompletada = false;
@@ -29,11 +24,6 @@ public abstract class Tarea extends Actividad{
         return this.estaCompletada;
     }
     public abstract String tiempoRestanteLegible();
-
-/*    public void agregarAlarma(Alarma alarma) {
-        this.alarmas.add(alarma);
-    }*/
-
     public void completarTarea(){
         this.estaCompletada = true;
     }

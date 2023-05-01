@@ -42,62 +42,20 @@ public class CalendarioTest {
     }
 
     @Test
-    public void eliminarEvento() {
+    public void siguienteAlarmaAlEliminarEvento() {
+        Calendario miCalendario = new Calendario();
+        LocalDate inicioEvento = LocalDate.of(1000,5,27);
+        LocalDate finEvento = LocalDate.of(1000,5,27);
+        Frecuencia frecuencia = new FrecuenciaMensual();
+        RepeticionEvento repeticion = new RepeticionInfinita(frecuencia);
+        Evento evento = new EventoDiaCompleto("Cumpleaños", "...", inicioEvento, finEvento);
+        miCalendario.agregarEvento(evento);
+        miCalendario.agregarRepeticionEvento(evento, repeticion);
+        miCalendario.agregarAlarma(evento, new Alarma(10));
+        miCalendario.eliminarEvento(evento);
+
+        assertEquals(null, miCalendario.calcularSiguienteHorarioAlarma());
+
     }
 
-    @Test
-    public void agregarTarea() {
-    }
-
-    @Test
-    public void obtenerEventos() {
-    }
-
-    @Test
-    public void obtenerTareas() {
-    }
-
-    @Test
-    public void modificarTitulo() {
-    }
-
-    @Test
-    public void modificarDescripcion() {
-    }
-
-    @Test
-    public void agregarRepeticionEvento() {
-    }
-
-    @Test
-    public void agregarAlarma() {
-    }
-
-    @Test
-    public void calcularSiguienteHorarioAlarma() {
-    }
-
-    @Test
-    public void modificarFechaYHoraVencimientoTarea() {
-    }
-
-    @Test
-    public void modificarFechaTareaDiaCompleto() {
-    }
-
-    @Test
-    public void modificarRepeticion() {
-    }
-
-    @Test
-    public void modificarFrecuencia() {
-    }
-
-    @Test
-    public void modificarInicioYFinEvento() {
-    }
-
-    @Test
-    public void testModificarInicioYFinEvento() {
-    }
 }

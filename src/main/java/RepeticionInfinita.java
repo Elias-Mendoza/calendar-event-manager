@@ -6,5 +6,4 @@ public class RepeticionInfinita extends RepeticionEvento {
         this.tipoRepeticion = TipoRepeticion.INFINITA;
         this.esRepeticionInfinita = true;
     }
-
 }

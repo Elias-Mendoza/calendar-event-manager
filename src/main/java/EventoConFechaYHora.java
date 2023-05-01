@@ -3,17 +3,13 @@ import java.time.LocalDateTime;
 
 public class EventoConFechaYHora extends Evento{
 
-    //Crea un evento con fecha y hora de inicio sin repeticiones
+    //Crea un evento con fecha y hora fija con los datos pasados por parámetro
     public EventoConFechaYHora(String titulo, String descripcion, LocalDateTime inicio, LocalDateTime fin){
         super(titulo, descripcion, inicio, fin);
     }
 
-/*    //Crea un evento con fecha y hora de inicio con repeticiones
-    public EventoConFechaYHora(String titulo, String descripcion, LocalDateTime inicio, LocalDateTime fin, RepeticionEvento repeticionEvento){
-        super(titulo, descripcion, inicio, fin);
-        super.repeticion = repeticionEvento;
-    }*/
 
+    //Modifica el inicio y el fin del evento.
     public void modificarInicioYFin(LocalDateTime nuevoInicio, LocalDateTime nuevoFin){
         this.inicio = nuevoInicio;
         this.fin = nuevoFin;

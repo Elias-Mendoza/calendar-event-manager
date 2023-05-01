@@ -7,19 +7,6 @@ import static org.junit.Assert.*;
 public class TareaConFechaYHoraVencimientoTest {
 
     @Test
-    public void getFechaYHoraVencimiento() {
-    }
-
-    @Test
-    public void setFechaYHoraVencimiento() {
-    }
-
-    @Test
-    public void duracionCorrecta() {
-
-    }
-
-    @Test
     public void alarmaCorrectaAlCambiarFechaVencimiento() {
         LocalDateTime vencimientoTarea = LocalDateTime.of(2024,8,15,0,0);
         Alarma alarma = new Alarma(10);
@@ -39,15 +26,5 @@ public class TareaConFechaYHoraVencimientoTest {
 
         assertEquals(LocalDateTime.of(2020,8,14,23,50), tarea.proximaActivacionAlarma() );
     }
-    @Test
-    public void agregarAlarmaActividad() {
-    }
 
-    @Test
-    public void tiempoRestanteLegible() {
-    }
-
-    @Test
-    public void mostrarDatos() {
-    }
 }

@@ -66,10 +66,29 @@ public class EventoConFechaYHoraTest {
     }
 
     @Test
-    public void getFin() {
+    public void siguienteRepeticionEnFechaYHoraLimite(){
+        LocalDateTime inicioEvento = LocalDateTime.of(2023,5,1,12,0);
+        LocalDateTime finEvento = LocalDateTime.of(2023,5,1,14,0);
+        Frecuencia frecuencia = new FrecuenciaDiaria(1);
+        RepeticionEvento repeticion = new RepeticionHastaNRepeticiones(frecuencia, 1);
+        EventoConFechaYHora evento = new EventoConFechaYHora("Evento","", inicioEvento, finEvento);
+        evento.agregarRepeticion(repeticion);
+        LocalDateTime repeticionEsperada = LocalDateTime.of(2023, 5, 2,12,0);
+
+        assertEquals(repeticionEsperada, evento.siguienteRepeticionAFecha(LocalDateTime.of(2023,5,2,12,0) ) );
     }
 
     @Test
-    public void mostrarDatos() {
+    public void siguienteRepeticionEnFechaYHoraLimiteNula(){
+        LocalDateTime inicioEvento = LocalDateTime.of(2023,5,1,12,0);
+        LocalDateTime finEvento = LocalDateTime.of(2023,5,1,14,0);
+        Frecuencia frecuencia = new FrecuenciaDiaria(1);
+        RepeticionEvento repeticion = new RepeticionHastaNRepeticiones(frecuencia, 2);
+        EventoConFechaYHora evento = new EventoConFechaYHora("Evento","", inicioEvento, finEvento);
+        evento.agregarRepeticion(repeticion);
+
+        assertEquals(null, evento.siguienteRepeticionAFecha(LocalDateTime.of(2023,5,3,12,1) ) );
     }
+
+
 }

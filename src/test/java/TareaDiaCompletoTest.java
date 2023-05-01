@@ -17,23 +17,4 @@ public class TareaDiaCompletoTest {
         assertEquals(esperado, tarea.proximaActivacionAlarma() );
     }
 
-    @Test
-    public void getFechaTarea() {
-        TareaDiaCompleto tarea = new TareaDiaCompleto("...","...", LocalDate.of(2025,1,1));
-        Alarma alarma = new Alarma(60);
-        tarea.agregarAlarmaActividad(alarma);
-        LocalDateTime esperado = LocalDateTime.of(2024,12,31,23,0);
-    }
-
-    @Test
-    public void agregarAlarmaActividad() {
-    }
-
-    @Test
-    public void tiempoRestanteLegible() {
-    }
-
-    @Test
-    public void mostrarDatos() {
-    }
 }

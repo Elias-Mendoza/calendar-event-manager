@@ -3,17 +3,12 @@ import java.time.LocalDateTime;
 
 public class EventoDiaCompleto extends Evento {
 
-    //Crea un evento de dia completo sin repeticiones.
+    //Crea un evento de día completo con los datos pasados por parámetro
     public EventoDiaCompleto(String titulo, String descripcion, LocalDate inicio, LocalDate fin) {
         super(titulo, descripcion, inicio.atStartOfDay(), LocalDateTime.of(fin.getYear(), fin.getMonth(), fin.getDayOfMonth(), 23, 59 ) );
     }
 
-/*    //Crea un evento de dia completo con Repeticiones
-    public EventoDiaCompleto(String titulo, String descripcion, LocalDate inicio, LocalDate fin, RepeticionEvento repeticionEvento) {
-        super(titulo, descripcion, inicio.atStartOfDay(), LocalDateTime.of(fin.getYear(), fin.getMonth(), fin.getDayOfMonth(), 23, 59 ) );
-        super.repeticion = repeticionEvento;
-    }*/
-
+    //Modifica el inicio y el fin del evento.
     public void modificarInicioYFin(LocalDate nuevoInicio, LocalDate nuevoFin){
         this.inicio = nuevoInicio.atStartOfDay();
         this.fin = nuevoFin.plusDays(1).atStartOfDay();

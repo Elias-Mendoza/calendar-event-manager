@@ -17,9 +17,4 @@ public class FrecuenciaAnual extends Frecuencia {
         }
         return siguienteFechaHora;
     }
-
 }
-/*    @Override
-    public boolean seRepiteEn(LocalDate fecha) {
-        return fecha.getDayOfYear() == getFechaInicio().getDayOfYear();
-    }*/

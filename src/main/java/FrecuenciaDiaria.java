@@ -19,12 +19,3 @@ public class FrecuenciaDiaria extends Frecuencia {
         return siguienteFecha;
     }
 }
-
-/*    @Override
-    public boolean seRepiteEn(LocalDate fecha) {
-        if (!super.seRepiteEn(fecha)) {
-            return false;
-        }
-        long dias = ChronoUnit.DAYS.between(getFechaInicio(), fecha);
-        return dias % intervalo == 0;
-    }*/
