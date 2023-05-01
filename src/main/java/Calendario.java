@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -64,6 +65,12 @@ public class Calendario {
     }
     public void modificarFrecuencia(Evento evento, Frecuencia nuevaFrecuencia){
         evento.modificarFrecuenciaEvento(nuevaFrecuencia);
+    }
+    public void modificarInicioYFinEvento(EventoConFechaYHora evento, LocalDateTime nuevoInicio, LocalDateTime nuevoFin){
+        evento.modificarInicioYFin(nuevoInicio, nuevoFin);
+    }
+    public void modificarInicioYFinEvento(EventoDiaCompleto evento, LocalDate nuevoInicio, LocalDate nuevoFin){
+        evento.modificarInicioYFin(nuevoInicio, nuevoFin);
     }
 
     public void mostrarDatosEvento(Evento evento) {

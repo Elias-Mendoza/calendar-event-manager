@@ -4,7 +4,6 @@ import java.time.LocalDateTime;
 public class Alarma {
     private LocalDateTime momentoActivacion;
     private TipoAlarma tipoAlarma;
-
     private int minutosAntes;
     public enum TipoAlarma {
         FECHA_HORA_ABSOLUTA,

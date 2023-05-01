@@ -17,6 +17,7 @@ public class EventoDiaCompleto extends Evento {
     public void modificarInicioYFin(LocalDate nuevoInicio, LocalDate nuevoFin){
         this.inicio = nuevoInicio.atStartOfDay();
         this.fin = nuevoFin.plusDays(1).atStartOfDay();
+        actualizarAlarmas();
     }
 
     @Override

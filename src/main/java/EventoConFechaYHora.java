@@ -17,6 +17,7 @@ public class EventoConFechaYHora extends Evento{
     public void modificarInicioYFin(LocalDateTime nuevoInicio, LocalDateTime nuevoFin){
         this.inicio = nuevoInicio;
         this.fin = nuevoFin;
+        actualizarAlarmas();
     }
 
     public LocalDateTime getFin() {

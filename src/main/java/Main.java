@@ -107,7 +107,8 @@ public class Main {
         miCalendario.mostrarDatosEvento(evento8);
         miCalendario.agregarAlarma(evento8, new Alarma(30));
         System.out.println("\nSIGUIENTE HORARIO ALARMA: " + miCalendario.calcularSiguienteHorarioAlarma());
-        evento8.modificarInicioYFin( LocalDate.of(2023,5, 29), LocalDate.of(2023,5, 29));
+        miCalendario.modificarInicioYFinEvento(evento8, LocalDate.of(2023,5, 29), LocalDate.of(2023,5, 29));
+//        evento8.modificarInicioYFin( LocalDate.of(2023,5, 29), LocalDate.of(2023,5, 29));
         miCalendario.mostrarDatosEvento(evento8);
         System.out.println("\nSIGUIENTE HORARIO ALARMA: " + miCalendario.calcularSiguienteHorarioAlarma());
 
