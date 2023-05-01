@@ -11,6 +11,15 @@ public abstract class Actividad {
         this.alarmas = new ArrayList<>();
     }
 
+    public void actualizarAlarmas(){
+        for(Alarma alarma : this.alarmas){
+            if(alarma.getTipo() == Alarma.TipoAlarma.DE_MINUTOS_ANTES){
+                agregarAlarmaActividad(alarma);
+                alarmas.remove(alarma);
+            }
+        }
+    }
+
     public void modificarTituloActividad(String titulo){
         this.titulo = titulo;
     }

@@ -10,6 +10,10 @@ public class TareaDiaCompleto extends Tarea{
         this.fechaTarea = fechaTarea;
     }
 
+    public void modificarFecha(LocalDate nuevaFechaTarea){
+        this.fechaTarea = nuevaFechaTarea;
+        actualizarAlarmas();
+    }
     public LocalDate getFechaTarea(){
         return this.fechaTarea;
     }

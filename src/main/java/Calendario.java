@@ -60,6 +60,13 @@ public class Calendario {
         }
         return proximoHorarioAlarma;
     }
+
+    public void modificarFechaYHoraVencimientoTarea(TareaConFechaYHoraVencimiento tarea, LocalDateTime nuevaFechaYHoraVencimiento){
+        tarea.modificarFechaYHoraVencimiento(nuevaFechaYHoraVencimiento);
+    }
+    public void modificarFechaTareaDiaCompleto(TareaDiaCompleto tarea, LocalDate nuevaFechaTarea){
+        tarea.modificarFecha(nuevaFechaTarea);
+    }
     public void modificarRepeticion(Evento evento, RepeticionEvento nuevaRepeticionEvento){
         evento.modificarRepeticionEvento(nuevaRepeticionEvento);
     }

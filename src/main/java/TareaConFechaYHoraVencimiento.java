@@ -2,7 +2,6 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 
 public class TareaConFechaYHoraVencimiento extends Tarea{
-
     private LocalDateTime fechaYHoraVencimiento;
 
     public TareaConFechaYHoraVencimiento(String titulo, String descripcion, LocalDateTime fechaYHoraVencimiento){
@@ -27,6 +26,10 @@ public class TareaConFechaYHoraVencimiento extends Tarea{
 //            return Duration.between(ahora, this.fechaVencimiento);
         }
         return tiempoRestante;
+    }
+    public void modificarFechaYHoraVencimiento(LocalDateTime nuevaFechaYHoraVencimiento){
+        this.fechaYHoraVencimiento = nuevaFechaYHoraVencimiento;
+        actualizarAlarmas();
     }
 
     @Override

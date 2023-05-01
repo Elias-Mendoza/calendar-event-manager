@@ -47,14 +47,7 @@ public abstract class Evento extends Actividad{
         }
         this.alarmas.add(alarma);
     }
-    public void actualizarAlarmas(){
-        for(Alarma alarma : this.alarmas){
-            if(alarma.getTipo() == Alarma.TipoAlarma.DE_MINUTOS_ANTES){
-                agregarAlarmaActividad(alarma);
-                alarmas.remove(alarma);
-            }
-        }
-    }
+
     private LocalDateTime calcularProximaActivacionAlarmaMinutosAntes(Alarma alarma){
         LocalDateTime horarioRepeticion = this.siguienteRepeticionAFecha(LocalDateTime.now());
         if(horarioRepeticion == null){
