@@ -1,4 +1,3 @@
-import java.time.LocalDateTime;
 
 public class RepeticionInfinita extends RepeticionEvento {
     public RepeticionInfinita(Frecuencia frecuencia) {

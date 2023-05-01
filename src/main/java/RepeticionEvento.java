@@ -1,5 +1,4 @@
 import java.time.LocalDate;
-import java.time.chrono.ChronoLocalDateTime;
 
 public abstract class RepeticionEvento {
     protected Frecuencia frecuencia;

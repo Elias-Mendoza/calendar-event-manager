@@ -1,5 +1,3 @@
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 public class RepeticionHastaNRepeticiones extends RepeticionEvento {
     public RepeticionHastaNRepeticiones(Frecuencia frecuencia, int cantidadRepeticiones) {

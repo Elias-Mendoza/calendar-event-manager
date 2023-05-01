@@ -3,7 +3,7 @@ import java.time.LocalDateTime;
 public class FrecuenciaDiaria extends Frecuencia {
 
     // Es cada cuantos días se repite el evento
-    private int intervalo;
+    private final int intervalo;
 
     public FrecuenciaDiaria(int intervalo) {
         this.intervalo = intervalo;

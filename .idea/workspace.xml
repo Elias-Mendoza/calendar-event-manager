@@ -4,28 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45f3f758-b802-4de9-937c-f1bb85aeb606" name="Changes" comment="Ahora la frecuencia con la repeticion de un evento se agregan al evento, ya no se pasan como parámetro al constructor de Evento.&#10;Además, se agregan varios tests">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Calendario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Calendario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Evento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Evento.java" afterDir="false" />
+    <list default="true" id="45f3f758-b802-4de9-937c-f1bb85aeb606" name="Changes" comment="Se agregan comentarios en métodos de las clases y se añaden unos últimos tests.">
+      <change beforePath="$PROJECT_DIR$/src/main/java/Alarma.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Alarma.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/EventoConFechaYHora.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/EventoConFechaYHora.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/EventoDiaCompleto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/EventoDiaCompleto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Frecuencia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Frecuencia.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/FrecuenciaAnual.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FrecuenciaAnual.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/FrecuenciaDiaria.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FrecuenciaDiaria.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/FrecuenciaMensual.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FrecuenciaMensual.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/RepeticionEvento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RepeticionEvento.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/RepeticionHastaFecha.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RepeticionHastaFecha.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RepeticionHastaNRepeticiones.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RepeticionHastaNRepeticiones.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/RepeticionInfinita.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RepeticionInfinita.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Tarea.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tarea.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TareaConFechaYHoraVencimiento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TareaConFechaYHoraVencimiento.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TareaDiaCompleto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TareaDiaCompleto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/CalendarioTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CalendarioTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/EventoConFechaYHoraTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/EventoConFechaYHoraTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/EventoDiaCompletoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/EventoDiaCompletoTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/TareaConFechaYHoraVencimientoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TareaConFechaYHoraVencimientoTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/TareaDiaCompletoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TareaDiaCompletoTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,7 +143,7 @@
       <option name="presentableId" value="Default" />
       <updated>1682778459773</updated>
       <workItem from="1682778460848" duration="14527000" />
-      <workItem from="1682842207194" duration="63379000" />
+      <workItem from="1682842207194" duration="63685000" />
     </task>
     <task id="LOCAL-00001" summary="Se agregan las clases que tenía hasta el momento.">
       <created>1682779312021</created>
@@ -241,7 +229,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682975651281</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Se agregan comentarios en métodos de las clases y se añaden unos últimos tests.">
+      <created>1682982946691</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1682982946691</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -283,11 +278,12 @@
     <MESSAGE value="Ahora los eventos al ser modificado su horario de inicio y fin, se modifican también sus alarmas." />
     <MESSAGE value="Ahora las tareas al ser modificado su fecha de vencimiento o fecha de tarea, se modifican también sus alarmas." />
     <MESSAGE value="Ahora la frecuencia con la repeticion de un evento se agregan al evento, ya no se pasan como parámetro al constructor de Evento.&#10;Además, se agregan varios tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ahora la frecuencia con la repeticion de un evento se agregan al evento, ya no se pasan como parámetro al constructor de Evento.&#10;Además, se agregan varios tests" />
+    <MESSAGE value="Se agregan comentarios en métodos de las clases y se añaden unos últimos tests." />
+    <option name="LAST_COMMIT_MESSAGE" value="Se agregan comentarios en métodos de las clases y se añaden unos últimos tests." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/TP_Algo3$TareaConFechaYHoraVencimientoTest.ic" NAME="TareaConFechaYHoraVencimientoTest Coverage Results" MODIFIED="1682971474552" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/TP_Algo3$EventoConFechaYHoraTest.ic" NAME="EventoConFechaYHoraTest Coverage Results" MODIFIED="1682961802047" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/TP_Algo3$All_in_TP_Algo3.ic" NAME="All in TP_Algo3 Coverage Results" MODIFIED="1682980890190" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/TP_Algo3$All_in_TP_Algo3.ic" NAME="All in TP_Algo3 Coverage Results" MODIFIED="1682982897390" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
