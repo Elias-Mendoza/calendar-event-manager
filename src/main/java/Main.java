@@ -9,7 +9,7 @@ public class Main {
         LocalDateTime finalEvento1 = LocalDateTime.of(2023, 5, 1, 18, 0);
         EventoConFechaYHora evento1 = new EventoConFechaYHora("Fulbo", "En Sanca", inicioEvento1, finalEvento1);
         miCalendario.agregarEvento(evento1);
-        miCalendario.agregarAlarma(evento1, new Alarma(30));
+        evento1.agregarAlarmaActividad(new Alarma(30));
 
         LocalDate inicioEvento2 = LocalDate.of(2023, 4, 26);
         LocalDate finEvento2 = LocalDate.of(2023, 4, 26);
@@ -35,7 +35,7 @@ public class Main {
         Frecuencia frecuenciaEvento7 = new FrecuenciaDiaria(1);
         RepeticionEvento repeticionEvento7 = new RepeticionHastaNRepeticiones(frecuenciaEvento7, 10);
         EventoConFechaYHora evento7 = new EventoConFechaYHora("Cenar", "En casa", inicioEvento7, finalEvento7);
-        miCalendario.agregarRepeticionEvento(evento7, repeticionEvento7);
+        evento7.agregarRepeticion(repeticionEvento7);
         miCalendario.agregarEvento(evento7);
 
         for (int i = 0; i < miCalendario.obtenerEventos().size(); i++) {

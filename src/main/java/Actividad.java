@@ -1,3 +1,4 @@
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,6 +21,20 @@ public abstract class Actividad {
         }
     }
 
+    //Devuelve la hora de la próxima alarma de la actividad, devuelve null en caso que no haya.
+    public LocalDateTime proximaActivacionAlarma(){
+        LocalDateTime proximoHorarioAlarma = LocalDateTime.MAX;
+        for(Alarma alarma : alarmas){
+            if(alarma.getMomentoActivacion().isBefore(proximoHorarioAlarma)){
+                proximoHorarioAlarma = alarma.getMomentoActivacion();
+            }
+        }
+        if(proximoHorarioAlarma == LocalDateTime.MAX){
+            proximoHorarioAlarma = null;
+        }
+        return proximoHorarioAlarma;
+    }
+
     public void modificarTituloActividad(String titulo){
         this.titulo = titulo;
     }
@@ -31,12 +46,6 @@ public abstract class Actividad {
 
     public abstract void mostrarDatos();
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
     public String getTitulo() {
         return this.titulo;
     }

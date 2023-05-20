@@ -18,7 +18,7 @@ public class TareaConFechaYHoraVencimientoTest {
     }
 
     @Test
-    public void horarioDeActivacionDeAlarmaDeTareaConFechaDeAñosAnteriores() {
+    public void horarioDeActivacionDeAlarmaDeTareaConFechaDeAniosAnteriores() {
         LocalDateTime vencimientoTarea = LocalDateTime.of(2020,8,15,0,0);
         Alarma alarma = new Alarma(10);
         TareaConFechaYHoraVencimiento tarea = new TareaConFechaYHoraVencimiento("Titulo","Descripcion", vencimientoTarea);

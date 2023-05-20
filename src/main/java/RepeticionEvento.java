@@ -1,26 +1,20 @@
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public abstract class RepeticionEvento {
     protected Frecuencia frecuencia;
-    protected LocalDate fechaLimite;
-    protected int cantidadRepeticiones;
-    boolean esRepeticionInfinita;
-    protected TipoRepeticion tipoRepeticion;
 
-    enum TipoRepeticion{
-        INFINITA, HASTA_X_FECHA, HASTA_N_REPETICIONES
-    }
     public RepeticionEvento(Frecuencia frecuencia) {
         this.frecuencia = frecuencia;
     }
 
+    // Se devuelve la fecha y hora de la siguiente repetición del evento después de la FECHA Y HORA pasada por parámetro.
+    // Devuelve NULL en caso que no haya repetición.
+    public abstract LocalDateTime calcularSiguienteRepeticion(LocalDateTime fechaYHora, LocalDateTime inicio);
 
-    public void setCantidadRepeticiones(int cantidadRepeticiones){
-        this.cantidadRepeticiones = cantidadRepeticiones;
-    }
-    public LocalDate getFechaLimite() {
-        return this.fechaLimite;
-    }
+    // Actualiza la cantidad de repeticiones del evento.
+    public abstract void actualizarCantidadRepeticiones(LocalDateTime inicio);
+
     public Frecuencia getFrecuencia() {
         return this.frecuencia;
     }
