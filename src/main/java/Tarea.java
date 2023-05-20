@@ -6,18 +6,6 @@ public abstract class Tarea extends Actividad{
         super(titulo, descripcion);
         this.estaCompletada = false;
     }
-    public LocalDateTime proximaActivacionAlarma(){
-        LocalDateTime proximoHorarioAlarma = LocalDateTime.MAX;
-        for(Alarma alarma : alarmas){
-            if(alarma.getMomentoActivacion().isBefore(proximoHorarioAlarma)){
-                proximoHorarioAlarma = alarma.getMomentoActivacion();
-            }
-        }
-        if(proximoHorarioAlarma == LocalDateTime.MAX){
-            proximoHorarioAlarma = null;
-        }
-        return proximoHorarioAlarma;
-    }
 
     public boolean getEstaCompletada(){
         return this.estaCompletada;
