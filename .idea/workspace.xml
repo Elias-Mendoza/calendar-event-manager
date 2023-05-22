@@ -4,14 +4,44 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45f3f758-b802-4de9-937c-f1bb85aeb606" name="Changes" comment="" />
+    <list default="true" id="45f3f758-b802-4de9-937c-f1bb85aeb606" name="Changes" comment="Pequeños cambios para sacar advertencias en las clases.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Actividad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Actividad.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Calendario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Calendario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Evento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Evento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RepeticionEvento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RepeticionEvento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RepeticionHastaFecha.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RepeticionHastaFecha.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RepeticionHastaNRepeticiones.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RepeticionHastaNRepeticiones.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RepeticionInfinita.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RepeticionInfinita.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/CalendarioTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CalendarioTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/EventoConFechaYHoraTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/EventoConFechaYHoraTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/EventoDiaCompletoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/EventoDiaCompletoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TareaConFechaYHoraVencimientoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TareaConFechaYHoraVencimientoTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="JUnit4 Test Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Etapa-1" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
@@ -20,20 +50,100 @@
       </MavenImportingSettings>
     </option>
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectId" id="2P6XMeANahYquSXTnbp3NfD96fy" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit4&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4&quot;: &quot;&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.All in TP_Algo3">
+    <configuration name="All in TP_Algo3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TP_Algo3" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EventoConFechaYHoraTest.cantidadDeRepeticionesEnEventoHastaFecha" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TP_Algo3" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="EventoConFechaYHoraTest" />
+      <option name="METHOD_NAME" value="cantidadDeRepeticionesEnEventoHastaFecha" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EventoDiaCompletoTest.actualizacionDeAlarmaAlModificarInicioYFinEventoDiaCompleto" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TP_Algo3" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="EventoDiaCompletoTest" />
+      <option name="METHOD_NAME" value="actualizacionDeAlarmaAlModificarInicioYFinEventoDiaCompleto" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EventoDiaCompletoTest.cantidadDeRepeticionesEnEventoHastaNRepeticionesAlCambiarFrecuencia" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TP_Algo3" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="EventoDiaCompletoTest" />
+      <option name="METHOD_NAME" value="cantidadDeRepeticionesEnEventoHastaNRepeticionesAlCambiarFrecuencia" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EventoDiaCompletoTest.siguienteRepeticionNula" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TP_Algo3" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="EventoDiaCompletoTest" />
+      <option name="METHOD_NAME" value="siguienteRepeticionNula" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.All in TP_Algo3" />
+        <item itemvalue="JUnit.EventoDiaCompletoTest.cantidadDeRepeticionesEnEventoHastaNRepeticionesAlCambiarFrecuencia" />
+        <item itemvalue="JUnit.EventoDiaCompletoTest.siguienteRepeticionNula" />
+        <item itemvalue="JUnit.EventoDiaCompletoTest.actualizacionDeAlarmaAlModificarInicioYFinEventoDiaCompleto" />
+        <item itemvalue="JUnit.EventoConFechaYHoraTest.cantidadDeRepeticionesEnEventoHastaFecha" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -42,7 +152,162 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1682778459773</updated>
+      <workItem from="1682778460848" duration="14527000" />
+      <workItem from="1682842207194" duration="64192000" />
+      <workItem from="1683046538700" duration="43000" />
+      <workItem from="1683060166581" duration="678000" />
+      <workItem from="1683149666843" duration="648000" />
+      <workItem from="1684423187485" duration="5034000" />
+      <workItem from="1684511779275" duration="26848000" />
     </task>
+    <task id="LOCAL-00001" summary="Se agregan las clases que tenía hasta el momento.">
+      <created>1682779312021</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1682779312021</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Pequeñísimos cambios para sacar advertencias que tira el IDE">
+      <created>1682780652510</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1682780652510</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Pequeños cambios para sacar advertencias que tira el IDE">
+      <created>1682798178524</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1682798178524</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Se agrega un metodo para cambiar la frecuencia&#10;Se cambian algunas variables de Tarea y sus subclases">
+      <created>1682804786129</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1682804786129</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Se sacan métodos abstractos esRecurrente() y seRepiteEnFecha() que no es usaban en RepeticionEvento y sus subclases">
+      <created>1682805106780</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1682805106780</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Se añade un método para cambiar el tipo de repetición, sacando el método para modificar la frecuencia">
+      <created>1682806637804</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1682806637804</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Se agrega método para agregar alarmas">
+      <created>1682853891934</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1682853891934</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Se agregan métodos para obtener la próxima alarma entre todos los eventos y tareas&#10;Además se limpia código que no servía">
+      <created>1682943370377</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1682943370377</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Se arreglaron varios errores:&#10;Ahora se calcula bien la cantidad de repeticiones en RepeticionHastaFecha. &#10;SiguienteRepeticionAFecha ahora está corregido y funciona en todos los casos.&#10;Además, se añade un método modificarInicioYFin() para EventoConFechaYHora y EventoDiaCompleto">
+      <created>1682956098670</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1682956098670</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Ahora los eventos al ser modificado su horario de inicio y fin, se modifican también sus alarmas.">
+      <created>1682958830828</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1682958830828</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Ahora las tareas al ser modificado su fecha de vencimiento o fecha de tarea, se modifican también sus alarmas.">
+      <created>1682959507321</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1682959507321</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Ahora la frecuencia con la repeticion de un evento se agregan al evento, ya no se pasan como parámetro al constructor de Evento.&#10;Además, se agregan varios tests">
+      <created>1682975651281</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1682975651281</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Se agregan comentarios en métodos de las clases y se añaden unos últimos tests.">
+      <created>1682982946691</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1682982946691</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Pequeños cambios para sacar advertencias en las clases.">
+      <created>1682983201221</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1682983201221</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="Etapa-1" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Se agregan las clases que tenía hasta el momento." />
+    <MESSAGE value="Pequeñísimos cambios para sacar advertencias que tira el IDE" />
+    <MESSAGE value="Pequeños cambios para sacar advertencias que tira el IDE" />
+    <MESSAGE value="Se agrega un metodo para cambiar la frecuencia&#10;Se cambian algunas variables de Tarea y sus subclases" />
+    <MESSAGE value="Se sacan métodos abstractos esRecurrente() y seRepiteEnFecha() que no es usaban en RepeticionEvento y sus subclases" />
+    <MESSAGE value="Se añade un método para cambiar el tipo de repetición, sacando el método para modificar la frecuencia" />
+    <MESSAGE value="Se agrega método para agregar alarmas" />
+    <MESSAGE value="Se agregan métodos para obtener la próxima alarma entre todos los eventos y tareas&#10;Además se limpia código que no servía" />
+    <MESSAGE value="Se arreglaron varios errores:&#10;Ahora se calcula bien la cantidad de repeticiones en RepeticionHastaFecha. &#10;SiguienteRepeticionAFecha ahora está corregido y funciona en todos los casos.&#10;Además, se añade un método modificarInicioYFin() para EventoConFechaYHora y EventoDiaCompleto" />
+    <MESSAGE value="Ahora los eventos al ser modificado su horario de inicio y fin, se modifican también sus alarmas." />
+    <MESSAGE value="Ahora las tareas al ser modificado su fecha de vencimiento o fecha de tarea, se modifican también sus alarmas." />
+    <MESSAGE value="Ahora la frecuencia con la repeticion de un evento se agregan al evento, ya no se pasan como parámetro al constructor de Evento.&#10;Además, se agregan varios tests" />
+    <MESSAGE value="Se agregan comentarios en métodos de las clases y se añaden unos últimos tests." />
+    <MESSAGE value="últimos pequeños cambios para sacar advertencias en las clases." />
+    <MESSAGE value="Pequeños cambios para sacar advertencias en las clases." />
+    <option name="LAST_COMMIT_MESSAGE" value="Pequeños cambios para sacar advertencias en las clases." />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/TP_Algo3$TareaConFechaYHoraVencimientoTest.ic" NAME="TareaConFechaYHoraVencimientoTest Coverage Results" MODIFIED="1682971474552" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/TP_Algo3$EventoConFechaYHoraTest.ic" NAME="EventoConFechaYHoraTest Coverage Results" MODIFIED="1682961802047" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/TP_Algo3$All_in_TP_Algo3.ic" NAME="All in TP_Algo3 Coverage Results" MODIFIED="1684561724673" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
