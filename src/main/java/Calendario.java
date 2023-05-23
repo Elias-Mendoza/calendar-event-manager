@@ -1,3 +1,4 @@
+import java.io.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +24,28 @@ public class Calendario {
     }
     public List<Tarea> obtenerTareas(){
         return (this.tareas);
+    }
+
+    //Se guarda el estado del Calendario, se cierra el archivo luego de utilizarlo.
+    public void guardarCalendario(String archivo) {
+        try (ObjectOutputStream salida = new ObjectOutputStream(new FileOutputStream(archivo))) {
+            salida.writeObject(this);
+            System.out.println("Calendario guardado exitosamente en: " + archivo);
+        } catch (IOException e) {
+            System.out.println("Error al guardar el calendario: " + e.getMessage());
+        }
+    }
+
+    //Se carga el estado del Calendario, se cierra el archivo luego de utilizarlo.
+    public static Calendario cargarCalendario(String archivo) {
+        try (ObjectInputStream entrada = new ObjectInputStream(new FileInputStream(archivo))) {
+            Calendario calendario = (Calendario) entrada.readObject();
+            System.out.println("Calendario cargado exitosamente desde: " + archivo);
+            return calendario;
+        } catch (IOException | ClassNotFoundException e) {
+            System.out.println("Error al cargar el calendario: " + e.getMessage());
+            return null;
+        }
     }
 
     //Calcula el horario de la siguiente alarma entre todas las tareas y alarmas del calendario

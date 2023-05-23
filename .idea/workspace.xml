@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="45f3f758-b802-4de9-937c-f1bb85aeb606" name="Changes" comment="Pequeños cambios para sacar advertencias en las clases.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Actividad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Actividad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Calendario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Calendario.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Evento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Evento.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/RepeticionEvento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RepeticionEvento.java" afterDir="false" />
@@ -258,7 +256,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682983201221</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Se agregan los métodos para serializar y deseralizar el Calendario.">
+      <created>1684809451305</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1684809451305</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -303,7 +308,8 @@
     <MESSAGE value="Se agregan comentarios en métodos de las clases y se añaden unos últimos tests." />
     <MESSAGE value="últimos pequeños cambios para sacar advertencias en las clases." />
     <MESSAGE value="Pequeños cambios para sacar advertencias en las clases." />
-    <option name="LAST_COMMIT_MESSAGE" value="Pequeños cambios para sacar advertencias en las clases." />
+    <MESSAGE value="Se agregan los métodos para serializar y deseralizar el Calendario." />
+    <option name="LAST_COMMIT_MESSAGE" value="Se agregan los métodos para serializar y deseralizar el Calendario." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/TP_Algo3$TareaConFechaYHoraVencimientoTest.ic" NAME="TareaConFechaYHoraVencimientoTest Coverage Results" MODIFIED="1682971474552" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
