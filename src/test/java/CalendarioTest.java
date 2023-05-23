@@ -59,4 +59,36 @@ public class CalendarioTest {
 
     }
 
+
+    @Test
+    public void testGuardarYCargarCalendario() {
+        // Crea una instancia de Calendario y se agregan eventos y tareas
+        Calendario calendario = new Calendario();
+
+        LocalDateTime inicioEvento1 = LocalDateTime.of(2023, 10, 1, 17, 0);
+        LocalDateTime finalEvento1 = LocalDateTime.of(2023, 10, 1, 18, 0);
+        EventoConFechaYHora evento1 = new EventoConFechaYHora("Evento1", "Descripcion evento", inicioEvento1, finalEvento1);
+        evento1.agregarAlarmaActividad(new Alarma(30));
+
+        LocalDateTime fechaVencimientoTarea1 = LocalDateTime.of(2023, 10, 2, 22, 00);
+        TareaConFechaYHoraVencimiento tarea1 = new TareaConFechaYHoraVencimiento("Tarea1", "Descripcion tarea", fechaVencimientoTarea1);
+
+        calendario.agregarEvento(evento1);
+        calendario.agregarTarea(tarea1);
+
+        // Se guarda el calendario en un archivo
+        calendario.guardarCalendario("calendario.dat");
+
+        // Se carga el calendario desde el archivo
+        Calendario calendarioCargado = Calendario.cargarCalendario("calendario.dat");
+
+        // Verifica que los eventos y tareas cargados sean correctos
+        assertNotNull(calendarioCargado);
+        assertEquals(1, calendarioCargado.obtenerEventos().size());
+        assertEquals("Evento1", calendarioCargado.obtenerEventos().get(0).getTitulo());
+        assertEquals(1, calendarioCargado.obtenerTareas().size());
+        assertEquals("Tarea1", calendarioCargado.obtenerTareas().get(0).getTitulo());
+    }
+
+
 }
