@@ -54,4 +54,8 @@ public abstract class Actividad implements Serializable {
         return this.descripcion;
     }
 
+    public List<Alarma> getAlarmas(){
+        return alarmas;
+    }
+
 }
