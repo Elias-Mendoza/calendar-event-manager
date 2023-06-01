@@ -1,6 +1,7 @@
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class EventoConFechaYHora extends Evento{
+public class EventoConFechaYHora extends Evento implements Serializable {
 
     //Crea un evento con fecha y hora fija con los datos pasados por parámetro
     public EventoConFechaYHora(String titulo, String descripcion, LocalDateTime inicio, LocalDateTime fin){

@@ -1,7 +1,8 @@
+import java.io.Serializable;
 import java.time.Duration;
 import java.time.LocalDateTime;
 
-public abstract class Evento extends Actividad{
+public abstract class Evento extends Actividad implements Serializable {
     protected LocalDateTime inicio;
     protected LocalDateTime fin;
     protected RepeticionEvento repeticion;

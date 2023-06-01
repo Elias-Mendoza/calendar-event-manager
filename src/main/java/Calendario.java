@@ -3,7 +3,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Calendario {
+public class Calendario implements Serializable {
     private List<Evento> eventos;
     private List<Tarea> tareas;
     public Calendario() {

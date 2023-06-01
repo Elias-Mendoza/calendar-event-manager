@@ -1,7 +1,8 @@
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-public class FrecuenciaMensual extends Frecuencia {
+public class FrecuenciaMensual extends Frecuencia implements Serializable {
     public FrecuenciaMensual() {
     }
 

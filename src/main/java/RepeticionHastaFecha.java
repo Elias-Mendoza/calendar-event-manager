@@ -1,7 +1,8 @@
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-public class RepeticionHastaFecha extends RepeticionEvento {
+public class RepeticionHastaFecha extends RepeticionEvento implements Serializable {
     private int cantidadRepeticiones;
     private LocalDate fechaLimite;
     public RepeticionHastaFecha(Frecuencia frecuencia, LocalDate fechaLimite) {

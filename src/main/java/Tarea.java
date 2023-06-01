@@ -1,6 +1,7 @@
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public abstract class Tarea extends Actividad{
+public abstract class Tarea extends Actividad implements Serializable {
     private boolean estaCompletada;
     public Tarea(String titulo, String descripcion){
         super(titulo, descripcion);

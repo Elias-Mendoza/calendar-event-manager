@@ -1,8 +1,9 @@
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Actividad {
+public abstract class Actividad implements Serializable {
     private String titulo;
     private String descripcion;
     protected List<Alarma> alarmas;

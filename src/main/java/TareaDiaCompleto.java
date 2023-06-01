@@ -1,8 +1,9 @@
+import java.io.Serializable;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-public class TareaDiaCompleto extends Tarea{
+public class TareaDiaCompleto extends Tarea implements Serializable {
     private LocalDate fechaTarea;
 
     public TareaDiaCompleto(String titulo, String descripcion, LocalDate fechaTarea) {

@@ -1,7 +1,8 @@
+import java.io.Serializable;
 import java.time.Duration;
 import java.time.LocalDateTime;
 
-public class TareaConFechaYHoraVencimiento extends Tarea{
+public class TareaConFechaYHoraVencimiento extends Tarea implements Serializable {
     private LocalDateTime fechaYHoraVencimiento;
 
     public TareaConFechaYHoraVencimiento(String titulo, String descripcion, LocalDateTime fechaYHoraVencimiento){
@@ -44,7 +45,7 @@ public class TareaConFechaYHoraVencimiento extends Tarea{
     }
 
     @Override
-    public String tiempoRestanteLegible() {
+    public String tiempoRestanteLegible()  {
         Duration duracionRestante = Duration.between(LocalDateTime.now(), this.fechaYHoraVencimiento);
         long diasRestantes = duracionRestante.toDays();
         long horasRestantes = duracionRestante.toHours() % 24;

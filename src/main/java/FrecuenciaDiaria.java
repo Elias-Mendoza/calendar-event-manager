@@ -1,6 +1,7 @@
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class FrecuenciaDiaria extends Frecuencia {
+public class FrecuenciaDiaria extends Frecuencia implements Serializable {
 
     // Es cada cuantos días se repite el evento
     private final int intervalo;

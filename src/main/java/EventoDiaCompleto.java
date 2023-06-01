@@ -1,7 +1,8 @@
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-public class EventoDiaCompleto extends Evento {
+public class EventoDiaCompleto extends Evento implements Serializable {
 
     //Crea un evento de día completo con los datos pasados por parámetro
     public EventoDiaCompleto(String titulo, String descripcion, LocalDate inicio, LocalDate fin) {

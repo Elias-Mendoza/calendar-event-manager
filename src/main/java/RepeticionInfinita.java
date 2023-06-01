@@ -1,6 +1,7 @@
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class RepeticionInfinita extends RepeticionEvento {
+public class RepeticionInfinita extends RepeticionEvento implements Serializable {
     public RepeticionInfinita(Frecuencia frecuencia) {
         super(frecuencia);
     }

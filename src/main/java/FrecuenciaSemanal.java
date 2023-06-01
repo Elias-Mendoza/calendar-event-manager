@@ -1,9 +1,10 @@
+import java.io.Serializable;
 import java.time.DayOfWeek;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.EnumSet;
 
-public class FrecuenciaSemanal extends Frecuencia {
+public class FrecuenciaSemanal extends Frecuencia implements Serializable {
     EnumSet<DayOfWeek> diasSemana;
 
     public FrecuenciaSemanal(EnumSet<DayOfWeek> diasSemana) {
