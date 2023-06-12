@@ -27,13 +27,18 @@ public class Calendario implements Serializable {
     }
 
     //Se guarda el estado del Calendario
-    public void guardarCalendario(OutputStream os) {
+    public void guardarCalendario(OutputStream os) throws CalendarioNoGuardadoException {
         try (ObjectOutputStream salida = new ObjectOutputStream(os)) {
             salida.writeObject(this);
             System.out.println("Calendario guardado exitosamente.");
             salida.flush();
         } catch (IOException e) {
-            System.out.println("Error al guardar el calendario: " + e.getMessage());
+            throw new CalendarioNoGuardadoException("Error al guardar el calendario: " + e.getMessage());
+        }
+    }
+    static class CalendarioNoGuardadoException extends Exception{
+        public CalendarioNoGuardadoException(String mensaje){
+            super(mensaje);
         }
     }
 
