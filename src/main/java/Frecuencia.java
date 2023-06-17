@@ -1,6 +1,7 @@
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public abstract class Frecuencia {
+public abstract class Frecuencia implements Serializable {
 
     public Frecuencia() {
     }

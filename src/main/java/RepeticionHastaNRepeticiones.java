@@ -1,6 +1,7 @@
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class RepeticionHastaNRepeticiones extends RepeticionEvento {
+public class RepeticionHastaNRepeticiones extends RepeticionEvento implements Serializable {
 
     private int cantidadRepeticiones;
     public RepeticionHastaNRepeticiones(Frecuencia frecuencia, int cantidadRepeticiones) {
