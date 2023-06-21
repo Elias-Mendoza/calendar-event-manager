@@ -22,30 +22,8 @@ import java.util.Locale;
 import java.util.Stack;
 
 public class VistaPrincipal {
-
-    @FXML
-    private Parent rootVistaPrincipal; // El nodo raíz del archivo FXML
-
     private TextField campoEvento;
 
-    @FXML
-    private Label anioActual;
-    @FXML
-    private Label labelMesActual;
-    @FXML
-    private BorderPane panelSuperior;
-    @FXML
-    private VBox vistaPorDia;
-    @FXML
-    private GridPane vistaPorSemana;
-    @FXML
-    private GridPane vistaPorMes;
-    @FXML
-    private Button botonVistaPorDia;
-    @FXML
-    private Button botonVistaPorSemana;
-    @FXML
-    private Button botonVistaPorMes;
     private static Scene escenaPrincipal;
     private Month mesActual;
     private static StackPane vistaCalendario;
@@ -97,6 +75,7 @@ public class VistaPrincipal {
     private Stage escenario;
     private StackPane contenedorVistas;
 
+    /*
     public VistaPrincipal(Stage primaryStage, Calendario calendario) {
         this.escenario = primaryStage;
 
@@ -123,6 +102,8 @@ public class VistaPrincipal {
         }
     }
 
+     */
+
     public void mostrarVista(String fxml) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
@@ -143,14 +124,6 @@ public class VistaPrincipal {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();
     }
-
-    public Button obtenerBoton(String id) {
-        return (Button) rootVistaPrincipal.lookup("#" + id);
-    }
-    public Label obtenerLabel(String id) {
-        return (Label) rootVistaPrincipal.lookup("#" + id);
-    }
-
     // Método para mostrar un nodo en el StackPane
     public static void mostrarNodo(Node nodo) {
         //stackPane.getChildren().clear(); // Limpiar el StackPane
@@ -163,45 +136,10 @@ public class VistaPrincipal {
             nodos.remove(nodos.size() - 1);
         }
     }
-    public void mostrarEvento(Label texto, int fila, int columna) {
-        vistaPorMes.add(texto, fila, columna);
-    }
-
-    public Button getBotonVistaDia() {
-        return botonVistaPorDia;
-    }
-    public Button getBotonVistaSemana(){
-        return botonVistaPorSemana;
-    }
-    public Button getBotonVistaMes() {
-        return botonVistaPorMes;
-    }
-    public VBox getVistaPorDia(){
-        return vistaPorDia;
-    }
-    public GridPane getVistaPorSemana(){
-        return vistaPorSemana;
-    }
-    public GridPane getVistaPorMes(){
-        return vistaPorMes;
-    }
     public Month getMesActual(){
         return mesActual;
     }
-    public void setNombreMes(Label mes) {
-        obtenerLabel("mesActual").setText(mes.getText());
-    }
-
-    public void setLabelMesActual(Month mesSiguiente) {
-        String nombreMes = mesSiguiente.getDisplayName(TextStyle.FULL, new Locale("es", "ES")).toUpperCase();
-        Label labelMesActual = obtenerLabel("mesActual");
-        labelMesActual.setText(nombreMes);
-    }
-
     public void setMesActual(Month mesSiguiente) {
         mesActual = mesSiguiente;
-    }
-    public Scene getEscena(){
-        return escenaPrincipal;
     }
 }
