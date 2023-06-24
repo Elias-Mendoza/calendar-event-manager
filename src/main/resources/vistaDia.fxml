@@ -43,7 +43,7 @@
             <Button fx:id="botonAnteriorVistaDia" mnemonicParsing="false" text="Anterior" BorderPane.alignment="CENTER" />
          </left>
          <center>
-            <Label fx:id="labelMesActualVistaDia" BorderPane.alignment="CENTER">
+            <Label fx:id="labelDiaYMesActualVistaDia" BorderPane.alignment="CENTER">
                <font>
                   <Font size="36.0" />
                </font>

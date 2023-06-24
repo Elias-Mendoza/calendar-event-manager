@@ -1,3 +1,4 @@
+import javafx.scene.Node;
 import javafx.scene.Parent;
 
 import java.awt.*;
@@ -9,35 +10,15 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
 public abstract class Vista {
-
     private LocalDate fechaActual;
-    private int anioActual;
-    private Month mesActual;
-    private int diaActual;
     private Parent rootVista;
-
-    public int getAnioActual(){
-        return anioActual;
-    }
-    public void setAnioActual(int anio){
-        anioActual = anio;
-    }
-    public Month getMesActual(){
-        return mesActual;
-    }
-    public void setMesActual(Month mes){
-        mesActual = mes;
-    }
-    public int getDiaActual(){
-        return diaActual;
-    }
-    public void setDiaActual(int dia){
-        diaActual = dia;
-    }
     public Button obtenerBoton(String id) {
         return (Button) rootVista.lookup("#" + id);
     }
-    public Label obtenerLabel(String id) {
-        return (Label) rootVista.lookup("#" + id);
+    public Node getRoot() {
+        return rootVista;
+    }
+    protected void setRoot(Parent rootVista) {
+        this.rootVista = rootVista;
     }
 }

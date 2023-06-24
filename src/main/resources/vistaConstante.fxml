@@ -19,9 +19,9 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Button fx:id="botonVistaPorDia" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" text="DIA" onAction="#mostrarVistaDia" />
-            <Button fx:id="botonVistaPorSemana" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" text="SEMANA" GridPane.rowIndex="1" onAction="#mostrarVistaSemana" />
-            <Button fx:id="botonVistaPorMes" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" text="MES" GridPane.rowIndex="2" onAction="#mostrarVistaMes" />
+            <Button fx:id="botonVistaPorDia" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" text="DIA" />
+            <Button fx:id="botonVistaPorSemana" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" text="SEMANA" GridPane.rowIndex="1" />
+            <Button fx:id="botonVistaPorMes" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" text="MES" GridPane.rowIndex="2"  />
          </children>
       </GridPane>
       <StackPane fx:id="contenedorVistas" layoutX="150.0" prefHeight="720.0" prefWidth="1130.0" />

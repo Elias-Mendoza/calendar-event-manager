@@ -22,12 +22,6 @@ import java.util.Locale;
 import java.util.Stack;
 
 public class VistaPrincipal {
-    private TextField campoEvento;
-
-    private static Scene escenaPrincipal;
-    private Month mesActual;
-    private static StackPane vistaCalendario;
-
 
     /*public VistaPrincipal(Stage escenario, Calendario calendario) {
         try {
@@ -72,10 +66,22 @@ public class VistaPrincipal {
             e.printStackTrace();
         }
     }*/
-    private Stage escenario;
-    private StackPane contenedorVistas;
 
-    /*
+
+    private static Scene escenaPrincipal;
+    private Stage escenario;
+    @FXML
+    private Parent rootVistaPrincipal;
+    @FXML
+    private Button botonVistaPorDia;
+    @FXML
+    private Button botonVistaPorSemana;
+    @FXML
+    private Button botonVistaPorMes;
+    @FXML
+    private StackPane contenedorVistas;
+    private VistaMes vistaMes;
+
     public VistaPrincipal(Stage primaryStage, Calendario calendario) {
         this.escenario = primaryStage;
 
@@ -85,24 +91,51 @@ public class VistaPrincipal {
             rootVistaPrincipal = root;
 
             // Obtener referencias a los elementos de la vista
-            labelMesActual = (Label) loader.getNamespace().get("mesActual");
+            botonVistaPorDia = (Button) loader.getNamespace().get("botonVistaPorDia");
+            botonVistaPorSemana = (Button) loader.getNamespace().get("botonVistaPorSemana");
+            botonVistaPorMes = (Button) loader.getNamespace().get("botonVistaPorMes");
             contenedorVistas = (StackPane) loader.getNamespace().get("contenedorVistas");
-            Button botonVistaPorDia = (Button) loader.getNamespace().get("botonVistaPorDia");
-            Button botonVistaPorSemana = (Button) loader.getNamespace().get("botonVistaPorSemana");
-            Button botonVistaPorMes = (Button) loader.getNamespace().get("botonVistaPorMes");
-
 
             Scene scene = new Scene(root);
             escenario.setScene(scene);
-            escenario.setTitle("Vista Principal");
+            escenario.setTitle("Calendario");
             escenario.setResizable(false);
-            escenario.show();
+        //    escenario.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+    public void mostrarVista(){
+        escenario.show();
+    }
+    /*
+    public void cambiarVista(String fxml) {
+        // Lógica para mostrar la vista correspondiente en el contenedor de vistas
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxml));
+            Parent vista = fxmlLoader.load();
+//            controladorMes = fxmlLoader.getController();
+            contenedorVistas.getChildren().clear();
+            contenedorVistas.getChildren().add(vista);
+//            contenedorVistas.getChildren().setAll(vista);
 
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
      */
+    public void cambiarVista(Vista vista) {
+        // Lógica para mostrar la vista correspondiente en el contenedor de vistas
+            contenedorVistas.getChildren().clear();
+            contenedorVistas.getChildren().add(vista.getRoot());
+    }
+    public void setVistas(VistaMes vistaMes){
+        this.vistaMes = vistaMes;
+    }
+
+    public Button obtenerBoton(String id) {
+        return (Button) rootVistaPrincipal.lookup("#" + id);
+    }
 
     public void mostrarVista(String fxml) {
         try {
@@ -123,23 +156,5 @@ public class VistaPrincipal {
     private static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();
-    }
-    // Método para mostrar un nodo en el StackPane
-    public static void mostrarNodo(Node nodo) {
-        //stackPane.getChildren().clear(); // Limpiar el StackPane
-        removerUltimoNodo(vistaCalendario);
-        vistaCalendario.getChildren().add(nodo); // Agregar el nodo al StackPane
-    }
-    public static void removerUltimoNodo(StackPane stackPane) {
-        ObservableList<Node> nodos = stackPane.getChildren();
-        if (!nodos.isEmpty()) {
-            nodos.remove(nodos.size() - 1);
-        }
-    }
-    public Month getMesActual(){
-        return mesActual;
-    }
-    public void setMesActual(Month mesSiguiente) {
-        mesActual = mesSiguiente;
     }
 }

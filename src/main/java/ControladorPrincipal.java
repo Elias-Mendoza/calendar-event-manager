@@ -18,62 +18,53 @@ import java.util.Locale;
 import java.time.Month;
 
 public class ControladorPrincipal {
-    @FXML
-    private Button botonVistaPorDia;
-    @FXML
-    private Button botonVistaPorSemana;
-    @FXML
-    private Button botonVistaPorMes;
-    @FXML
-    private Pane rootVistaPrincipal;
-    @FXML
-    private StackPane contenedorVistas;
     private Calendario calendario;
-    private VistaPrincipal vista;
-
+    private VistaPrincipal vistaPrincipal;
+    private VistaDia vistaDia;
+    private VistaSemana vistaSemana;
+    private VistaMes vistaMes;
     private ControladorDia controladorDia;
     private ControladorSemana controladorSemana;
     private ControladorMes controladorMes;
 
     public ControladorPrincipal() {
-
     }
-    public void setControladores(ControladorDia cv2, ControladorSemana cv3, ControladorMes cv4) {
-        controladorDia = cv2;
-        controladorSemana = cv3;
-        controladorMes = cv4;
+    public ControladorPrincipal(Calendario calendario, VistaPrincipal vistaPrincipal) {
+        this.calendario = calendario;
+        this.vistaPrincipal = vistaPrincipal;
+    }
+    public void setControladores(ControladorDia controladorDia, ControladorSemana controladorSemana, ControladorMes controladorMes) {
+        this.controladorDia = controladorDia;
+        this.controladorSemana = controladorSemana;
+        this.controladorMes = controladorMes;
+    }
+    public void setVistas(VistaDia vistaDia, VistaSemana vistaSemana, VistaMes vistaMes){
+        this.vistaDia = vistaDia;
+        this.vistaSemana = vistaSemana;
+        this.vistaMes = vistaMes;
     }
 
     public void iniciar() {
-        /*
-        obtenerBoton("botonVistaPorDia").setOnAction(event -> mostrarVista("vistaDia.fxml"));
-        obtenerBoton("botonVistaPorSemana").setOnAction(event -> mostrarVista("vistaSemana.fxml"));
-        obtenerBoton("botonVistaPorMes").setOnAction(event -> mostrarVista("vistaMes.fxml"));
-         */
-
-    }
-    private Button obtenerBoton(String id) {
-        return (Button) rootVistaPrincipal.lookup("#" + id);
-    }
-    private void mostrarVista(String fxml) {
-        // Lógica para mostrar la vista correspondiente en el contenedor de vistas
-        try {
-
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxml));
-            Parent vista = fxmlLoader.load();
-            controladorMes = fxmlLoader.getController();
-            contenedorVistas.getChildren().setAll(vista);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        vistaPrincipal.obtenerBoton("botonVistaPorDia").setOnAction(event -> cambiarVistaADia());
+        vistaPrincipal.obtenerBoton("botonVistaPorSemana").setOnAction(event -> cambiarVistaASemana());
+        vistaPrincipal.obtenerBoton("botonVistaPorMes").setOnAction(event -> cambiarVistaAMes());
     }
 
-    public ControladorPrincipal(Calendario calendario, VistaPrincipal vista) {
-        this.calendario = calendario;
-        this.vista = vista;
+    private void cambiarVistaADia() {
+        vistaPrincipal.cambiarVista(vistaDia);
+        controladorDia.iniciar();
+    }
+    public void cambiarVistaASemana(){
+        vistaPrincipal.cambiarVista(vistaSemana);
+        controladorSemana.iniciar();
+    }
+    public void cambiarVistaAMes(){
+        vistaPrincipal.cambiarVista(vistaMes);
+        controladorMes.iniciar();
     }
 
+
+/*
     public void mostrarVistaDia(ActionEvent event) throws IOException {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("vistaDia.fxml"));
@@ -109,7 +100,7 @@ public class ControladorPrincipal {
             e.printStackTrace();
         }
     }
-
+*/
 
     private void retrocederMes(){
 

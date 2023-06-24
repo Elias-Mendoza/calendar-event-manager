@@ -27,37 +27,31 @@ public class App extends Application {
    }*/
     @Override
     public void start(Stage primaryStage) throws Exception {
-        // Cargar FXML de la vista fija
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("vistaConstante.fxml"));
-        Parent vistaFija = fxmlLoader.load();
+        Calendario calendario = new Calendario();
+        //CARGAMOS EL MODELO
+        InputStream is = new FileInputStream("calendario.dat");
+        calendario = Calendario.cargarCalendario(is);
+        //FIN CARGAR EL MODELO
 
-        // Obtener el controlador de la vista fija
-        ControladorPrincipal controladorPrincipal = fxmlLoader.getController();
+        //CARGAMOS LA VISTA
+        VistaPrincipal vistaPrincipal = new VistaPrincipal(primaryStage, calendario);
+        VistaDia vistaDia = new VistaDia(primaryStage, calendario);
+        VistaSemana vistaSemana = new VistaSemana(primaryStage, calendario);
+        VistaMes vistaMes = new VistaMes(primaryStage, calendario);
 
-        // Crear una escena con la vista fija y mostrarla en la ventana principal
-        Scene scene = new Scene(vistaFija);
-        primaryStage.setScene(scene);
-        primaryStage.show();
+        //CARGAMOS EL CONTROLADOR
+        ControladorPrincipal controladorPrincipal = new ControladorPrincipal(calendario, vistaPrincipal);
+        ControladorDia controladorDia = new ControladorDia(calendario, vistaDia);
+        ControladorSemana controladorSemana = new ControladorSemana(calendario, vistaSemana);
+        ControladorMes controladorMes = new ControladorMes(calendario, vistaMes);
 
-        // Cargar FXML de las otras vistas
-        FXMLLoader fxmlLoader2 = new FXMLLoader(getClass().getResource("vistaDia.fxml"));
-        Parent vistaDia = fxmlLoader2.load();
-        FXMLLoader fxmlLoader3 = new FXMLLoader(getClass().getResource("vistaSemana.fxml"));
-        Parent vistaSemana = fxmlLoader3.load();
-        FXMLLoader fxmlLoader4 = new FXMLLoader(getClass().getResource("vistaMes.fxml"));
-        Parent vistaMes = fxmlLoader4.load();
-
-        // Crear instancias de los otros controladores
-        ControladorDia controladorDia = new ControladorDia();
-        ControladorSemana controladorSemana = new ControladorSemana();
-        ControladorMes controladorMes = new ControladorMes();
-
-        // Pasar las referencias a los otros controladores al controlador de la vista fija
+        controladorPrincipal.setVistas(vistaDia, vistaSemana, vistaMes);
         controladorPrincipal.setControladores(controladorDia, controladorSemana, controladorMes);
 
-        // Inicializar el controlador principal
+        vistaPrincipal.mostrarVista();
+        vistaPrincipal.cambiarVista(vistaMes);
         controladorPrincipal.iniciar();
-        controladorDia.iniciar();
+        controladorMes.iniciar();
 
     }
 
