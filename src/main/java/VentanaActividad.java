@@ -10,15 +10,6 @@ import java.util.List;
 
 public class VentanaActividad extends Stage {
     public VentanaActividad(List<Evento> eventos, List<Tarea> tareas) {
-        /*
-        // Crear el contenido de la ventana secundaria
-        StackPane root = new StackPane();
-        root.getChildren().add(new Label("¡Ventana de actividades!"));
-
-        // Crear la escena y establecerla en la ventana
-        Scene scene = new Scene(root, 200, 200);
-        setScene(scene);
-         */
 
         VBox root = new VBox();
         root.setStyle("-fx-border-color: black; -fx-border-width: 1px;");
