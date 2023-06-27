@@ -7,9 +7,13 @@
     <list default="true" id="45f3f758-b802-4de9-937c-f1bb85aeb606" name="Changes" comment=".">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/calendario.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Calendario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Calendario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ControladorDia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControladorDia.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ControladorMes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControladorMes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Evento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Evento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ControladorSemana.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControladorSemana.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/VentanaActividad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VentanaActividad.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/VistaDia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VistaDia.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/vistaDia.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vistaDia.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/vistaSemana.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vistaSemana.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,6 +70,7 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
@@ -157,7 +162,7 @@
       <workItem from="1684511779275" duration="26848000" />
       <workItem from="1687380811419" duration="227000" />
       <workItem from="1687532715281" duration="3680000" />
-      <workItem from="1687578347284" duration="98043000" />
+      <workItem from="1687578347284" duration="108422000" />
     </task>
     <task id="LOCAL-00001" summary="Se agregan las clases que tenía hasta el momento.">
       <created>1682779312021</created>
@@ -313,7 +318,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687848551515</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary=".">
+      <created>1687892744242</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1687892744242</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

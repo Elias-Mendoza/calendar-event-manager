@@ -1,10 +1,12 @@
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
@@ -14,6 +16,8 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.Month;
 import java.time.format.TextStyle;
+import java.util.Calendar;
+import java.util.List;
 import java.util.Locale;
 
 public class VistaDia extends Vista{
@@ -29,6 +33,8 @@ public class VistaDia extends Vista{
     private Label labelAnioActualVistaDia;
     @FXML
     private VBox vistaPorDia;
+    @FXML
+    private GridPane numerosDiasVistaDia;
     private Stage escenario;
 
     public VistaDia(Stage primaryStage, Calendario calendario) {
@@ -45,6 +51,8 @@ public class VistaDia extends Vista{
             botonSiguienteVistaDia = (Button) loader.getNamespace().get("botonAnteriorVistaDia");
             botonSiguienteVistaDia = (Button) loader.getNamespace().get("botonSiguienteVistaDia");
             vistaPorDia = (VBox) loader.getNamespace().get("vistaPorDia");
+            numerosDiasVistaDia = (GridPane) loader.getNamespace().get("numerosDiasVistaDia");
+
 
             System.out.println("ESTE ES EL CONSTRUCTOR DE VISTAMES");
 
@@ -71,4 +79,36 @@ public class VistaDia extends Vista{
     public void mostrarAnio(int year) {
         labelAnioActualVistaDia.setText(String.valueOf(year));
     }
+
+    public GridPane getNumerosDiasVistaDia() {
+        return numerosDiasVistaDia;
+    }
+
+    public void mostrarActividadesEnVistaDia(List<Evento> eventos, List<Tarea> tareas) {
+        System.out.println("SE ENTRO AL METODO MOSTRARACTIVIDADESENVISTADIA");
+        vistaPorDia.setStyle("-fx-border-color: black; -fx-border-width: 1px;");
+        vistaPorDia.setPadding(new Insets(10));
+        for(Evento evento : eventos){
+            vistaPorDia.getChildren().add(crearPanelConBordes("Evento:\n" + "Titulo: "+evento.getTitulo() +"\n"+"Descripcion: "+evento.getDescripcion()
+                    + "\n" +"Inicio: " + evento.getInicio() + "\n" + "Fin: " + evento.getFin()));
+        }
+        for(Tarea tarea: tareas){
+            vistaPorDia.getChildren().add(crearPanelConBordes("Tarea: \n" +"Titulo: " +tarea.getTitulo() +"\n"+"Descripcion: "+ tarea.getDescripcion() + "\n" +
+                    "Fecha de vencimiento: " + tarea.getFechaTarea() + "\n" + "Completada: " + tarea.getEstaCompletada() ));
+        }
+    }
+    private BorderPane crearPanelConBordes(String content) {
+        BorderPane borderPane = new BorderPane();
+        borderPane.setStyle("-fx-border-color: black; -fx-border-width: 1px;");
+
+        Label label = new Label(content);
+        borderPane.setCenter(label);
+
+        return borderPane;
+    }
+
+    public VBox getVistaPorDia() {
+        return vistaPorDia;
+    }
+
 }

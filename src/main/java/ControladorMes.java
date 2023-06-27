@@ -39,6 +39,7 @@ public class ControladorMes {
         mostrarNumerosDelMes(vistaMes.getVistaPorMes());
     }
     private void mostrarNumerosDelMes(GridPane vistaPorMes){
+        vistaMes.getNumerosDiasVistaMes().getChildren().clear();
         actualizarNumerosDelMes();
     }
 
@@ -61,8 +62,6 @@ public class ControladorMes {
                     comienzo -= 1;
                 } else if (numero <= fechaActual.lengthOfMonth()) {
 
-
-                    // Codigo a agregar
                     List<Evento> eventos;
                     List<Tarea> tareas;
                     if(calendario.hayActividadesEnFecha(fechaCelda)){
@@ -80,31 +79,6 @@ public class ControladorMes {
                             VentanaActividad ventanaActividad = new VentanaActividad(eventos, tareas);
                             ventanaActividad.show();
                         });
-
-                    /*
-                    // Codigo a agregar
-                    List<Evento> eventos;
-                    List<Tarea> tareas = new ArrayList<>();
-                    if(calendario.hayActividadesEnFecha(fechaCelda)){
-                        Button botonActividad = new Button("HAY ACTIVIDADES");
-                        vistaMes.getNumerosDiasVistaMes().add(botonActividad, j, i);
-                        GridPane.setValignment(botonActividad, VPos.CENTER);
-                        GridPane.setHalignment(botonActividad, HPos.CENTER);
-                        eventos = calendario.obtenerEventosEnFecha(fechaCelda);
-                        System.out.println("Fecha celda actual: " + fechaCelda);
-                        System.out.println("Hay actividad?: " + calendario.hayActividadesEnFecha(fechaCelda));
-                        System.out.println("Evento en fecha: " + eventos.get(0));
-                        //tareas = calendario.obtenerTareasEnFecha(fechaCelda);
-
-                        botonActividad.setOnAction(event -> {
-                            VentanaActividad ventanaActividad = new VentanaActividad(eventos, tareas);
-                            ventanaActividad.show();
-                        });
-                    }
-                    */
-
-
-                        //botonActividad.setOnAction(event -> agregarActividad());
                     }
                     Label labelNumeroMes = new Label(String.valueOf(numero));
                     //vistaMes.getNumerosDiasVistaMes().add(new Label(String.valueOf(numero)), j, i);

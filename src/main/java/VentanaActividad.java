@@ -21,7 +21,6 @@ public class VentanaActividad extends Stage {
         for(int i=0; i< tareas.size(); i++){
             root.getChildren().add(crearPanelConBordes("Tarea: \n" +"Titulo: " +tareas.get(i).getTitulo() +"\n"+"Descripcion: "+ tareas.get(i).getDescripcion() + "\n" +
                     "Fecha de vencimiento: " + tareas.get(i).getFechaTarea() + "\n" + "Completada: " + tareas.get(i).getEstaCompletada() ));
-
         }
         Scene scene = new Scene(root, 300, 400);
         setScene(scene);

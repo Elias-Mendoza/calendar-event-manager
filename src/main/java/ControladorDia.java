@@ -1,10 +1,18 @@
 import javafx.fxml.FXML;
+import javafx.geometry.HPos;
+import javafx.geometry.Pos;
+import javafx.geometry.VPos;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.GridPane;
 
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.format.TextStyle;
+import java.time.temporal.TemporalAdjusters;
+import java.time.temporal.WeekFields;
+import java.util.List;
 import java.util.Locale;
 
 public class ControladorDia{
@@ -22,13 +30,83 @@ public class ControladorDia{
     public void iniciar() {
         vistaDia.obtenerBoton("botonSiguienteVistaDia").setOnAction(event -> plusDias(1));
         vistaDia.obtenerBoton("botonAnteriorVistaDia").setOnAction(event -> plusDias(-1));
+        mostrarNumerosDeLaSemana();
+    }
+    private void mostrarNumerosDeLaSemana(){
+        vistaDia.getVistaPorDia().getChildren().clear();
+        actualizarNumerosDeLaSemana();
+        mostrarActividadesEnVistaDia();
     }
     private void plusDias(int cantidadDias) {
+        vistaDia.getVistaPorDia().getChildren().clear();
         fechaActual = fechaActual.plusDays(cantidadDias);
         int numeroDia = fechaActual.getDayOfMonth();
         String mes = fechaActual.getMonth().getDisplayName(TextStyle.FULL, new Locale("es", "ES")).toUpperCase();
         vistaDia.mostrarAnio(fechaActual.getYear());
         vistaDia.mostrarDiaYMes(numeroDia, mes);
+        actualizarNumerosDeLaSemana();
+        mostrarActividadesEnVistaDia();
+    }
+    private void actualizarNumerosDeLaSemana2() {
+        vistaDia.getNumerosDiasVistaDia().getChildren().clear();
+        DayOfWeek primerDiaSemana = DayOfWeek.SUNDAY; // Establecer el primer día de la semana (por ejemplo, Domingo)
+        LocalDate fechaCelda = fechaActual.with(TemporalAdjusters.previousOrSame(primerDiaSemana));
+        int numeroDia = obtenerPrimerDiaSemanaActual(); // Obtener el primer día de la semana
+        for (int i = 0; i < 7; i++) {
+            Label numero = new Label(String.valueOf(numeroDia));
+            if(fechaCelda.isEqual(fechaActual)){
+                numero.setStyle("-fx-border-color: blue; -fx-border-width: 2px; -fx-border-radius: 5px;");
+            }
+            vistaDia.getNumerosDiasVistaDia().add(numero, i, 0);
+
+            numeroDia++;
+            if (numeroDia > fechaActual.lengthOfMonth()) {
+                numeroDia = 1; // Reiniciar el número del día si supera la longitud del mes actual
+            }
+            fechaCelda = fechaCelda.plusDays(1);
+
+
+            List<Evento> eventos;
+            List<Tarea> tareas;
+            if(calendario.hayActividadesEnFecha(fechaCelda)){
+                eventos = calendario.obtenerEventosEnFecha(fechaCelda);
+                tareas = calendario.obtenerTareasEnFecha(fechaCelda);
+                vistaDia.mostrarActividadesEnVistaDia(eventos, tareas);
+            }
+        }
+    }
+    private void actualizarNumerosDeLaSemana() {
+        vistaDia.getNumerosDiasVistaDia().getChildren().clear();
+        DayOfWeek primerDiaSemana = DayOfWeek.SUNDAY; // Establecer el primer día de la semana (por ejemplo, Domingo)
+        LocalDate fechaCelda = fechaActual.with(TemporalAdjusters.previousOrSame(primerDiaSemana));
+
+        for (int i = 0; i < 7; i++) {
+            int numeroDia = fechaCelda.getDayOfMonth();
+            Label numero = new Label(String.valueOf(numeroDia));
+
+            if(fechaCelda.isEqual(LocalDate.now())){
+                numero.setStyle("-fx-border-color: red; -fx-border-width: 3px; -fx-border-radius: 5px; -fx-padding: 3px;");
+            }
+            if (fechaCelda.isEqual(fechaActual)) {
+                numero.setStyle("-fx-border-color: blue; -fx-border-width: 3px; -fx-border-radius: 5px; -fx-padding: 1px;");
+            }
+            vistaDia.getNumerosDiasVistaDia().add(numero, i, 0);
+            fechaCelda = fechaCelda.plusDays(1);
+        }
+    }
+    private int obtenerPrimerDiaSemanaActual() {
+        DayOfWeek primerDiaSemana = WeekFields.of(Locale.getDefault()).getFirstDayOfWeek();
+        int primerDiaSemanaActual = fechaActual.with(TemporalAdjusters.previousOrSame(primerDiaSemana)).getDayOfMonth();
+        return primerDiaSemanaActual;
+    }
+    private void mostrarActividadesEnVistaDia(){
+        List<Evento> eventos;
+        List<Tarea> tareas;
+        if(calendario.hayActividadesEnFecha(fechaActual)){
+            eventos = calendario.obtenerEventosEnFecha(fechaActual);
+            tareas = calendario.obtenerTareasEnFecha(fechaActual);
+            vistaDia.mostrarActividadesEnVistaDia(eventos, tareas);
+        }
     }
 
 }
