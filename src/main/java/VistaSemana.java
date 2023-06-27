@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.Month;
 import java.time.format.TextStyle;
+import java.util.Calendar;
 import java.util.Locale;
 
 public class VistaSemana extends Vista{
@@ -26,6 +27,8 @@ public class VistaSemana extends Vista{
     private Label labelAnioActualVistaSemana;
     @FXML
     private GridPane vistaPorSemana;
+    @FXML
+    private GridPane numerosDiasVistaSemana;
     private Stage escenario;
 
     public VistaSemana(Stage primaryStage, Calendario calendario) {
@@ -42,6 +45,7 @@ public class VistaSemana extends Vista{
             botonSiguienteVistaSemana = (Button) loader.getNamespace().get("botonAnteriorVistaSemana");
             botonSiguienteVistaSemana = (Button) loader.getNamespace().get("botonSiguienteVistaSemana");
             vistaPorSemana = (GridPane) loader.getNamespace().get("vistaPorSemana");
+            numerosDiasVistaSemana = (GridPane) loader.getNamespace().get("numerosDiasVistaSemana");
 
             System.out.println("ESTE ES EL CONSTRUCTOR DE VISTA SEMANA");
 
@@ -63,5 +67,21 @@ public class VistaSemana extends Vista{
     }
     public void mostrarAnioActual(int anio){
         labelAnioActualVistaSemana.setText(String.valueOf(anio));
+    }
+
+    public GridPane getNumerosDiasVistaSemana() {
+        return numerosDiasVistaSemana;
+    }
+
+    public GridPane getVistaPorSemana() {
+        return vistaPorSemana;
+    }
+
+    public void mostrarAnio(int year) {
+        labelAnioActualVistaSemana.setText(String.valueOf(year));
+    }
+
+    public void mostrarMes(String mes) {
+        labelMesActualVistaSemana.setText(mes);
     }
 }

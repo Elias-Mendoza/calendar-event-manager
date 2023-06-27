@@ -6,8 +6,8 @@ import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
@@ -48,6 +48,24 @@ public class ControladorPrincipal {
         vistaPrincipal.obtenerBoton("botonVistaPorDia").setOnAction(event -> cambiarVistaADia());
         vistaPrincipal.obtenerBoton("botonVistaPorSemana").setOnAction(event -> cambiarVistaASemana());
         vistaPrincipal.obtenerBoton("botonVistaPorMes").setOnAction(event -> cambiarVistaAMes());
+        //vistaPrincipal.obtenerBoton("botonAgregarEvento").setOnAction(event -> vistaPrincipal.abrirVentanaAgregarEvento() );
+        vistaPrincipal.obtenerBoton("botonAgregarEvento").setOnAction(event -> abrirVentanaAgregarEvento() );
+        //vistaPrincipal.obtenerBoton("botonAgregarTarea").setOnAction(event -> vistaPrincipal.abrirVentanaAgregarTarea() );
+        vistaPrincipal.obtenerBoton("botonAgregarTarea").setOnAction(event -> abrirVentanaAgregarTarea() );
+    }
+
+    private void abrirVentanaAgregarEvento(){
+        VentanaAgregarEvento ventanaAgregarEvento = new VentanaAgregarEvento(calendario);
+        ControladorVentanaAgregarEvento controladorVentanaAgregarEvento = new ControladorVentanaAgregarEvento(calendario, ventanaAgregarEvento);
+        //ventanaAgregarEvento.mostrarVista();
+        controladorVentanaAgregarEvento.iniciar();
+    }
+    private void abrirVentanaAgregarTarea(){
+        VentanaAgregarTarea ventanaAgregarTarea = new VentanaAgregarTarea(calendario);
+    }
+
+    private void agregarTarea(){
+
     }
 
     private void cambiarVistaADia() {
@@ -102,7 +120,4 @@ public class ControladorPrincipal {
     }
 */
 
-    private void retrocederMes(){
-
-    }
 }

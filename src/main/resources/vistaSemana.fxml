@@ -33,7 +33,7 @@
             </Label>
          </top>
       </BorderPane>
-      <GridPane fx:id="vistaPorSemana" gridLinesVisible="true" layoutY="89.0" prefHeight="632.0" prefWidth="912.0">
+      <GridPane fx:id="vistaPorSemana" gridLinesVisible="true" layoutY="113.0" prefHeight="605.0" prefWidth="912.0">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -46,9 +46,6 @@
          <rowConstraints>
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
-         <children>
-            <Label text="VISTA SEMANA" GridPane.columnIndex="3" />
-         </children>
       </GridPane>
       <GridPane gridLinesVisible="true" layoutY="66.0" prefHeight="23.0" prefWidth="912.0">
          <columnConstraints>
@@ -73,6 +70,28 @@
             <Label text="            Domingo" />
          </children>
       </GridPane>
+      <GridPane fx:id="numerosDiasVistaSemana" gridLinesVisible="true" layoutY="90.0" prefHeight="23.0" prefWidth="912.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Label GridPane.columnIndex="1" />
+            <Label GridPane.columnIndex="2" />
+            <Label alignment="TOP_CENTER" GridPane.columnIndex="3" />
+            <Label GridPane.columnIndex="4" />
+            <Label GridPane.columnIndex="5" />
+            <Label GridPane.columnIndex="6" />
+            <Label />
+         </children>
+      </GridPane>
    </children>
 </Pane>
-

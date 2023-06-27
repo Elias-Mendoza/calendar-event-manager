@@ -1,5 +1,6 @@
 import java.io.Serializable;
 import java.time.Duration;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class TareaConFechaYHoraVencimiento extends Tarea implements Serializable {
@@ -63,6 +64,10 @@ public class TareaConFechaYHoraVencimiento extends Tarea implements Serializable
         System.out.println("Tipo de tarea: CON FECHA Y HORA DE VENCIMIENTO");
         System.out.println("Fecha y hora de vencimiento: " + getFechaYHoraVencimiento() );
         System.out.println("Tiempo restante: " + tiempoRestanteLegible());
+    }
+    @Override
+    public LocalDate getFechaTarea(){
+        return this.fechaYHoraVencimiento.toLocalDate();
     }
 
 }

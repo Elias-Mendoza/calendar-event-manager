@@ -4,21 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45f3f758-b802-4de9-937c-f1bb85aeb606" name="Changes" comment="Se encara el problema de otra forma al implementar la interfaz gráfica con un 4 archivos fxml con 4 controladores y 4 vistas">
+    <list default="true" id="45f3f758-b802-4de9-937c-f1bb85aeb606" name="Changes" comment="Se pasan todas las variables @FXML a las clases Vista, se asignan las acciones en los cambios de Vista">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_18_2023_8_27_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_18_2023_8_27_PM__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/calendario.dat" beforeDir="false" afterPath="$PROJECT_DIR$/calendario.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ControladorDia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControladorDia.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ControladorMes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControladorMes.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ControladorPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControladorPrincipal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ControladorSemana.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControladorSemana.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Tarea.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tarea.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TareaConFechaYHoraVencimiento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TareaConFechaYHoraVencimiento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TareaDiaCompleto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TareaDiaCompleto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Vista.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Vista.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VistaDia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VistaDia.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VistaMes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VistaMes.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/VistaPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VistaPrincipal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/VistaSemana.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VistaSemana.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/vistaConstante.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vistaConstante.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/vistaDia.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vistaDia.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/vistaMes.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vistaMes.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/vistaSemana.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vistaSemana.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +81,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.grazie",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -166,7 +169,7 @@
       <workItem from="1684511779275" duration="26848000" />
       <workItem from="1687380811419" duration="227000" />
       <workItem from="1687532715281" duration="3680000" />
-      <workItem from="1687578347284" duration="22449000" />
+      <workItem from="1687578347284" duration="81405000" />
     </task>
     <task id="LOCAL-00001" summary="Se agregan las clases que tenía hasta el momento.">
       <created>1682779312021</created>
@@ -294,7 +297,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687381028236</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Se pasan todas las variables @FXML a las clases Vista, se asignan las acciones en los cambios de Vista">
+      <created>1687623504033</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1687623504033</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -342,7 +352,8 @@
     <MESSAGE value="Se agregan los métodos para serializar y deseralizar el Calendario." />
     <MESSAGE value="Se trata de implementar la interfaz gráfica con un solo fxml, una sola vista y un solo controlador" />
     <MESSAGE value="Se encara el problema de otra forma al implementar la interfaz gráfica con un 4 archivos fxml con 4 controladores y 4 vistas" />
-    <option name="LAST_COMMIT_MESSAGE" value="Se encara el problema de otra forma al implementar la interfaz gráfica con un 4 archivos fxml con 4 controladores y 4 vistas" />
+    <MESSAGE value="Se pasan todas las variables @FXML a las clases Vista, se asignan las acciones en los cambios de Vista" />
+    <option name="LAST_COMMIT_MESSAGE" value="Se pasan todas las variables @FXML a las clases Vista, se asignan las acciones en los cambios de Vista" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/TP_Algo3$TareaConFechaYHoraVencimientoTest.ic" NAME="TareaConFechaYHoraVencimientoTest Coverage Results" MODIFIED="1682971474552" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

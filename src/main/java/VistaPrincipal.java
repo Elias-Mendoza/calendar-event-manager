@@ -7,19 +7,26 @@ import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.Month;
 import java.time.format.TextStyle;
 import java.util.Locale;
+import java.util.Optional;
 import java.util.Stack;
+
+import jfxtras.internal.scene.control.skin.LocalTimePickerSkin;
+import jfxtras.scene.control.LocalDateTimeTextField;
+import jfxtras.scene.control.LocalTimePicker;
+import javafx.scene.control.Spinner;
+import javafx.scene.control.SpinnerValueFactory;
+import jfxtras.scene.control.builders.LocalTimePickerBuilder;
 
 public class VistaPrincipal {
 
@@ -70,6 +77,7 @@ public class VistaPrincipal {
 
     private static Scene escenaPrincipal;
     private Stage escenario;
+    private Calendario calendario;
     @FXML
     private Parent rootVistaPrincipal;
     @FXML
@@ -80,10 +88,15 @@ public class VistaPrincipal {
     private Button botonVistaPorMes;
     @FXML
     private StackPane contenedorVistas;
+    @FXML
+    private Button botonAgregarEvento;
+    @FXML
+    private Button botonAgregarTarea;
     private VistaMes vistaMes;
 
     public VistaPrincipal(Stage primaryStage, Calendario calendario) {
         this.escenario = primaryStage;
+        this.calendario = calendario;
 
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("vistaConstante.fxml"));
@@ -95,6 +108,8 @@ public class VistaPrincipal {
             botonVistaPorSemana = (Button) loader.getNamespace().get("botonVistaPorSemana");
             botonVistaPorMes = (Button) loader.getNamespace().get("botonVistaPorMes");
             contenedorVistas = (StackPane) loader.getNamespace().get("contenedorVistas");
+            botonAgregarEvento = (Button) loader.getNamespace().get(("botonAgregarEvento"));
+            botonAgregarTarea = (Button) loader.getNamespace().get(("botonAgregarTarea"));
 
             Scene scene = new Scene(root);
             escenario.setScene(scene);
@@ -108,22 +123,7 @@ public class VistaPrincipal {
     public void mostrarVista(){
         escenario.show();
     }
-    /*
-    public void cambiarVista(String fxml) {
-        // Lógica para mostrar la vista correspondiente en el contenedor de vistas
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxml));
-            Parent vista = fxmlLoader.load();
-//            controladorMes = fxmlLoader.getController();
-            contenedorVistas.getChildren().clear();
-            contenedorVistas.getChildren().add(vista);
-//            contenedorVistas.getChildren().setAll(vista);
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-     */
     public void cambiarVista(Vista vista) {
         // Lógica para mostrar la vista correspondiente en el contenedor de vistas
             contenedorVistas.getChildren().clear();
@@ -156,5 +156,159 @@ public class VistaPrincipal {
     private static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();
+    }
+
+    public void abrirVentanaAgregarEvento() {
+
+            // Crear el diálogo
+            Dialog<Tarea> dialogo = new Dialog<>();
+            dialogo.setTitle("Crear Evento");
+
+            // Crear los campos de entrada
+            TextField tituloTextField = new TextField();
+            DatePicker fechaInicioPicker = new DatePicker();
+            DatePicker fechaFinPicker = new DatePicker();
+            CheckBox diaCompletoCheckBox = new CheckBox("Día completo");
+            CheckBox repetirDiariamenteCheckBox = new CheckBox("Repetir diariamente");
+            TextField intervaloTextField = new TextField();
+            LocalTimePicker horaInicioPicker = new LocalTimePicker();
+
+            LocalTimePicker horaFinPicker = new LocalTimePicker();
+            TextArea descripcionTextArea = new TextArea();
+
+            // Configurar el contenido del diálogo
+            GridPane contenido = new GridPane();
+            contenido.setHgap(10);
+            contenido.setVgap(10);
+            contenido.addRow(0, new Label("Título:"), tituloTextField);
+            contenido.addRow(1, new Label("Fecha de inicio:"), fechaInicioPicker);
+            contenido.addRow(2, new Label("Fecha de fin:"), fechaFinPicker);
+            contenido.addRow(3, diaCompletoCheckBox);
+            contenido.addRow(4, new Label("Hora de inicio:"), horaInicioPicker);
+            contenido.addRow(5, new Label("Hora de fin:"), horaFinPicker);
+            contenido.addRow(6, new Label("Descripción:"), descripcionTextArea);
+            contenido.addRow(7, repetirDiariamenteCheckBox);
+            contenido.addRow(8, new Label("Intervalo:"), intervaloTextField);
+            dialogo.getDialogPane().setContent(contenido);
+
+            // Agregar botones de confirmación y cancelación
+            ButtonType confirmarButton = new ButtonType("Confirmar", ButtonBar.ButtonData.OK_DONE);
+            dialogo.getDialogPane().getButtonTypes().addAll(confirmarButton, ButtonType.CANCEL);
+
+            // Configurar la habilitación/deshabilitación de los campos según la selección de "Día completo"
+            diaCompletoCheckBox.setOnAction(e -> {
+                if (diaCompletoCheckBox.isSelected()) {
+                    horaInicioPicker.setDisable(true);
+                    horaFinPicker.setDisable(true);
+                    intervaloTextField.setDisable(true);
+                } else {
+                    fechaFinPicker.setDisable(false);
+                    horaInicioPicker.setDisable(false);
+                    horaFinPicker.setDisable(false);
+                    repetirDiariamenteCheckBox.setDisable(false);
+                    intervaloTextField.setDisable(!repetirDiariamenteCheckBox.isSelected());
+                }
+            });
+
+            // Configurar la habilitación/deshabilitación del campo de intervalo según la selección de "Repetir diariamente"
+            repetirDiariamenteCheckBox.setOnAction(e -> {
+                intervaloTextField.setDisable(!repetirDiariamenteCheckBox.isSelected());
+            });
+
+        LocalDate fechaInicio = fechaInicioPicker.getValue();
+        LocalTime horaInicio = horaInicioPicker.getLocalTime();
+        LocalDateTime fechaYHoraInicio = LocalDateTime.of(fechaInicio, horaInicio);
+        LocalDate fechaFin = fechaFinPicker.getValue();
+        LocalTime horaFin = horaFinPicker.getLocalTime();
+        LocalDateTime fechaYHoraFin = LocalDateTime.of(fechaFin, horaFin);
+
+        /*
+            //  Validar la fecha y hora
+        dialogo.setResultConverter(button -> {
+                    if (button == confirmarButton) {
+                        //boolean esValido = calendario.validarFechaYHora(fechaInicio, fechaFin);
+                        if(esValido){
+
+                        }
+                    }
+            return null;
+        });
+         */
+
+
+
+            /*
+            // Validar y procesar la entrada cuando se confirma el diálogo
+            dialogo.setResultConverter(button -> {
+                if (button == confirmarButton) {
+                    // Validar los valores ingresados
+                    // ...
+
+                    // Obtener los valores seleccionados
+                    String titulo = tituloTextField.getText();
+                    LocalDate fechaInicio = fechaInicioPicker.getValue();
+                    LocalDate fechaFin = diaCompletoCheckBox.isSelected() ? null : fechaFinPicker.getValue();
+                    LocalTime horaInicio = diaCompletoCheckBox.isSelected() ? null : horaInicioPicker.getLocalDateTime().toLocalTime();
+                    LocalTime horaFin = diaCompletoCheckBox.isSelected() ? null : horaFinPicker.getLocalDateTime().toLocalTime();
+                    String descripcion = descripcionTextArea.getText();
+
+                    // Crear la tarea o evento con los valores ingresados
+                    Tarea nuevaTarea = new Tarea(titulo, fechaInicio, fechaFin, horaInicio, horaFin);
+                    nuevaTarea.setDescripcion(descripcion);
+
+                    // Agregar alarmas según las opciones seleccionadas
+                    if (repetirDiariamenteCheckBox.isSelected()) {
+                        int intervalo = Integer.parseInt(intervaloTextField.getText());
+                        nuevaTarea.agregarAlarmaDiaria(intervalo);
+                    } else {
+                        nuevaTarea.agregarAlarmaNotificacion();
+                    }
+
+                    // Retornar la tarea creada
+                    return nuevaTarea;
+                }
+                return null;
+            });*/
+
+            // Mostrar el diálogo y obtener el resultado
+            Optional<Tarea> resultado = dialogo.showAndWait();
+            resultado.ifPresent(tarea -> {
+                // Aquí puedes realizar las operaciones adicionales con la tarea creada
+                // ...
+            });
+            dialogo.show();
+
+    }
+/*
+    private boolean validarFechaYHora(DatePicker fechaInicioPicker, DatePicker fechaFinPicker, LocalTimePicker horaInicioPicker, LocalTimePicker horaFinPicker){
+        LocalDate fechaInicio = fechaInicioPicker.getValue();
+        LocalTime horaInicio = horaInicioPicker.getLocalTime();
+        LocalDate fechaFin = fechaFinPicker.getValue();
+        LocalTime horaFin = horaFinPicker.getLocalTime();
+
+        if (fechaInicio == null || horaInicio == null || fechaFin == null || horaFin == null) {
+            mostrarMensajeError("Por favor, ingrese todas las fechas y horas.");
+            //return null;
+        }
+
+        LocalDateTime inicio = LocalDateTime.of(fechaInicio, horaInicio);
+        LocalDateTime fin = LocalDateTime.of(fechaFin, horaFin);
+
+        if (inicio.isAfter(fin)) {
+            mostrarMensajeError("La fecha de inicio debe ser anterior a la fecha de fin.");
+            //return null;
+        }
+    }
+
+ */
+    private void mostrarMensajeError(String mensaje) {
+        Alert alerta = new Alert(Alert.AlertType.ERROR);
+        alerta.setTitle("Error");
+        alerta.setHeaderText(null);
+        alerta.setContentText(mensaje);
+        alerta.showAndWait();
+    }
+
+    public void abrirVentanaAgregarTarea() {
     }
 }

@@ -21,9 +21,11 @@
          <children>
             <Button fx:id="botonVistaPorDia" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" text="DIA" />
             <Button fx:id="botonVistaPorSemana" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" text="SEMANA" GridPane.rowIndex="1" />
-            <Button fx:id="botonVistaPorMes" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" text="MES" GridPane.rowIndex="2"  />
+            <Button fx:id="botonVistaPorMes" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" text="MES" GridPane.rowIndex="2" />
          </children>
       </GridPane>
       <StackPane fx:id="contenedorVistas" layoutX="150.0" prefHeight="720.0" prefWidth="1130.0" />
+      <Button fx:id="botonAgregarEvento" layoutX="25.0" layoutY="497.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Agregar evento" />
+      <Button fx:id="botonAgregarTarea" layoutX="25.0" layoutY="578.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Agregar tarea" />
    </children>
 </Pane>

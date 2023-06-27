@@ -1,4 +1,5 @@
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public abstract class Tarea extends Actividad implements Serializable {
@@ -7,6 +8,7 @@ public abstract class Tarea extends Actividad implements Serializable {
         super(titulo, descripcion);
         this.estaCompletada = false;
     }
+    public abstract LocalDate getFechaTarea();
 
     public boolean getEstaCompletada(){
         return this.estaCompletada;
