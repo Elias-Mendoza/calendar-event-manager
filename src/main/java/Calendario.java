@@ -1,4 +1,5 @@
 import java.io.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +37,57 @@ public class Calendario implements Serializable {
             throw new CalendarioNoGuardadoException("Error al guardar el calendario: " + e.getMessage());
         }
     }
+
+    public boolean hayActividadesEnFecha(LocalDate fecha) {
+        for (int i = 0; i < obtenerEventos().size(); i++){
+            if(obtenerEventos().get(i).estaEnFecha(fecha) ){
+                return true;
+            }
+            if(obtenerEventos().get(i).siguienteRepeticionAFecha(fecha.atStartOfDay()) != null &&
+            obtenerEventos().get(i).siguienteEventoRepeticionAFecha(fecha.atStartOfDay()).estaEnFecha(fecha)){
+                return true;
+            }
+        }
+        for (int i = 0; i < obtenerTareas().size(); i++){
+            if(obtenerTareas().get(i).getFechaTarea().isEqual(fecha)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public List<Tarea> obtenerTareasEnFecha(LocalDate fecha){
+        List<Tarea> listaTareasEnFecha = new ArrayList<>();
+        Tarea tarea;
+        for(int i=0; i < obtenerTareas().size(); i++){
+            tarea = obtenerTareas().get(i);
+            if(tarea.getFechaTarea().isEqual(fecha)){
+                listaTareasEnFecha.add(tarea);
+            }
+        }
+        return listaTareasEnFecha;
+    }
+    public List<Evento> obtenerEventosEnFecha(LocalDate fecha) {
+        List<Evento> listaEventosEnFecha = new ArrayList<>();
+        Evento evento;
+        for (int i = 0; i < obtenerEventos().size(); i++){
+            evento = obtenerEventos().get(i);
+            if(evento.estaEnFecha(fecha)){
+                listaEventosEnFecha.add(evento);
+            }
+            else if(evento.siguienteEventoRepeticionAFecha(fecha.atStartOfDay()) != null &&
+                    evento.siguienteEventoRepeticionAFecha(fecha.atStartOfDay()).estaEnFecha(fecha)){
+                listaEventosEnFecha.add(evento.siguienteEventoRepeticionAFecha(fecha.atStartOfDay()));
+            }
+        }
+        return listaEventosEnFecha;
+    }
+    private void agregarRepeticionesEnFecha(List<Evento> listaEventos, Evento evento, LocalDate fecha){
+        if(evento.siguienteEventoRepeticionAFecha(fecha.atStartOfDay()).estaEnFecha(fecha)){
+            listaEventos.add(evento.siguienteEventoRepeticionAFecha(fecha.atStartOfDay()));
+        }
+    }
+
     static class CalendarioNoGuardadoException extends Exception{
         public CalendarioNoGuardadoException(String mensaje){
             super(mensaje);

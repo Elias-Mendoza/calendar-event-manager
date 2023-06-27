@@ -1,8 +1,9 @@
 import java.io.Serializable;
 import java.time.Duration;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-public abstract class Evento extends Actividad implements Serializable {
+public abstract class Evento extends Actividad implements Serializable, Cloneable{
     protected LocalDateTime inicio;
     protected LocalDateTime fin;
     protected RepeticionEvento repeticion;
@@ -10,6 +11,16 @@ public abstract class Evento extends Actividad implements Serializable {
         super(titulo, descripcion);
         this.inicio = inicio;
         this.fin = fin;
+    }
+
+    @Override
+    public Evento clone() {
+        try {
+            return (Evento) super.clone();
+        } catch (CloneNotSupportedException e) {
+            // Manejo de excepción en caso de no poder clonar
+            return null;
+        }
     }
 
     //Se devuelve la fecha y hora de la siguiente repetición después de la fecha pasada por parámetro. devuelve NULL en caso que no haya una repetición.
@@ -22,6 +33,37 @@ public abstract class Evento extends Actividad implements Serializable {
             repeticionADevolver = repeticion.calcularSiguienteRepeticion(fechaYHora, this.inicio);
         }
         return (repeticionADevolver);
+    }
+    public Evento siguienteEventoRepeticionAFecha(LocalDateTime fecha) {
+
+        Evento evento = null;
+        LocalDateTime comienzoInstancia = siguienteRepeticionAFecha(fecha);
+
+        if(comienzoInstancia != null){
+            Duration duracion = Duration.between(this.inicio, this.fin);
+            LocalDateTime finInstancia = comienzoInstancia.plus(duracion);
+
+            evento = this.clone();
+            evento.setInicio(comienzoInstancia);
+            evento.setFin(finInstancia);
+        }
+
+        return evento;
+    }
+    public boolean estaEnFecha(LocalDate fecha){
+        boolean estaContenidoEnLaFecha = false;
+        if (getInicio().toLocalDate().isEqual(fecha) || getFin().toLocalDate().isEqual(fecha)){
+         estaContenidoEnLaFecha = true;
+        }
+        else if( fecha.isAfter(getInicio().toLocalDate()) && fecha.isBefore(getFin().toLocalDate()) ) {
+            estaContenidoEnLaFecha = true;
+        }
+        return estaContenidoEnLaFecha;
+    }
+    public long getDiasEntreInicioYFin(){
+        int dias;
+        Duration duracion= Duration.between(inicio, fin);
+        return duracion.toDays();
     }
 
     @Override
@@ -38,6 +80,12 @@ public abstract class Evento extends Actividad implements Serializable {
             return null;
         }
         return (horarioRepeticion.minusMinutes(alarma.getMinutosAntes()));
+    }
+    public void setInicio(LocalDateTime inicio){
+        this.inicio = inicio;
+    }
+    public void setFin(LocalDateTime fin){
+        this.fin = fin;
     }
 
 

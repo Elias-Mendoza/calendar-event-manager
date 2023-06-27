@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45f3f758-b802-4de9-937c-f1bb85aeb606" name="Changes" comment="Se agregan las funcionalidades de agregar Tarea y agregar Evento">
+    <list default="true" id="45f3f758-b802-4de9-937c-f1bb85aeb606" name="Changes" comment=".">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/calendario.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Calendario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Calendario.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ControladorMes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControladorMes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VentanaActividad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VentanaActividad.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Evento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Evento.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,7 +157,7 @@
       <workItem from="1684511779275" duration="26848000" />
       <workItem from="1687380811419" duration="227000" />
       <workItem from="1687532715281" duration="3680000" />
-      <workItem from="1687578347284" duration="84731000" />
+      <workItem from="1687578347284" duration="98043000" />
     </task>
     <task id="LOCAL-00001" summary="Se agregan las clases que tenía hasta el momento.">
       <created>1682779312021</created>
@@ -297,7 +299,21 @@
       <option name="project" value="LOCAL" />
       <updated>1687845278124</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Se pueden ver los datos de eventos y tareas desde el calendario">
+      <created>1687848514719</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1687848514719</updated>
+    </task>
+    <task id="LOCAL-00022" summary=".">
+      <created>1687848551515</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1687848551515</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -347,7 +363,9 @@
     <MESSAGE value="Se encara el problema de otra forma al implementar la interfaz gráfica con un 4 archivos fxml con 4 controladores y 4 vistas" />
     <MESSAGE value="Se pasan todas las variables @FXML a las clases Vista, se asignan las acciones en los cambios de Vista" />
     <MESSAGE value="Se agregan las funcionalidades de agregar Tarea y agregar Evento" />
-    <option name="LAST_COMMIT_MESSAGE" value="Se agregan las funcionalidades de agregar Tarea y agregar Evento" />
+    <MESSAGE value="Se pueden ver los datos de eventos y tareas desde el calendario" />
+    <MESSAGE value="." />
+    <option name="LAST_COMMIT_MESSAGE" value="." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/TP_Algo3$TareaConFechaYHoraVencimientoTest.ic" NAME="TareaConFechaYHoraVencimientoTest Coverage Results" MODIFIED="1682971474552" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

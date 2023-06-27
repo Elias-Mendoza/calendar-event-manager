@@ -55,24 +55,54 @@ public class ControladorMes {
         int comienzo = calcularComienzo();
         int numero = 1;
         LocalDate fechaCelda = fechaActual.withDayOfMonth(1);
-        for(int i = 0; i<8; i++){
-            for(int j=0; j<7; j++){
-                if(comienzo > 0){
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 7; j++) {
+                if (comienzo > 0) {
                     comienzo -= 1;
-                }
-                else if(numero <= fechaActual.lengthOfMonth()) {
-                    List<Evento> eventos = new ArrayList<>();
-                    List<Tarea> tareas = new ArrayList<>();
-                    if(hayActividades(fechaCelda, eventos, tareas)){
+                } else if (numero <= fechaActual.lengthOfMonth()) {
+
+
+                    // Codigo a agregar
+                    List<Evento> eventos;
+                    List<Tarea> tareas;
+                    if(calendario.hayActividadesEnFecha(fechaCelda)){
                         Button botonActividad = new Button("HAY ACTIVIDADES");
                         vistaMes.getNumerosDiasVistaMes().add(botonActividad, j, i);
                         GridPane.setValignment(botonActividad, VPos.CENTER);
                         GridPane.setHalignment(botonActividad, HPos.CENTER);
+                        eventos = calendario.obtenerEventosEnFecha(fechaCelda);
+                        System.out.println("Fecha celda actual: " + fechaCelda);
+                        System.out.println("Hay actividad?: " + calendario.hayActividadesEnFecha(fechaCelda));
+                        //System.out.println("Evento en fecha: " + eventos.get(0));
+                        tareas = calendario.obtenerTareasEnFecha(fechaCelda);
 
                         botonActividad.setOnAction(event -> {
                             VentanaActividad ventanaActividad = new VentanaActividad(eventos, tareas);
                             ventanaActividad.show();
                         });
+
+                    /*
+                    // Codigo a agregar
+                    List<Evento> eventos;
+                    List<Tarea> tareas = new ArrayList<>();
+                    if(calendario.hayActividadesEnFecha(fechaCelda)){
+                        Button botonActividad = new Button("HAY ACTIVIDADES");
+                        vistaMes.getNumerosDiasVistaMes().add(botonActividad, j, i);
+                        GridPane.setValignment(botonActividad, VPos.CENTER);
+                        GridPane.setHalignment(botonActividad, HPos.CENTER);
+                        eventos = calendario.obtenerEventosEnFecha(fechaCelda);
+                        System.out.println("Fecha celda actual: " + fechaCelda);
+                        System.out.println("Hay actividad?: " + calendario.hayActividadesEnFecha(fechaCelda));
+                        System.out.println("Evento en fecha: " + eventos.get(0));
+                        //tareas = calendario.obtenerTareasEnFecha(fechaCelda);
+
+                        botonActividad.setOnAction(event -> {
+                            VentanaActividad ventanaActividad = new VentanaActividad(eventos, tareas);
+                            ventanaActividad.show();
+                        });
+                    }
+                    */
+
 
                         //botonActividad.setOnAction(event -> agregarActividad());
                     }
@@ -87,6 +117,7 @@ public class ControladorMes {
             }
         }
     }
+
     public void agregarActividad(){
         {
             // Crear el diálogo
@@ -118,6 +149,7 @@ public class ControladorMes {
             dialogo.show();
         }
     }
+
     private boolean hayActividades(LocalDate fechaCelda, List<Evento> eventos, List<Tarea> tareas){
         for (int i = 0; i < calendario.obtenerEventos().size(); i++){
             if(calendario.obtenerEventos().get(i).siguienteRepeticionAFecha(fechaCelda.atStartOfDay().plusSeconds(-1)) != null){
@@ -135,6 +167,7 @@ public class ControladorMes {
         }
         return false;
     }
+
     private int calcularComienzo() {
         int comienzo = switch (fechaActual.withDayOfMonth(1).getDayOfWeek()) {
             case SUNDAY -> 0;
@@ -149,3 +182,5 @@ public class ControladorMes {
     }
 
 }
+
+
