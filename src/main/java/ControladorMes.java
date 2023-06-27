@@ -61,14 +61,16 @@ public class ControladorMes {
                     comienzo -= 1;
                 }
                 else if(numero <= fechaActual.lengthOfMonth()) {
-                    if(hayActividades(fechaCelda)){
+                    List<Evento> eventos = new ArrayList<>();
+                    List<Tarea> tareas = new ArrayList<>();
+                    if(hayActividades(fechaCelda, eventos, tareas)){
                         Button botonActividad = new Button("HAY ACTIVIDADES");
                         vistaMes.getNumerosDiasVistaMes().add(botonActividad, j, i);
                         GridPane.setValignment(botonActividad, VPos.CENTER);
                         GridPane.setHalignment(botonActividad, HPos.CENTER);
 
                         botonActividad.setOnAction(event -> {
-                            VentanaActividad ventanaActividad = new VentanaActividad();
+                            VentanaActividad ventanaActividad = new VentanaActividad(eventos, tareas);
                             ventanaActividad.show();
                         });
 
@@ -114,51 +116,20 @@ public class ControladorMes {
             dialogo.getDialogPane().getButtonTypes().addAll(confirmarButton, ButtonType.CANCEL);
 
             dialogo.show();
-
-            /*
-            // Validar y procesar la entrada cuando se confirma el diálogo
-            dialogo.setResultConverter(button -> {
-                if (button == confirmarButton) {
-                    // Validar los valores ingresados
-                    // ...
-
-                    // Crear la tarea o evento con los valores ingresados
-                    Tarea nuevaTarea = new Tarea(tituloTextField.getText(), fechaInicioPicker.getValue(), fechaFinPicker.getValue());
-
-                    // Agregar alarmas según las opciones seleccionadas
-                    if (repetirDiariamenteCheckBox.isSelected()) {
-                        int intervalo = Integer.parseInt(intervaloTextField.getText());
-                        nuevaTarea.agregarAlarmaDiaria(intervalo);
-                    } else {
-                        nuevaTarea.agregarAlarmaNotificacion();
-                    }
-
-                    // Retornar la tarea creada
-                    return nuevaTarea;
-                }
-                return null;
-            });
-
-            // Mostrar el diálogo y obtener el resultado
-            Optional<Tarea> resultado = dialogo.showAndWait();
-            resultado.ifPresent(tarea -> {
-                // Aquí puedes realizar las operaciones adicionales con la tarea creada
-                // ...
-            });
-
-             */
         }
     }
-    private boolean hayActividades(LocalDate fechaCelda){
+    private boolean hayActividades(LocalDate fechaCelda, List<Evento> eventos, List<Tarea> tareas){
         for (int i = 0; i < calendario.obtenerEventos().size(); i++){
             if(calendario.obtenerEventos().get(i).siguienteRepeticionAFecha(fechaCelda.atStartOfDay().plusSeconds(-1)) != null){
                 if(calendario.obtenerEventos().get(i).siguienteRepeticionAFecha(fechaCelda.atStartOfDay().plusSeconds(-1)).toLocalDate().isEqual(fechaCelda) ){
+                    eventos.add(calendario.obtenerEventos().get(i));
                     return true;
                 }
             }
         }
         for (int i = 0; i < calendario.obtenerTareas().size(); i++){
             if(calendario.obtenerTareas().get(i).getFechaTarea().isEqual(fechaCelda)){
+                tareas.add(calendario.obtenerTareas().get(i));
                 return true;
             }
         }
