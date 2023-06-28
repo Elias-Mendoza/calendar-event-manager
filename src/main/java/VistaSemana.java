@@ -1,10 +1,15 @@
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -12,9 +17,11 @@ import java.time.LocalDate;
 import java.time.Month;
 import java.time.format.TextStyle;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Locale;
 
 public class VistaSemana extends Vista{
+
     @FXML
     private Parent rootVistaSemana;
     @FXML
@@ -42,7 +49,7 @@ public class VistaSemana extends Vista{
 
             labelAnioActualVistaSemana = (Label) loader.getNamespace().get("labelAnioActualVistaSemana");
             labelMesActualVistaSemana = (Label) loader.getNamespace().get("labelMesActualVistaSemana");
-            botonSiguienteVistaSemana = (Button) loader.getNamespace().get("botonAnteriorVistaSemana");
+            botonAnteriorVistaSemana = (Button) loader.getNamespace().get("botonAnteriorVistaSemana");
             botonSiguienteVistaSemana = (Button) loader.getNamespace().get("botonSiguienteVistaSemana");
             vistaPorSemana = (GridPane) loader.getNamespace().get("vistaPorSemana");
             numerosDiasVistaSemana = (GridPane) loader.getNamespace().get("numerosDiasVistaSemana");
@@ -51,9 +58,6 @@ public class VistaSemana extends Vista{
 
             labelMesActualVistaSemana.setText(LocalDate.now().getMonth().getDisplayName(TextStyle.FULL, new Locale("es", "ES")).toUpperCase());
             labelAnioActualVistaSemana.setText(String.valueOf(LocalDate.now().getYear()));
-            //  labelAnioActualVistaMes.setText(String.valueOf(LocalDate.now().getYear()));
-            //mesActualVistaMes = LocalDate.now().getMonth();
-            //anioActualVistaMes = LocalDate.now().getYear();
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -83,5 +87,22 @@ public class VistaSemana extends Vista{
 
     public void mostrarMes(String mes) {
         labelMesActualVistaSemana.setText(mes);
+    }
+    public void mostrarActividadesEnVistaSemana(int fila, int columna, List<Evento> eventos, List<Tarea> tareas) {
+        VBox vbox = (VBox) vistaPorSemana.getChildren().get(fila);
+        //vistaPorSemana.getChildren().add(fila, new Label("CACA"));
+
+        for (Evento evento : eventos) {
+            String contenido = "Evento:\n" + "Titulo: " + evento.getTitulo() + "\n" + "Descripcion: " + evento.getDescripcion()
+                    + "\n" + "Inicio: " + evento.getInicio() + "\n" + "Fin: " + evento.getFin();
+            BorderPane panelConBordes = crearPanelConBordes(contenido);
+            vbox.getChildren().add(panelConBordes);
+        }
+        for (Tarea tarea : tareas) {
+            String contenido = "Tarea:\n" + "Titulo: " + tarea.getTitulo() + "\n" + "Descripcion: " + tarea.getDescripcion()
+                    + "\n" + "Fecha vencimiento: " + tarea.getFechaTarea() + "\n" + "Completada: " + tarea.getEstaCompletada();
+            BorderPane panelConBordes = crearPanelConBordes(contenido);
+            vbox.getChildren().add(panelConBordes);
+        }
     }
 }

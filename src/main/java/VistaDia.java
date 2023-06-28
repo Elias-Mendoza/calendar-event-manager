@@ -1,6 +1,7 @@
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -85,7 +86,7 @@ public class VistaDia extends Vista{
     }
 
     public void mostrarActividadesEnVistaDia(List<Evento> eventos, List<Tarea> tareas) {
-        System.out.println("SE ENTRO AL METODO MOSTRARACTIVIDADESENVISTADIA");
+
         vistaPorDia.setStyle("-fx-border-color: black; -fx-border-width: 1px;");
         vistaPorDia.setPadding(new Insets(10));
         for(Evento evento : eventos){
@@ -96,15 +97,6 @@ public class VistaDia extends Vista{
             vistaPorDia.getChildren().add(crearPanelConBordes("Tarea: \n" +"Titulo: " +tarea.getTitulo() +"\n"+"Descripcion: "+ tarea.getDescripcion() + "\n" +
                     "Fecha de vencimiento: " + tarea.getFechaTarea() + "\n" + "Completada: " + tarea.getEstaCompletada() ));
         }
-    }
-    private BorderPane crearPanelConBordes(String content) {
-        BorderPane borderPane = new BorderPane();
-        borderPane.setStyle("-fx-border-color: black; -fx-border-width: 1px;");
-
-        Label label = new Label(content);
-        borderPane.setCenter(label);
-
-        return borderPane;
     }
 
     public VBox getVistaPorDia() {

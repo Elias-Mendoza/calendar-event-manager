@@ -74,7 +74,6 @@ public class VistaMes extends Vista{
     public void mostrarAnio(int year) {
         labelAnioActualVistaMes.setText(String.valueOf(year));
     }
-
     public GridPane getVistaPorMes() {
         return vistaPorMes;
     }
@@ -82,32 +81,4 @@ public class VistaMes extends Vista{
     public GridPane getNumerosDiasVistaMes() {
         return numerosDiasVistaMes;
     }
-    /*
-
-    public Button obtenerBoton(String id) {
-        return (Button) rootVistaMes.lookup("#" + id);
-    }
-
-    public void setMesActual(Month mes) {
-        mesActualVistaMes = mes;
-    }
-    public void setAnioActual(int anio){
-        anioActualVistaMes = anio;
-    }
-    public void verificarCambioDeAnioAvanzarMes(Month mesActual) {
-        if(mesActual == Month.DECEMBER){
-
-        }
-    }
-    public int getAnioActual(){
-        return anioActualVistaMes;
-    }
-    public void agregarAniosEnLabel(int cantidad) {
-        labelAnioActualVistaMes.setText(String.valueOf( getAnioActual() + cantidad) );
-        setAnioActual(getAnioActual()+cantidad);
-    }
-    public void setLabelMesActualVistaMes(String mes){
-        labelMesActualVistaMes.setText(mes);
-    }
-*/
 }

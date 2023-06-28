@@ -1,3 +1,4 @@
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 
@@ -11,6 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
 import jfxtras.scene.control.LocalTimePicker;
 
 public abstract class Vista {
@@ -47,5 +49,17 @@ public abstract class Vista {
         alerta.setHeaderText(null);
         alerta.setContentText(mensaje);
         alerta.showAndWait();
+    }
+    public BorderPane crearPanelConBordes(String content) {
+        BorderPane borderPane = new BorderPane();
+        borderPane.setStyle("-fx-border-color: black; -fx-border-width: 1px;");
+
+        Label label = new Label(content);
+        label.setWrapText(true);
+        label.setAlignment(Pos.TOP_LEFT); // Alinea el texto en la esquina superior izquierda
+
+        borderPane.setCenter(label);
+
+        return borderPane;
     }
 }

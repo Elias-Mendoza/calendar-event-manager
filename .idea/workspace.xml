@@ -4,15 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45f3f758-b802-4de9-937c-f1bb85aeb606" name="Changes" comment=".">
+    <list default="true" id="45f3f758-b802-4de9-937c-f1bb85aeb606" name="Changes" comment="Ahora se pueden ver los eventos en la vista por día">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/calendario.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ControladorDia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControladorDia.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ControladorMes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControladorMes.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ControladorSemana.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControladorSemana.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VentanaActividad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VentanaActividad.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Vista.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Vista.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/VistaDia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VistaDia.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/vistaDia.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vistaDia.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/VistaMes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VistaMes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/VistaSemana.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VistaSemana.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/vistaSemana.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vistaSemana.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -162,7 +160,7 @@
       <workItem from="1684511779275" duration="26848000" />
       <workItem from="1687380811419" duration="227000" />
       <workItem from="1687532715281" duration="3680000" />
-      <workItem from="1687578347284" duration="108422000" />
+      <workItem from="1687578347284" duration="116344000" />
     </task>
     <task id="LOCAL-00001" summary="Se agregan las clases que tenía hasta el momento.">
       <created>1682779312021</created>
@@ -325,7 +323,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687892744242</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Ahora se pueden ver los eventos en la vista por día">
+      <created>1687903822242</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1687903822242</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -377,7 +382,8 @@
     <MESSAGE value="Se agregan las funcionalidades de agregar Tarea y agregar Evento" />
     <MESSAGE value="Se pueden ver los datos de eventos y tareas desde el calendario" />
     <MESSAGE value="." />
-    <option name="LAST_COMMIT_MESSAGE" value="." />
+    <MESSAGE value="Ahora se pueden ver los eventos en la vista por día" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ahora se pueden ver los eventos en la vista por día" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/TP_Algo3$TareaConFechaYHoraVencimientoTest.ic" NAME="TareaConFechaYHoraVencimientoTest Coverage Results" MODIFIED="1682971474552" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
