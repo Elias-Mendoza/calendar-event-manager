@@ -2,17 +2,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.io.Serializable;
 import java.time.LocalDate;
-import java.time.Month;
 import java.time.format.TextStyle;
-import java.util.Calendar;
 import java.util.Locale;
 import javafx.scene.control.Label;
 
@@ -33,9 +29,11 @@ public class VistaMes extends Vista{
     private GridPane vistaPorMes;
     @FXML
     private GridPane numerosDiasVistaMes;
+    private Calendario calendario;
 
     public VistaMes(Stage primaryStage, Calendario calendario) {
         this.escenario = primaryStage;
+        this.calendario = calendario;
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("vistaMes.fxml"));
             Parent root = loader.load();
@@ -49,8 +47,6 @@ public class VistaMes extends Vista{
             botonSiguienteVistaMes = (Button) loader.getNamespace().get("botonSiguienteVistaMes");
             vistaPorMes = (GridPane) loader.getNamespace().get("vistaPorMes");
             numerosDiasVistaMes = (GridPane) loader.getNamespace().get("numerosDiasVistaMes");
-
-            System.out.println("ESTE ES EL CONSTRUCTOR DE VISTAMES");
 
             labelMesActualVistaMes.setText(LocalDate.now().getMonth().getDisplayName(TextStyle.FULL, new Locale("es", "ES")).toUpperCase());
             labelAnioActualVistaMes.setText(String.valueOf(LocalDate.now().getYear()));

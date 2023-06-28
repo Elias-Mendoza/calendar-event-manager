@@ -4,8 +4,9 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import jfxtras.scene.control.LocalTimePicker;
 
-public class VentanaAgregarTarea extends Vista{
+import java.io.Serializable;
 
+public class VentanaAgregarTarea extends Vista{
     private Stage escenario;
     private Calendario calendario;
     private Button botonConfirmar;
@@ -17,9 +18,6 @@ public class VentanaAgregarTarea extends Vista{
     private CheckBox diaCompletoCheckBox;
     private CheckBox alarmaCheckBox;
     private TextField minutosAlarmaTextField;
-
-
-
     VentanaAgregarTarea(Calendario calendario){
         this.calendario = calendario;
         // Crear el diálogo
@@ -65,7 +63,6 @@ public class VentanaAgregarTarea extends Vista{
 
         dialogo.show();
     }
-
     private void setearIds() {
         rootVistaVentanaAgregarTarea.setId("rootVistaVentanaAgregarTarea");
         tituloTextField.setId("tituloTextField");

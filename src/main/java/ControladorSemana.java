@@ -1,26 +1,16 @@
-import javafx.collections.ObservableList;
-import javafx.fxml.FXML;
-import javafx.geometry.HPos;
-import javafx.geometry.Pos;
-import javafx.geometry.VPos;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
-
+import java.io.Serializable;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.format.TextStyle;
 import java.time.temporal.TemporalAdjusters;
 import java.time.temporal.WeekFields;
-import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 
-public class ControladorSemana{
+public class ControladorSemana {
 
     Calendario calendario;
     VistaSemana vistaSemana;

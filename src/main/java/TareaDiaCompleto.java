@@ -22,8 +22,6 @@ public class TareaDiaCompleto extends Tarea implements Serializable {
         }
         this.alarmas.add(alarma);
     }
-
-
     @Override
     public String tiempoRestanteLegible() {
         Duration duracionRestante = Duration.between(LocalDateTime.now(), this.fechaTarea.atStartOfDay());

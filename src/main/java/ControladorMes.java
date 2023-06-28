@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 
+import java.io.Serializable;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.Month;
@@ -16,7 +17,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
 
-public class ControladorMes {
+public class ControladorMes{
     private VistaMes vistaMes;
     private Calendario calendario;
     private LocalDate fechaActual;

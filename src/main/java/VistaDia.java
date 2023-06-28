@@ -7,17 +7,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-
 import java.io.IOException;
+import java.io.Serializable;
 import java.time.LocalDate;
-import java.time.Month;
 import java.time.format.TextStyle;
-import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 
@@ -37,9 +33,11 @@ public class VistaDia extends Vista{
     @FXML
     private GridPane numerosDiasVistaDia;
     private Stage escenario;
+    private Calendario calendario;
 
     public VistaDia(Stage primaryStage, Calendario calendario) {
         this.escenario = primaryStage;
+        this.calendario = calendario;
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("vistaDia.fxml"));
             Parent root = loader.load();
@@ -54,16 +52,8 @@ public class VistaDia extends Vista{
             vistaPorDia = (VBox) loader.getNamespace().get("vistaPorDia");
             numerosDiasVistaDia = (GridPane) loader.getNamespace().get("numerosDiasVistaDia");
 
-
-            System.out.println("ESTE ES EL CONSTRUCTOR DE VISTAMES");
-
-
-
             labelDiaYMesActualVistaDia.setText(LocalDate.now().getDayOfMonth() + " de " + LocalDate.now().getMonth().getDisplayName(TextStyle.FULL, new Locale("es", "ES")).toUpperCase());
             labelAnioActualVistaDia.setText(String.valueOf(LocalDate.now().getYear()));
-            //  labelAnioActualVistaMes.setText(String.valueOf(LocalDate.now().getYear()));
-            //mesActualVistaMes = LocalDate.now().getMonth();
-            //anioActualVistaMes = LocalDate.now().getYear();
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -72,7 +62,6 @@ public class VistaDia extends Vista{
     public void mostrarDiaYMes(int numeroFecha, String nombreMes){
         labelDiaYMesActualVistaDia.setText(String.valueOf(numeroFecha) + " de " + nombreMes);
     }
-
     public Node getRoot() {
         return rootVistaDia;
     }
@@ -98,7 +87,6 @@ public class VistaDia extends Vista{
                     "Fecha de vencimiento: " + tarea.getFechaTarea() + "\n" + "Completada: " + tarea.getEstaCompletada() ));
         }
     }
-
     public VBox getVistaPorDia() {
         return vistaPorDia;
     }

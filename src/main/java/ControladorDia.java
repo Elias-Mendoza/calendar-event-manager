@@ -1,12 +1,6 @@
-import javafx.fxml.FXML;
-import javafx.geometry.HPos;
-import javafx.geometry.Pos;
-import javafx.geometry.VPos;
-import javafx.scene.Parent;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.GridPane;
 
+import java.io.Serializable;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.format.TextStyle;
@@ -46,34 +40,6 @@ public class ControladorDia{
         vistaDia.mostrarDiaYMes(numeroDia, mes);
         actualizarNumerosDeLaSemana();
         mostrarActividadesEnVistaDia();
-    }
-    private void actualizarNumerosDeLaSemana2() {
-        vistaDia.getNumerosDiasVistaDia().getChildren().clear();
-        DayOfWeek primerDiaSemana = DayOfWeek.SUNDAY; // Establecer el primer día de la semana (por ejemplo, Domingo)
-        LocalDate fechaCelda = fechaActual.with(TemporalAdjusters.previousOrSame(primerDiaSemana));
-        int numeroDia = obtenerPrimerDiaSemanaActual(); // Obtener el primer día de la semana
-        for (int i = 0; i < 7; i++) {
-            Label numero = new Label(String.valueOf(numeroDia));
-            if(fechaCelda.isEqual(fechaActual)){
-                numero.setStyle("-fx-border-color: blue; -fx-border-width: 2px; -fx-border-radius: 5px;");
-            }
-            vistaDia.getNumerosDiasVistaDia().add(numero, i, 0);
-
-            numeroDia++;
-            if (numeroDia > fechaActual.lengthOfMonth()) {
-                numeroDia = 1; // Reiniciar el número del día si supera la longitud del mes actual
-            }
-            fechaCelda = fechaCelda.plusDays(1);
-
-
-            List<Evento> eventos;
-            List<Tarea> tareas;
-            if(calendario.hayActividadesEnFecha(fechaCelda)){
-                eventos = calendario.obtenerEventosEnFecha(fechaCelda);
-                tareas = calendario.obtenerTareasEnFecha(fechaCelda);
-                vistaDia.mostrarActividadesEnVistaDia(eventos, tareas);
-            }
-        }
     }
     private void actualizarNumerosDeLaSemana() {
         vistaDia.getNumerosDiasVistaDia().getChildren().clear();

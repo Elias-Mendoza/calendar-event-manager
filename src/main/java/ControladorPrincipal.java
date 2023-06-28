@@ -1,23 +1,9 @@
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.geometry.Pos;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.util.Duration;
+import java.io.Serializable;
 
-import java.io.IOException;
-import java.time.format.TextStyle;
-import java.util.Locale;
-import java.time.Month;
-
-public class ControladorPrincipal {
+public class ControladorPrincipal{
     private Calendario calendario;
     private VistaPrincipal vistaPrincipal;
     private VistaDia vistaDia;
@@ -32,6 +18,7 @@ public class ControladorPrincipal {
     public ControladorPrincipal(Calendario calendario, VistaPrincipal vistaPrincipal) {
         this.calendario = calendario;
         this.vistaPrincipal = vistaPrincipal;
+        calendario.addObserver(vistaPrincipal);
     }
     public void setControladores(ControladorDia controladorDia, ControladorSemana controladorSemana, ControladorMes controladorMes) {
         this.controladorDia = controladorDia;
@@ -48,20 +35,20 @@ public class ControladorPrincipal {
         vistaPrincipal.obtenerBoton("botonVistaPorDia").setOnAction(event -> cambiarVistaADia());
         vistaPrincipal.obtenerBoton("botonVistaPorSemana").setOnAction(event -> cambiarVistaASemana());
         vistaPrincipal.obtenerBoton("botonVistaPorMes").setOnAction(event -> cambiarVistaAMes());
-        //vistaPrincipal.obtenerBoton("botonAgregarEvento").setOnAction(event -> vistaPrincipal.abrirVentanaAgregarEvento() );
         vistaPrincipal.obtenerBoton("botonAgregarEvento").setOnAction(event -> abrirVentanaAgregarEvento() );
-        //vistaPrincipal.obtenerBoton("botonAgregarTarea").setOnAction(event -> vistaPrincipal.abrirVentanaAgregarTarea() );
         vistaPrincipal.obtenerBoton("botonAgregarTarea").setOnAction(event -> abrirVentanaAgregarTarea() );
+        iniciarVerificacionAlarma();
     }
 
     private void abrirVentanaAgregarEvento(){
         VentanaAgregarEvento ventanaAgregarEvento = new VentanaAgregarEvento(calendario);
         ControladorVentanaAgregarEvento controladorVentanaAgregarEvento = new ControladorVentanaAgregarEvento(calendario, ventanaAgregarEvento);
-        //ventanaAgregarEvento.mostrarVista();
         controladorVentanaAgregarEvento.iniciar();
     }
     private void abrirVentanaAgregarTarea(){
         VentanaAgregarTarea ventanaAgregarTarea = new VentanaAgregarTarea(calendario);
+        ControladorVentanaAgregarTarea controladorVentanaAgregarTarea = new ControladorVentanaAgregarTarea(calendario, ventanaAgregarTarea);
+        controladorVentanaAgregarTarea.iniciar();
     }
 
     private void agregarTarea(){
@@ -80,44 +67,12 @@ public class ControladorPrincipal {
         vistaPrincipal.cambiarVista(vistaMes);
         controladorMes.iniciar();
     }
-
-
-/*
-    public void mostrarVistaDia(ActionEvent event) throws IOException {
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("vistaDia.fxml"));
-            Parent vista = fxmlLoader.load();
-            controladorDia = fxmlLoader.getController();
-            contenedorVistas.getChildren().setAll(vista);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public void verificarAlarma() {
+        calendario.verificarAlarma();
     }
-    public void mostrarVistaSemana(ActionEvent event) throws IOException {
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("vistaSemana.fxml"));
-            Parent vista = fxmlLoader.load();
-            controladorSemana = fxmlLoader.getController();
-            contenedorVistas.getChildren().clear();
-            contenedorVistas.getChildren().add(vista);
-            controladorSemana.ini();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public void iniciarVerificacionAlarma() {
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> verificarAlarma()));
+        timeline.setCycleCount(Timeline.INDEFINITE);
+        timeline.play();
     }
-    // Método para manejar el evento del botón que muestra la vista 2
-    public void mostrarVistaMes(ActionEvent event) throws IOException {
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("vistaMes.fxml"));
-            Parent vista = fxmlLoader.load();
-            controladorMes = fxmlLoader.getController();
-            contenedorVistas.getChildren().clear();
-            contenedorVistas.getChildren().add(vista);
-            controladorMes.iniciar();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-*/
-
 }

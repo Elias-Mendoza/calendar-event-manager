@@ -4,14 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45f3f758-b802-4de9-937c-f1bb85aeb606" name="Changes" comment="Ahora se pueden ver los eventos en la vista por día">
+    <list default="true" id="45f3f758-b802-4de9-937c-f1bb85aeb606" name="Changes" comment="Ahora se pueden ver los eventos y tareas en la vista por semana">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/calendario.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Actividad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Actividad.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Calendario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Calendario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ControladorDia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControladorDia.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ControladorMes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControladorMes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ControladorPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControladorPrincipal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ControladorSemana.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControladorSemana.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ControladorVentanaAgregarEvento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControladorVentanaAgregarEvento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ControladorVentanaAgregarTarea.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControladorVentanaAgregarTarea.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DiasYMeses.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Evento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Evento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TareaDiaCompleto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TareaDiaCompleto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/VentanaActividad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VentanaActividad.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/VentanaAgregarActividad.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/VentanaAgregarEvento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VentanaAgregarEvento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/VentanaAgregarTarea.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VentanaAgregarTarea.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Vista.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Vista.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/VistaDia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VistaDia.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/VistaMes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VistaMes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/VistaPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VistaPrincipal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/VistaSemana.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VistaSemana.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/vistaSemana.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vistaSemana.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +39,7 @@
       <list>
         <option value="JUnit4 Test Class" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -63,7 +80,7 @@
     "WebServerToolWindowFactoryState": "false",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
-    "last_opened_file_path": "C:/Users/Elash/Desktop/Projects_java/TP_Algo3/src/main/resources",
+    "last_opened_file_path": "C:/Users/Elash/Desktop/TP_Algo3-Etapa3",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -160,7 +177,7 @@
       <workItem from="1684511779275" duration="26848000" />
       <workItem from="1687380811419" duration="227000" />
       <workItem from="1687532715281" duration="3680000" />
-      <workItem from="1687578347284" duration="116344000" />
+      <workItem from="1687578347284" duration="135707000" />
     </task>
     <task id="LOCAL-00001" summary="Se agregan las clases que tenía hasta el momento.">
       <created>1682779312021</created>
@@ -330,7 +347,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687903822242</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Ahora se pueden ver los eventos y tareas en la vista por semana">
+      <created>1687920490932</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1687920490932</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -383,7 +407,8 @@
     <MESSAGE value="Se pueden ver los datos de eventos y tareas desde el calendario" />
     <MESSAGE value="." />
     <MESSAGE value="Ahora se pueden ver los eventos en la vista por día" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ahora se pueden ver los eventos en la vista por día" />
+    <MESSAGE value="Ahora se pueden ver los eventos y tareas en la vista por semana" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ahora se pueden ver los eventos y tareas en la vista por semana" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/TP_Algo3$TareaConFechaYHoraVencimientoTest.ic" NAME="TareaConFechaYHoraVencimientoTest Coverage Results" MODIFIED="1682971474552" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

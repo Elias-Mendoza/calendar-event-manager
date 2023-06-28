@@ -2,13 +2,13 @@ import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class VentanaActividad extends Stage {
+public class VentanaActividad extends Stage{
     public VentanaActividad(List<Evento> eventos, List<Tarea> tareas) {
 
         VBox root = new VBox();

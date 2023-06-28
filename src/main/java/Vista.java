@@ -1,12 +1,7 @@
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
-
-import java.awt.*;
-import java.lang.invoke.MethodHandles;
-import java.time.LocalDate;
-import java.time.Month;
-
+import java.io.Serializable;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -15,8 +10,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import jfxtras.scene.control.LocalTimePicker;
 
-public abstract class Vista {
-    private LocalDate fechaActual;
+public abstract class Vista{
     private Parent rootVista;
     public Button obtenerBoton(String id) {
         return (Button) rootVista.lookup("#" + id);
@@ -39,7 +33,6 @@ public abstract class Vista {
     protected void setRoot(Parent rootVista) {
         this.rootVista = rootVista;
     }
-
     public TextArea obtenerTextArea(String id) {
         return (TextArea) rootVista.lookup("#" + id);
     }

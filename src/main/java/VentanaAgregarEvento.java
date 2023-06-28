@@ -1,9 +1,10 @@
-import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import jfxtras.scene.control.LocalTimePicker;
+
+import java.io.Serializable;
 
 public class VentanaAgregarEvento extends Vista{
 
@@ -22,28 +23,6 @@ public class VentanaAgregarEvento extends Vista{
     private CheckBox repetirDiariamenteCheckBox;
     private CheckBox alarmaCheckBox;
     private TextField minutosAlarmaTextField;
-
-/*
-    public VentanaAgregarEvento(Calendario calendario) {
-        super(calendario, "Crear Evento");
-
-        // Crear el nuevo TextField
-        TextField textFieldExtra = new TextField();
-
-        // Obtener el contenido del diálogo
-        GridPane contenido = (GridPane) getRoot();
-        Dialog<Actividad> dialogo = getDialogo();
-        //GridPane contenido = (GridPane) getDialogPane();
-        dialogo.getDialogPane().setContent(contenido);
-
-        // Agregar el nuevo TextField al contenido del diálogo
-        contenido.re
-        contenido.addRow(8, new Label("Campo adicional:"), textFieldExtra);
-
-        //setRoot(super.rootVistaVentanaAgregarElemento);
-        // Personalizar la ventana de agregar evento si es necesario
-        dialogo.show();
-    }*/
 
     VentanaAgregarEvento(Calendario calendario){
         this.calendario = calendario;
@@ -93,23 +72,6 @@ public class VentanaAgregarEvento extends Vista{
         intervaloTextField.setDisable(true);
         minutosAlarmaTextField.setDisable(true);
 
-        /*
-        // Configurar la habilitación/deshabilitación de los campos de horas de inicio y fin según la selección de "Día completo"
-        diaCompletoCheckBox.setOnAction(e -> {
-            horaInicioPicker.setDisable(diaCompletoCheckBox.isSelected());
-            horaFinPicker.setDisable(diaCompletoCheckBox.isSelected());
-        });
-        // Configurar la habilitación/deshabilitación del campo de intervalo según la selección de "Repetir diariamente"
-        repetirDiariamenteCheckBox.setOnAction(e -> {
-            intervaloTextField.setDisable(!repetirDiariamenteCheckBox.isSelected());
-        });
-        // Configurar la habilitación/deshabilitación del campo de "minutos antes" según la selección de "Activar alarma"
-        alarmaCheckBox.setOnAction(event -> {
-            minutosAlarmaTextField.setDisable(!alarmaCheckBox.isSelected());
-        });
-        */
-
-
         rootVistaVentanaAgregarEvento = contenido;
         setearIds();
         setRoot(rootVistaVentanaAgregarEvento);
@@ -133,13 +95,6 @@ public class VentanaAgregarEvento extends Vista{
     }
     public void mostrarVista(){
         escenario.show();
-    }
-    public void mostrarMensajeError(String mensaje) {
-        Alert alerta = new Alert(Alert.AlertType.ERROR);
-        alerta.setTitle("Error");
-        alerta.setHeaderText(null);
-        alerta.setContentText(mensaje);
-        alerta.showAndWait();
     }
 
     public Button obtenerBotonConfirmar() {

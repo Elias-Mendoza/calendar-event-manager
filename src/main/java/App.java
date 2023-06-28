@@ -1,40 +1,32 @@
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-public class App extends Application {
-    /*
-   @Override
-   public void start(Stage primaryStage) throws Exception {
-
-       Calendario calendario = new Calendario();
-       //CARGAMOS EL MODELO
-       InputStream is = new FileInputStream("calendario.dat");
-       calendario = Calendario.cargarCalendario(is);
-
-       //CARGAMOS LA VISTA
-       VistaPrincipal vista = new VistaPrincipal(primaryStage, calendario);
-
-       //CARGAMOS EL CONTROLADOR
-       ControladorPrincipal controlador = new ControladorPrincipal(calendario, vista);
-
-       controlador.iniciar();
-   }*/
+public class App extends Application  implements Serializable {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        //mainCalendario();
+        mainCalendario();
 
-        Calendario calendario = new Calendario();
+        Calendario calendario;
         //CARGAMOS EL MODELO
-        InputStream is = new FileInputStream("calendario.dat");
-        calendario = Calendario.cargarCalendario(is);
+        // Carga el calendario desde el archivo o crea uno nuevo si no existe
+        try (InputStream is = new FileInputStream("calendario.dat")) {
+            calendario = Calendario.cargarCalendario(is);
+            if (calendario == null) {
+                // No se pudo cargar el calendario, crea uno nuevo
+                calendario = new Calendario();
+            }
+        } catch (NotSerializableException e){
+            System.out.println("No se pudo serializar el archivo para cargar: " + e.getMessage());
+            calendario = new Calendario();
+        } catch (IOException e) {
+            System.out.println("No se encontró el archivo. Se creará un nuevo calendario."+ e.getMessage());
+            calendario = new Calendario();
+        }
         //FIN CARGAR EL MODELO
 
         //CARGAMOS LA VISTA
@@ -57,12 +49,15 @@ public class App extends Application {
         controladorPrincipal.iniciar();
         controladorMes.iniciar();
 
-        for (int i = 0; i < calendario.obtenerEventos().size(); i++){
-            calendario.obtenerEventos().get(i).mostrarDatos();
-        }
-
-        for (int i = 0; i < calendario.obtenerTareas().size(); i++){
-            calendario.obtenerTareas().get(i).mostrarDatos();
+        // Guarda el calendario actualizado en el archivo
+        try (OutputStream os = new FileOutputStream("calendario.dat")) {
+            calendario.guardarCalendario(os);
+        } catch (NotSerializableException e){
+            System.out.println("No se puede serializar el archivo: "+e.getMessage());
+        } catch (Calendario.CalendarioNoGuardadoException e) {
+            System.out.println("Error al guardar el calendario: " + e.getMessage());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
 
     }
@@ -118,6 +113,12 @@ public class App extends Application {
         LocalDateTime fechaVencimientoTarea1 = LocalDateTime.of(2024, 2, 15, 23, 59);
         TareaConFechaYHoraVencimiento tarea1 = new TareaConFechaYHoraVencimiento("Entregar TP Algo3", "Etapa2", fechaVencimientoTarea1);
         miCalendario.agregarTarea(tarea1);
+
+        LocalDateTime inicioEvento4 = LocalDateTime.of(2023, 6, 28, 3, 30);
+        LocalDateTime finalEvento4 = LocalDateTime.of(2023, 6, 28, 4, 0);
+        EventoConFechaYHora evento4 = new EventoConFechaYHora("Estudio nocturno", "Hasta tarde", inicioEvento4, finalEvento4);
+        evento4.agregarAlarmaActividad(new Alarma(8));
+        miCalendario.agregarEvento(evento4);
 
         // Guarda el calendario actualizado en el archivo
         try (OutputStream os = new FileOutputStream("calendario.dat")) {

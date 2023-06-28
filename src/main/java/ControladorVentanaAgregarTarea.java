@@ -4,35 +4,29 @@ import javafx.scene.control.TextField;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 public class ControladorVentanaAgregarTarea {
-    private VentanaAgregarEvento ventanaAgregarTarea;
+    private VentanaAgregarTarea ventanaAgregarTarea;
     private Calendario calendario;
-    public ControladorVentanaAgregarTarea(Calendario calendario, VentanaAgregarEvento ventanaAgregarEvento){
-        this.ventanaAgregarTarea = ventanaAgregarEvento;
+    public ControladorVentanaAgregarTarea(Calendario calendario, VentanaAgregarTarea ventanaAgregarTarea){
+        this.ventanaAgregarTarea = ventanaAgregarTarea;
         this.calendario = calendario;
     }
 
     public void iniciar() {
-        //ventanaAgregarEvento.obtenerBoton("botonConfirmar").setOnAction(event -> comprobarDatos());
         ventanaAgregarTarea.obtenerBotonConfirmar().setOnAction(event -> agregarTarea());
         ventanaAgregarTarea.obtenerCheckBox("diaCompletoCheckBox").setOnAction(evento ->deshabilitarCamposDeHora());
-        ventanaAgregarTarea.obtenerCheckBox("repetirDiariamenteCheckBox").setOnAction(evento -> deshabilitarCampoDeRepeticion());
         ventanaAgregarTarea.obtenerCheckBox("alarmaCheckBox").setOnAction(evento -> deshabilitarCampoDeAlarma());
     }
     private void deshabilitarCampoDeAlarma() {
         ventanaAgregarTarea.obtenerTextField("minutosAlarmaTextField").setDisable(!ventanaAgregarTarea.obtenerCheckBox("alarmaCheckBox").isSelected());
     }
-
-    private void deshabilitarCampoDeRepeticion() {
-        ventanaAgregarTarea.obtenerTextField("intervaloTextField").setDisable(!ventanaAgregarTarea.obtenerCheckBox("repetirDiariamenteCheckBox").isSelected());
-    }
     private void deshabilitarCamposDeHora(){
-        ventanaAgregarTarea.obtenerLocalTimePicker("horaInicioPicker").setDisable(ventanaAgregarTarea.obtenerCheckBox("diaCompletoCheckBox").isSelected());
-        ventanaAgregarTarea.obtenerLocalTimePicker("horaFinPicker").setDisable(ventanaAgregarTarea.obtenerCheckBox("diaCompletoCheckBox").isSelected());
+        ventanaAgregarTarea.obtenerLocalTimePicker("horaVencimientoPicker").setDisable(ventanaAgregarTarea.obtenerCheckBox("diaCompletoCheckBox").isSelected());
     }
     public void agregarTarea(){
 
@@ -74,12 +68,6 @@ public class ControladorVentanaAgregarTarea {
         boolean datosValidos = true;
         if (ventanaAgregarTarea.obtenerTextField("tituloTextField").getText().isEmpty()){
             ventanaAgregarTarea.mostrarMensajeError("Por favor, ingrese un título");
-            datosValidos = false;
-            return datosValidos;
-        }
-        System.out.println("El titulo del evento es: " + ventanaAgregarTarea.obtenerTextField("tituloTextField").getText());
-        if (ventanaAgregarTarea.obtenerCheckBox("repetirDiariamenteCheckBox").isSelected() && intervalo.getText().isEmpty()) {
-            ventanaAgregarTarea.mostrarMensajeError("Por favor, ingrese el intervalo de repeticion");
             datosValidos = false;
             return datosValidos;
         }

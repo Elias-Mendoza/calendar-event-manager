@@ -2,21 +2,20 @@ import javafx.scene.control.*;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 
-public class ControladorVentanaAgregarEvento {
+public class ControladorVentanaAgregarEvento{
     private VentanaAgregarEvento ventanaAgregarEvento;
     private Calendario calendario;
     public ControladorVentanaAgregarEvento(Calendario calendario, VentanaAgregarEvento ventanaAgregarEvento){
         this.ventanaAgregarEvento = ventanaAgregarEvento;
         this.calendario = calendario;
     }
-
     public void iniciar() {
-        //ventanaAgregarEvento.obtenerBoton("botonConfirmar").setOnAction(event -> comprobarDatos());
         ventanaAgregarEvento.obtenerBotonConfirmar().setOnAction(event -> agregarEvento());
         ventanaAgregarEvento.obtenerCheckBox("diaCompletoCheckBox").setOnAction(evento ->deshabilitarCamposDeHora());
         ventanaAgregarEvento.obtenerCheckBox("repetirDiariamenteCheckBox").setOnAction(evento -> deshabilitarCampoDeRepeticion());

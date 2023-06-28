@@ -1,15 +1,19 @@
+import javafx.util.Pair;
+
 import java.io.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Calendario implements Serializable {
+public class Calendario implements Serializable, Observable {
     private List<Evento> eventos;
     private List<Tarea> tareas;
+    private List<Observer> observers;
     public Calendario() {
         this.eventos = new ArrayList<>();
         this.tareas = new ArrayList<>();
+        this.observers = new ArrayList<>();
     }
     public void agregarEvento(Evento evento) {
         this.eventos.add(evento);
@@ -107,12 +111,16 @@ public class Calendario implements Serializable {
     }
 
     //Calcula el horario de la siguiente alarma entre todas las tareas y alarmas del calendario
-    public LocalDateTime calcularSiguienteHorarioAlarma(){
+    public Pair<LocalDateTime, Actividad> calcularSiguienteHorarioAlarma(){
         LocalDateTime proximoHorarioAlarma = LocalDateTime.MAX;
+        Actividad actividadDeAlarma = null;
         for(Evento evento : obtenerEventos()){
             if(evento.proximaActivacionAlarma() != null){
                 if(evento.proximaActivacionAlarma().isBefore(proximoHorarioAlarma) && evento.proximaActivacionAlarma().isAfter(LocalDateTime.now()) ){
+
                     proximoHorarioAlarma = evento.proximaActivacionAlarma();
+                    actividadDeAlarma = evento;
+                    System.out.println("TITULO" + actividadDeAlarma.getTitulo());
                 }
             }
         }
@@ -120,13 +128,46 @@ public class Calendario implements Serializable {
             if(tarea.proximaActivacionAlarma() != null){
                 if(tarea.proximaActivacionAlarma().isBefore(proximoHorarioAlarma) && tarea.proximaActivacionAlarma().isAfter(LocalDateTime.now()) ){
                     proximoHorarioAlarma = tarea.proximaActivacionAlarma();
+                    actividadDeAlarma = tarea;
+                    System.out.println(actividadDeAlarma.getTitulo());
                 }
             }
         }
         if(proximoHorarioAlarma == LocalDateTime.MAX){
             proximoHorarioAlarma = null;
         }
-        return proximoHorarioAlarma;
+        return new Pair<>(proximoHorarioAlarma, actividadDeAlarma);
+    }
+
+    public void verificarAlarma() {
+        Pair<LocalDateTime, Actividad> resultado = calcularSiguienteHorarioAlarma();
+        if (resultado != null) {
+            LocalDateTime proximoHorarioAlarma = resultado.getKey();
+            Actividad actividad = resultado.getValue();
+            LocalDateTime ahora = LocalDateTime.now();
+
+            if (proximoHorarioAlarma != null && proximoHorarioAlarma.isAfter(ahora) && proximoHorarioAlarma.isBefore(ahora.plusSeconds(1))) {
+                String mensaje = actividad.getTitulo();
+                notifyObservers(mensaje);
+            }
+        }
+    }
+
+    @Override
+    public void addObserver(Observer observer) {
+        observers.add(observer);
+    }
+
+    @Override
+    public void removeObserver(Observer observer) {
+        observers.remove(observer);
+    }
+
+    @Override
+    public void notifyObservers(String mensaje) {
+        for (Observer observer : observers) {
+            observer.update(mensaje);
+        }
     }
 
 }
