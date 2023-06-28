@@ -51,10 +51,6 @@ public class ControladorPrincipal{
         controladorVentanaAgregarTarea.iniciar();
     }
 
-    private void agregarTarea(){
-
-    }
-
     private void cambiarVistaADia() {
         vistaPrincipal.cambiarVista(vistaDia);
         controladorDia.iniciar();

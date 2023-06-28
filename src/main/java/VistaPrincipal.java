@@ -9,27 +9,28 @@ import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.io.Serializable;
 
 
-public class VistaPrincipal implements Observer{
+public class VistaPrincipal implements Observer, Serializable{
 
     private static Scene escenaPrincipal;
-    private Stage escenario;
+    private transient Stage escenario;
     private Calendario calendario;
     @FXML
-    private Parent rootVistaPrincipal;
+    private transient Parent rootVistaPrincipal;
     @FXML
-    private Button botonVistaPorDia;
+    private transient Button botonVistaPorDia;
     @FXML
-    private Button botonVistaPorSemana;
+    private transient Button botonVistaPorSemana;
     @FXML
-    private Button botonVistaPorMes;
+    private transient Button botonVistaPorMes;
     @FXML
-    private StackPane contenedorVistas;
+    private transient StackPane contenedorVistas;
     @FXML
-    private Button botonAgregarEvento;
+    private transient Button botonAgregarEvento;
     @FXML
-    private Button botonAgregarTarea;
+    private transient Button botonAgregarTarea;
     private VistaMes vistaMes;
 
     public VistaPrincipal(Stage primaryStage, Calendario calendario) {
@@ -85,17 +86,19 @@ public class VistaPrincipal implements Observer{
     }
     @Override
     public void update(String mensaje) {
-        Platform.runLater(() -> mostrarNotificacion("¡Alarma activada!: " + mensaje));
+        Platform.runLater(() -> mostrarNotificacion(mensaje));
     }
 
     public void mostrarNotificacion(String mensaje) {
+        Label alarmaActivadaLabel = new Label("¡Alarma activada!");
         Label mensajeLabel = new Label(mensaje);
-        VBox vbox = new VBox(mensajeLabel);
+        VBox vbox = new VBox(alarmaActivadaLabel);
+        vbox.getChildren().add(mensajeLabel);
         vbox.setAlignment(Pos.CENTER);
 
         Stage notificacionStage = new Stage();
         notificacionStage.setTitle("Notificación");
-        notificacionStage.setScene(new Scene(vbox, 200, 100));
+        notificacionStage.setScene(new Scene(vbox, 300, 300));
         notificacionStage.show();
     }
 }

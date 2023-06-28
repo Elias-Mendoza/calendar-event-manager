@@ -9,10 +9,10 @@ public class App extends Application  implements Serializable {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        mainCalendario();
-
+        //mainCalendario();
         Calendario calendario;
         //CARGAMOS EL MODELO
+
         // Carga el calendario desde el archivo o crea uno nuevo si no existe
         try (InputStream is = new FileInputStream("calendario.dat")) {
             calendario = Calendario.cargarCalendario(is);
@@ -20,13 +20,11 @@ public class App extends Application  implements Serializable {
                 // No se pudo cargar el calendario, crea uno nuevo
                 calendario = new Calendario();
             }
-        } catch (NotSerializableException e){
-            System.out.println("No se pudo serializar el archivo para cargar: " + e.getMessage());
-            calendario = new Calendario();
         } catch (IOException e) {
             System.out.println("No se encontró el archivo. Se creará un nuevo calendario."+ e.getMessage());
             calendario = new Calendario();
         }
+        calendario.clearObservers();
         //FIN CARGAR EL MODELO
 
         //CARGAMOS LA VISTA
@@ -48,18 +46,6 @@ public class App extends Application  implements Serializable {
         vistaPrincipal.cambiarVista(vistaMes);
         controladorPrincipal.iniciar();
         controladorMes.iniciar();
-
-        // Guarda el calendario actualizado en el archivo
-        try (OutputStream os = new FileOutputStream("calendario.dat")) {
-            calendario.guardarCalendario(os);
-        } catch (NotSerializableException e){
-            System.out.println("No se puede serializar el archivo: "+e.getMessage());
-        } catch (Calendario.CalendarioNoGuardadoException e) {
-            System.out.println("Error al guardar el calendario: " + e.getMessage());
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
     }
 
     private void mainCalendario(){

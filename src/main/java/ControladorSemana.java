@@ -25,20 +25,16 @@ public class ControladorSemana {
     public void iniciar() {
         vistaSemana.obtenerBoton("botonSiguienteVistaSemana").setOnAction(actionEvent -> plusSemanas(1));
         vistaSemana.obtenerBoton("botonAnteriorVistaSemana").setOnAction(actionEvent -> plusSemanas(-1));
-
+        limpiarContenidoActividades();
         mostrarNumerosDeLaSemana();
-
     }
     private void mostrarNumerosDeLaSemana(){
 
-        actualizarNumerosDeLaSemana();
+        actualizarVistaDeLaSemana();
     }
-    private void actualizarNumerosDeLaSemana() {
+    private void actualizarVistaDeLaSemana() {
         vistaSemana.getNumerosDiasVistaSemana().getChildren().clear();
         int numeroDia = obtenerPrimerDiaSemanaActual(); // Obtener el primer día de la semana
-        int diaSemana = fechaActual.getDayOfWeek().getValue(); // Obtener el día de la semana (1: Domingo, 2: Lunes, ..., 7: Sábado)
-        System.out.println("numeroDia vale: " + numeroDia);
-        // Obtener el primer día de la semana actual
         DayOfWeek primerDiaSemana = DayOfWeek.SUNDAY; // Establecer el primer día de la semana (por ejemplo, Domingo)
         LocalDate fechaCelda = fechaActual.with(TemporalAdjusters.previousOrSame(primerDiaSemana));
         for (int i = 0; i < 7; i++) {
@@ -77,7 +73,7 @@ public class ControladorSemana {
         vistaSemana.mostrarMesActual(fechaActual.getMonth().getDisplayName(TextStyle.FULL, new Locale("es", "ES")).toUpperCase());
         vistaSemana.mostrarAnioActual(fechaActual.getYear());
 
-        actualizarNumerosDeLaSemana();
+        actualizarVistaDeLaSemana();
 
     }
 

@@ -68,18 +68,14 @@ public abstract class Evento extends Actividad implements Serializable, Cloneabl
 
     @Override
     public void agregarAlarmaActividad(Alarma alarma){
-        System.out.println("momentoActivacion = " + calcularProximaActivacionAlarmaMinutosAntes(alarma));
         if(alarma.getTipo() == Alarma.TipoAlarma.DE_MINUTOS_ANTES){
             alarma.setMomentoActivacion(calcularProximaActivacionAlarmaMinutosAntes(alarma));
         }
-        System.out.println("Alarma = " + alarma);
-
         this.alarmas.add(alarma);
     }
 
     private LocalDateTime calcularProximaActivacionAlarmaMinutosAntes(Alarma alarma){
         LocalDateTime horarioRepeticion = this.siguienteRepeticionAFecha(LocalDateTime.now());
-        System.out.println("Calculo de horario repeticion: " + horarioRepeticion);
         if(horarioRepeticion == null){
             return null;
         }

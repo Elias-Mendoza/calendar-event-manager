@@ -36,8 +36,8 @@ public class ControladorVentanaAgregarEvento{
 
         LocalDate fechaInicio = ventanaAgregarEvento.obtenerDatePicker("fechaInicioPicker").getValue();
         LocalDate fechaFin = ventanaAgregarEvento.obtenerDatePicker("fechaFinPicker").getValue();
-        LocalTime horaInicio = ventanaAgregarEvento.obtenerLocalTimePicker("horaInicioPicker").getLocalTime();
-        LocalTime horaFin = ventanaAgregarEvento.obtenerLocalTimePicker("horaFinPicker").getLocalTime();
+        LocalTime horaInicio = getCustomLocalTimeSinSegundos(ventanaAgregarEvento.obtenerLocalTimePicker("horaInicioPicker").getLocalTime());
+        LocalTime horaFin = getCustomLocalTimeSinSegundos(ventanaAgregarEvento.obtenerLocalTimePicker("horaFinPicker").getLocalTime());
         TextField titulo = ventanaAgregarEvento.obtenerTextField("tituloTextField");
         TextArea descripcion = ventanaAgregarEvento.obtenerTextArea("descripcionTextArea");
         TextField intervalo = ventanaAgregarEvento.obtenerTextField("intervaloTextField");
@@ -111,5 +111,8 @@ public class ControladorVentanaAgregarEvento{
             return datosValidos;
         }
         return datosValidos;
+    }
+    private LocalTime getCustomLocalTimeSinSegundos(LocalTime time) {
+        return LocalTime.of(time.getHour(), time.getMinute());
     }
 }

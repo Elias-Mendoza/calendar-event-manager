@@ -31,7 +31,7 @@ public class ControladorVentanaAgregarTarea {
     public void agregarTarea(){
 
         LocalDate fechaVencimiento = ventanaAgregarTarea.obtenerDatePicker("fechaVencimientoPicker").getValue();
-        LocalTime horaVencimiento = ventanaAgregarTarea.obtenerLocalTimePicker("horaVencimientoPicker").getLocalTime();
+        LocalTime horaVencimiento = getCustomLocalTimeSinSegundos(ventanaAgregarTarea.obtenerLocalTimePicker("horaVencimientoPicker").getLocalTime());
         TextField titulo = ventanaAgregarTarea.obtenerTextField("tituloTextField");
         TextArea descripcion = ventanaAgregarTarea.obtenerTextArea("descripcionTextArea");
         TextField intervalo = ventanaAgregarTarea.obtenerTextField("intervaloTextField");
@@ -77,5 +77,8 @@ public class ControladorVentanaAgregarTarea {
             return datosValidos;
         }
         return datosValidos;
+    }
+    private LocalTime getCustomLocalTimeSinSegundos(LocalTime time) {
+        return LocalTime.of(time.getHour(), time.getMinute());
     }
 }

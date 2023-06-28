@@ -117,10 +117,8 @@ public class Calendario implements Serializable, Observable {
         for(Evento evento : obtenerEventos()){
             if(evento.proximaActivacionAlarma() != null){
                 if(evento.proximaActivacionAlarma().isBefore(proximoHorarioAlarma) && evento.proximaActivacionAlarma().isAfter(LocalDateTime.now()) ){
-
                     proximoHorarioAlarma = evento.proximaActivacionAlarma();
                     actividadDeAlarma = evento;
-                    System.out.println("TITULO" + actividadDeAlarma.getTitulo());
                 }
             }
         }
@@ -129,7 +127,6 @@ public class Calendario implements Serializable, Observable {
                 if(tarea.proximaActivacionAlarma().isBefore(proximoHorarioAlarma) && tarea.proximaActivacionAlarma().isAfter(LocalDateTime.now()) ){
                     proximoHorarioAlarma = tarea.proximaActivacionAlarma();
                     actividadDeAlarma = tarea;
-                    System.out.println(actividadDeAlarma.getTitulo());
                 }
             }
         }
@@ -144,8 +141,10 @@ public class Calendario implements Serializable, Observable {
         if (resultado != null) {
             LocalDateTime proximoHorarioAlarma = resultado.getKey();
             Actividad actividad = resultado.getValue();
+            System.out.println("Cantidad de observadores: " + observers.size());
             LocalDateTime ahora = LocalDateTime.now();
-
+            System.out.println("FECHA Y HORA ACTUAL " + ahora);
+            System.out.println("Proxima alarma: " + proximoHorarioAlarma);
             if (proximoHorarioAlarma != null && proximoHorarioAlarma.isAfter(ahora) && proximoHorarioAlarma.isBefore(ahora.plusSeconds(1))) {
                 String mensaje = actividad.getTitulo();
                 notifyObservers(mensaje);
@@ -168,6 +167,9 @@ public class Calendario implements Serializable, Observable {
         for (Observer observer : observers) {
             observer.update(mensaje);
         }
+    }
+    public void clearObservers(){
+        observers.clear();
     }
 
 }
