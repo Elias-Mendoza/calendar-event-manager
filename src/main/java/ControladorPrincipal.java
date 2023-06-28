@@ -48,9 +48,7 @@ public class ControladorPrincipal {
         vistaPrincipal.obtenerBoton("botonVistaPorDia").setOnAction(event -> cambiarVistaADia());
         vistaPrincipal.obtenerBoton("botonVistaPorSemana").setOnAction(event -> cambiarVistaASemana());
         vistaPrincipal.obtenerBoton("botonVistaPorMes").setOnAction(event -> cambiarVistaAMes());
-        //vistaPrincipal.obtenerBoton("botonAgregarEvento").setOnAction(event -> vistaPrincipal.abrirVentanaAgregarEvento() );
         vistaPrincipal.obtenerBoton("botonAgregarEvento").setOnAction(event -> abrirVentanaAgregarEvento() );
-        //vistaPrincipal.obtenerBoton("botonAgregarTarea").setOnAction(event -> vistaPrincipal.abrirVentanaAgregarTarea() );
         vistaPrincipal.obtenerBoton("botonAgregarTarea").setOnAction(event -> abrirVentanaAgregarTarea() );
     }
 
@@ -62,6 +60,8 @@ public class ControladorPrincipal {
     }
     private void abrirVentanaAgregarTarea(){
         VentanaAgregarTarea ventanaAgregarTarea = new VentanaAgregarTarea(calendario);
+        ControladorVentanaAgregarTarea controladorVentanaAgregarTarea = new ControladorVentanaAgregarTarea(calendario, ventanaAgregarTarea);
+        controladorVentanaAgregarTarea.iniciar();
     }
 
     private void agregarTarea(){

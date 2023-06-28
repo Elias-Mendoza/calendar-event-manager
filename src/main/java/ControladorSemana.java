@@ -12,16 +12,13 @@ import javafx.scene.layout.VBox;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.format.TextStyle;
 import java.time.temporal.TemporalAdjusters;
 import java.time.temporal.WeekFields;
-import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 
 public class ControladorSemana{
-
     Calendario calendario;
     VistaSemana vistaSemana;
     LocalDate fechaActual;
@@ -40,14 +37,12 @@ public class ControladorSemana{
 
     }
     private void mostrarNumerosDeLaSemana(){
-
+        limpiarContenidoActividades();
         actualizarNumerosDeLaSemana();
     }
     private void actualizarNumerosDeLaSemana() {
         vistaSemana.getNumerosDiasVistaSemana().getChildren().clear();
         int numeroDia = obtenerPrimerDiaSemanaActual(); // Obtener el primer día de la semana
-        int diaSemana = fechaActual.getDayOfWeek().getValue(); // Obtener el día de la semana (1: Domingo, 2: Lunes, ..., 7: Sábado)
-        System.out.println("numeroDia vale: " + numeroDia);
         // Obtener el primer día de la semana actual
         DayOfWeek primerDiaSemana = DayOfWeek.SUNDAY; // Establecer el primer día de la semana (por ejemplo, Domingo)
         LocalDate fechaCelda = fechaActual.with(TemporalAdjusters.previousOrSame(primerDiaSemana));

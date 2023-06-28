@@ -1,12 +1,4 @@
-import javafx.fxml.FXML;
-import javafx.geometry.HPos;
-import javafx.geometry.Pos;
-import javafx.geometry.VPos;
-import javafx.scene.Parent;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.GridPane;
-
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.format.TextStyle;

@@ -72,7 +72,6 @@ public class VentanaAgregarTarea extends Vista{
         fechaVencimientoPicker.setId("fechaVencimientoPicker");
         diaCompletoCheckBox.setId("diaCompletoCheckBox");
 
-
         horaVencimientoPicker.setId("horaVencimientoPicker");
         descripcionTextArea.setId("descripcionTextArea");
         alarmaCheckBox.setId("alarmaCheckBox");
@@ -81,8 +80,6 @@ public class VentanaAgregarTarea extends Vista{
     public void mostrarVista(){
         escenario.show();
     }
-
-
     public Button obtenerBotonConfirmar() {
         return botonConfirmar;
     }
