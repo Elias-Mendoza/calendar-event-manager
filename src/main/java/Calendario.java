@@ -141,10 +141,7 @@ public class Calendario implements Serializable, Observable {
         if (resultado != null) {
             LocalDateTime proximoHorarioAlarma = resultado.getKey();
             Actividad actividad = resultado.getValue();
-            System.out.println("Cantidad de observadores: " + observers.size());
             LocalDateTime ahora = LocalDateTime.now();
-            System.out.println("FECHA Y HORA ACTUAL " + ahora);
-            System.out.println("Proxima alarma: " + proximoHorarioAlarma);
             if (proximoHorarioAlarma != null && proximoHorarioAlarma.isAfter(ahora) && proximoHorarioAlarma.isBefore(ahora.plusSeconds(1))) {
                 String mensaje = actividad.getTitulo();
                 notifyObservers(mensaje);

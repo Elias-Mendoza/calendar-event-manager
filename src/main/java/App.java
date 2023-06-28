@@ -25,6 +25,7 @@ public class App extends Application  implements Serializable {
             calendario = new Calendario();
         }
         calendario.clearObservers();
+
         //FIN CARGAR EL MODELO
 
         //CARGAMOS LA VISTA

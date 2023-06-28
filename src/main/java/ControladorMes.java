@@ -71,9 +71,6 @@ public class ControladorMes{
                         GridPane.setValignment(botonActividad, VPos.CENTER);
                         GridPane.setHalignment(botonActividad, HPos.CENTER);
                         eventos = calendario.obtenerEventosEnFecha(fechaCelda);
-                        System.out.println("Fecha celda actual: " + fechaCelda);
-                        System.out.println("Hay actividad?: " + calendario.hayActividadesEnFecha(fechaCelda));
-                        //System.out.println("Evento en fecha: " + eventos.get(0));
                         tareas = calendario.obtenerTareasEnFecha(fechaCelda);
 
                         botonActividad.setOnAction(event -> {

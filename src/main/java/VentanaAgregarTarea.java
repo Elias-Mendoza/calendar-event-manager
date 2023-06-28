@@ -41,7 +41,7 @@ public class VentanaAgregarTarea extends Vista{
         contenido.addRow(0, new Label("Título:"), tituloTextField);
         contenido.addRow(1, new Label("Fecha de vencimiento:"), fechaVencimientoPicker);
         contenido.addRow(2, diaCompletoCheckBox);
-        contenido.addRow(3, new Label("Hora de fin:"), horaVencimientoPicker);
+        contenido.addRow(3, new Label("Hora de vencimiento:"), horaVencimientoPicker);
         contenido.addRow(4, new Label("Descripción:"), descripcionTextArea);
         contenido.addRow(5, alarmaCheckBox);
         contenido.addRow(6, new Label("Minutos antes del inicio para la alarma:"), minutosAlarmaTextField);

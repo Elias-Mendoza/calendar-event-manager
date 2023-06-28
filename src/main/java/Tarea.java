@@ -9,7 +9,7 @@ public abstract class Tarea extends Actividad implements Serializable {
         this.estaCompletada = false;
     }
     public abstract LocalDate getFechaTarea();
-
+    public abstract LocalDateTime getFechaYHoraVencimiento();
     public boolean getEstaCompletada(){
         return this.estaCompletada;
     }

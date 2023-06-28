@@ -11,7 +11,7 @@ public class TareaConFechaYHoraVencimiento extends Tarea implements Serializable
         this.fechaYHoraVencimiento = fechaYHoraVencimiento;
     }
 
-
+    @Override
     public LocalDateTime getFechaYHoraVencimiento() {
         return this.fechaYHoraVencimiento;
     }

@@ -45,4 +45,8 @@ public class TareaDiaCompleto extends Tarea implements Serializable {
     public LocalDate getFechaTarea(){
         return (this.fechaTarea);
     }
+    @Override
+    public LocalDateTime getFechaYHoraVencimiento(){
+        return fechaTarea.atTime(23,59,59);
+    }
 }
