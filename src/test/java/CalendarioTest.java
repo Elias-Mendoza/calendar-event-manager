@@ -1,3 +1,4 @@
+import javafx.util.Pair;
 import org.junit.Test;
 
 import java.io.ByteArrayInputStream;
@@ -23,8 +24,10 @@ public class CalendarioTest {
         evento.agregarAlarmaActividad(new Alarma(10));
 
         LocalDateTime fechaYHoraEsperada = LocalDateTime.of(3000, 5,26,23,50);
+        Pair<LocalDateTime, Actividad> resultado = miCalendario.calcularSiguienteHorarioAlarma();
+        LocalDateTime proximoHorarioAlarma = resultado.getKey();
 
-        assertEquals(fechaYHoraEsperada, miCalendario.calcularSiguienteHorarioAlarma() );
+        assertEquals(fechaYHoraEsperada, proximoHorarioAlarma );
     }
 
     @Test
@@ -41,7 +44,10 @@ public class CalendarioTest {
 
         LocalDateTime fechaYHoraEsperada = LocalDateTime.of(3000, 5,26,23,50);
 
-        assertEquals(fechaYHoraEsperada, miCalendario.calcularSiguienteHorarioAlarma() );
+        Pair<LocalDateTime, Actividad> resultado = miCalendario.calcularSiguienteHorarioAlarma();
+        LocalDateTime proximoHorarioAlarma = resultado.getKey();
+
+        assertEquals(fechaYHoraEsperada, proximoHorarioAlarma );
     }
 
     @Test
@@ -57,10 +63,12 @@ public class CalendarioTest {
         evento.agregarAlarmaActividad(new Alarma(10));
         miCalendario.eliminarEvento(evento);
 
-        assertEquals(null, miCalendario.calcularSiguienteHorarioAlarma());
+        Pair<LocalDateTime, Actividad> resultado = miCalendario.calcularSiguienteHorarioAlarma();
+        LocalDateTime proximoHorarioAlarma = resultado.getKey();
+
+        assertEquals(null, proximoHorarioAlarma);
 
     }
-
 
     @Test
     public void testPersistencia() {
@@ -83,7 +91,11 @@ public class CalendarioTest {
 
         // Se guarda el calendario en un ByteArrayOutputStream
         ByteArrayOutputStream byteOut = new ByteArrayOutputStream();
-        calendario.guardarCalendario(byteOut);
+        try {
+            calendario.guardarCalendario(byteOut);
+        } catch (Calendario.CalendarioNoGuardadoException e) {
+            throw new RuntimeException(e);
+        }
 
         // Se carga el calendario desde el ByteArrayOutputStream
         ByteArrayInputStream byteIn = new ByteArrayInputStream(byteOut.toByteArray());

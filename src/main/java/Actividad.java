@@ -26,6 +26,9 @@ public abstract class Actividad implements Serializable {
     public LocalDateTime proximaActivacionAlarma(){
         LocalDateTime proximoHorarioAlarma = LocalDateTime.MAX;
         for(Alarma alarma : alarmas){
+            if(alarma.getMomentoActivacion() == null){
+                return null;
+            }
             if(alarma.getMomentoActivacion().isBefore(proximoHorarioAlarma)){
                 proximoHorarioAlarma = alarma.getMomentoActivacion();
             }
@@ -33,6 +36,7 @@ public abstract class Actividad implements Serializable {
         if(proximoHorarioAlarma == LocalDateTime.MAX){
             proximoHorarioAlarma = null;
         }
+
         return proximoHorarioAlarma;
     }
 

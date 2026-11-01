@@ -15,10 +15,6 @@ public class TareaDiaCompleto extends Tarea implements Serializable {
         this.fechaTarea = nuevaFechaTarea;
         actualizarAlarmas();
     }
-    public LocalDate getFechaTarea(){
-        return this.fechaTarea;
-    }
-
     @Override
     public void agregarAlarmaActividad(Alarma alarma) {
         if(alarma.getTipo() == Alarma.TipoAlarma.DE_MINUTOS_ANTES){
@@ -26,8 +22,6 @@ public class TareaDiaCompleto extends Tarea implements Serializable {
         }
         this.alarmas.add(alarma);
     }
-
-
     @Override
     public String tiempoRestanteLegible() {
         Duration duracionRestante = Duration.between(LocalDateTime.now(), this.fechaTarea.atStartOfDay());
@@ -46,5 +40,13 @@ public class TareaDiaCompleto extends Tarea implements Serializable {
         System.out.println("Tipo de tarea: DE DIA COMPLETO");
         System.out.println("Fecha y hora de vencimiento: " + getFechaTarea() );
         System.out.println("Tiempo restante: " + tiempoRestanteLegible());
+    }
+    @Override
+    public LocalDate getFechaTarea(){
+        return (this.fechaTarea);
+    }
+    @Override
+    public LocalDateTime getFechaYHoraVencimiento(){
+        return fechaTarea.atTime(23,59,59);
     }
 }
