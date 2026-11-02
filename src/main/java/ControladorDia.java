@@ -50,11 +50,12 @@ public class ControladorDia{
             int numeroDia = fechaCelda.getDayOfMonth();
             Label numero = new Label(String.valueOf(numeroDia));
 
+            // El aspecto de "hoy" y del día seleccionado se define en estilos.css
             if(fechaCelda.isEqual(LocalDate.now())){
-                numero.setStyle("-fx-border-color: red; -fx-border-width: 3px; -fx-border-radius: 5px; -fx-padding: 3px;");
+                numero.getStyleClass().add("hoy");
             }
             if (fechaCelda.isEqual(fechaActual)) {
-                numero.setStyle("-fx-border-color: blue; -fx-border-width: 3px; -fx-border-radius: 5px; -fx-padding: 1px;");
+                numero.getStyleClass().add("seleccionado");
             }
             vistaDia.getNumerosDiasVistaDia().add(numero, i, 0);
             fechaCelda = fechaCelda.plusDays(1);

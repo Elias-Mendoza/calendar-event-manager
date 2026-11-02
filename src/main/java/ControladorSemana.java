@@ -34,16 +34,15 @@ public class ControladorSemana {
     }
     private void actualizarVistaDeLaSemana() {
         vistaSemana.getNumerosDiasVistaSemana().getChildren().clear();
-        int numeroDia = obtenerPrimerDiaSemanaActual(); // Obtener el primer día de la semana
-        DayOfWeek primerDiaSemana = DayOfWeek.SUNDAY; // Establecer el primer día de la semana (por ejemplo, Domingo)
+        DayOfWeek primerDiaSemana = DayOfWeek.SUNDAY; // Las columnas de la vista empiezan en Domingo
         LocalDate fechaCelda = fechaActual.with(TemporalAdjusters.previousOrSame(primerDiaSemana));
         for (int i = 0; i < 7; i++) {
-            Label numero = new Label(String.valueOf(numeroDia));
-            vistaSemana.getNumerosDiasVistaSemana().add(numero, i, 0);
-            numeroDia++;
-            if (numeroDia > fechaActual.lengthOfMonth()) {
-                numeroDia = 1; // Reiniciar el número del día si supera la longitud del mes actual
+            // El número sale de la misma fecha de la celda que se usa para buscar actividades
+            Label numero = new Label(String.valueOf(fechaCelda.getDayOfMonth()));
+            if (fechaCelda.isEqual(LocalDate.now())) {
+                numero.getStyleClass().add("hoy");
             }
+            vistaSemana.getNumerosDiasVistaSemana().add(numero, i, 0);
             verificarActividadesEnFechaCelda(i, 0, fechaCelda);
             fechaCelda = fechaCelda.plusDays(1);
         }
@@ -57,12 +56,6 @@ public class ControladorSemana {
             tareas = calendario.obtenerTareasEnFecha(fechaCelda);
             vistaSemana.mostrarActividadesEnVistaSemana(fila, columna, eventos, tareas);
         }
-    }
-
-    private int obtenerPrimerDiaSemanaActual() {
-        DayOfWeek primerDiaSemana = WeekFields.of(Locale.getDefault()).getFirstDayOfWeek();
-        LocalDate primerDiaSemanaActual = fechaActual.with(TemporalAdjusters.previousOrSame(primerDiaSemana));
-        return primerDiaSemanaActual.getDayOfMonth()-1;
     }
 
     public void plusSemanas(int cantidadSemanas){
