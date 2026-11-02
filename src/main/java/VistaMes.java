@@ -4,6 +4,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.io.Serializable;
@@ -50,10 +51,24 @@ public class VistaMes extends Vista{
 
             labelMesActualVistaMes.setText(LocalDate.now().getMonth().getDisplayName(TextStyle.FULL, Locale.of("es", "ES")).toUpperCase());
             labelAnioActualVistaMes.setText(String.valueOf(LocalDate.now().getYear()));
+            dibujarCeldasDeFondo();
             mostrarNumerosMeses();
 
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+    // Celdas decorativas detrás de los números del mes (solo apariencia)
+    private void dibujarCeldasDeFondo() {
+        for (int fila = 0; fila < 6; fila++) {
+            for (int columna = 0; columna < 7; columna++) {
+                Region celda = new Region();
+                celda.getStyleClass().add("celda-mes");
+                if (columna == 0 || columna == 6) {
+                    celda.getStyleClass().add("fin-de-semana");
+                }
+                vistaPorMes.add(celda, columna, fila);
+            }
         }
     }
     private void mostrarNumerosMeses(){

@@ -83,16 +83,10 @@ public class VistaSemana extends Vista{
         //vistaPorSemana.getChildren().add(fila, new Label("CACA"));
 
         for (Evento evento : eventos) {
-            String contenido = "Evento:\n" + "Titulo: " + evento.getTitulo() + "\n" + "Descripcion: " + evento.getDescripcion()
-                    + "\n" + "Inicio: " + evento.getInicio() + "\n" + "Fin: " + evento.getFin();
-            BorderPane panelConBordes = crearPanelConBordes(contenido);
-            vbox.getChildren().add(panelConBordes);
+            vbox.getChildren().add(EstiloUI.tarjetaEvento(evento));
         }
         for (Tarea tarea : tareas) {
-            String contenido = "Tarea:\n" + "Titulo: " + tarea.getTitulo() + "\n" + "Descripcion: " + tarea.getDescripcion()
-                    + "\n" + "Fecha vencimiento: " + tarea.getFechaTarea() + "\n" + "Completada: " + tarea.getEstaCompletada();
-            BorderPane panelConBordes = crearPanelConBordes(contenido);
-            vbox.getChildren().add(panelConBordes);
+            vbox.getChildren().add(EstiloUI.tarjetaTarea(tarea));
         }
     }
 }

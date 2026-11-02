@@ -41,11 +41,12 @@ public abstract class Vista{
         alerta.setTitle("Error");
         alerta.setHeaderText(null);
         alerta.setContentText(mensaje);
+        EstiloUI.aplicar(alerta.getDialogPane());
         alerta.showAndWait();
     }
     public BorderPane crearPanelConBordes(String content) {
         BorderPane borderPane = new BorderPane();
-        borderPane.setStyle("-fx-border-color: black; -fx-border-width: 1px;");
+        borderPane.getStyleClass().add("panel-con-bordes");
 
         Label label = new Label(content);
         label.setWrapText(true);

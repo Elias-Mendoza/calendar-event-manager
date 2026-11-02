@@ -1,6 +1,6 @@
 import javafx.scene.Parent;
 import javafx.scene.control.*;
-import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import jfxtras.scene.control.LocalTimePicker;
 
@@ -40,29 +40,40 @@ public class VentanaAgregarEvento extends Vista{
         horaInicioPicker = new LocalTimePicker();
         horaFinPicker = new LocalTimePicker();
         descripcionTextArea = new TextArea();
-        alarmaCheckBox = new CheckBox("Agregar Alarma");
+        alarmaCheckBox = new CheckBox("Activar alarma");
         minutosAlarmaTextField = new TextField();
 
 
-        // Configurar el contenido del diálogo
-        GridPane contenido = new GridPane();
-        contenido.setHgap(10);
-        contenido.setVgap(10);
-        contenido.addRow(0, new Label("Título:"), tituloTextField);
-        contenido.addRow(1, new Label("Fecha de inicio:"), fechaInicioPicker);
-        contenido.addRow(2, new Label("Fecha de fin:"), fechaFinPicker);
-        contenido.addRow(3, diaCompletoCheckBox);
-        contenido.addRow(4, new Label("Hora de inicio:"), horaInicioPicker);
-        contenido.addRow(5, new Label("Hora de fin:"), horaFinPicker);
-        contenido.addRow(6, new Label("Descripción:"), descripcionTextArea);
-        contenido.addRow(7, repetirDiariamenteCheckBox);
-        contenido.addRow(8, new Label("Intervalo:"), intervaloTextField);
-        contenido.addRow(9, alarmaCheckBox);
-        contenido.addRow(10, new Label("Minutos antes del inicio para la alarma:"), minutosAlarmaTextField);
+        // Configurar el contenido del diálogo (solo disposición visual; los controles y sus ids no cambian)
+        tituloTextField.setPromptText("Ej: Reunión de equipo");
+        descripcionTextArea.setPromptText("Opcional");
+        descripcionTextArea.setPrefRowCount(2);
+        descripcionTextArea.setWrapText(true);
+        fechaInicioPicker.setPromptText("Elegí una fecha");
+        fechaFinPicker.setPromptText("Elegí una fecha");
+        intervaloTextField.setPromptText("1");
+        minutosAlarmaTextField.setPromptText("15");
+
+        VBox contenido = EstiloUI.formulario(
+                EstiloUI.seccion("Detalles"),
+                EstiloUI.campo("Título", tituloTextField),
+                EstiloUI.campo("Descripción", descripcionTextArea),
+                EstiloUI.seccion("Cuándo"),
+                EstiloUI.fila(EstiloUI.campo("Fecha de inicio", fechaInicioPicker),
+                              EstiloUI.campo("Fecha de fin", fechaFinPicker)),
+                diaCompletoCheckBox,
+                EstiloUI.fila(EstiloUI.campo("Hora de inicio", horaInicioPicker),
+                              EstiloUI.campo("Hora de fin", horaFinPicker)),
+                EstiloUI.seccion("Repetición y alarma"),
+                EstiloUI.opcionEnLinea(repetirDiariamenteCheckBox, intervaloTextField, "cada", "días"),
+                EstiloUI.opcionEnLinea(alarmaCheckBox, minutosAlarmaTextField, null, "minutos antes")
+        );
+        dialogo.setHeaderText("Nuevo evento");
         dialogo.getDialogPane().setContent(contenido);
+        EstiloUI.aplicar(dialogo.getDialogPane());
 
         // Agregar botones de confirmación y cancelación
-        ButtonType confirmarBoton = new ButtonType("Confirmar", ButtonBar.ButtonData.OK_DONE);
+        ButtonType confirmarBoton = new ButtonType("Crear evento", ButtonBar.ButtonData.OK_DONE);
         dialogo.getDialogPane().getButtonTypes().addAll(confirmarBoton, ButtonType.CANCEL);
 
         // Obtener el botón correspondiente al ButtonType confirmarBoton

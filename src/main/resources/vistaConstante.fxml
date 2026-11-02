@@ -1,31 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
 
 <Pane fx:id="rootVistaPrincipal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControladorPrincipal">
    <children>
-      <GridPane prefHeight="450.0" prefWidth="150.0">
-         <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-         </columnConstraints>
-         <rowConstraints>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-         </rowConstraints>
+      <VBox styleClass="barra-lateral" prefHeight="720.0" prefWidth="150.0">
          <children>
-            <Button fx:id="botonVistaPorDia" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" text="DIA" />
-            <Button fx:id="botonVistaPorSemana" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" text="SEMANA" GridPane.rowIndex="1" />
-            <Button fx:id="botonVistaPorMes" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" text="MES" GridPane.rowIndex="2" />
+            <Label styleClass="titulo-app" text="Calendario" />
+            <Label styleClass="subtitulo-app" text="Eventos y tareas" />
+            <Label styleClass="seccion" text="VISTAS" />
+            <Button fx:id="botonVistaPorDia" styleClass="boton-nav" maxWidth="Infinity" mnemonicParsing="false" text="Día" />
+            <Button fx:id="botonVistaPorSemana" styleClass="boton-nav" maxWidth="Infinity" mnemonicParsing="false" text="Semana" />
+            <Button fx:id="botonVistaPorMes" styleClass="boton-nav" maxWidth="Infinity" mnemonicParsing="false" text="Mes" />
+            <Region VBox.vgrow="ALWAYS" />
+            <Label styleClass="seccion" text="NUEVO" />
+            <Button fx:id="botonAgregarEvento" styleClass="boton-accion" maxWidth="Infinity" mnemonicParsing="false" text="+ Evento" />
+            <Button fx:id="botonAgregarTarea" mnemonicParsing="false" maxWidth="Infinity" text="+ Tarea">
+               <styleClass>
+                  <String fx:value="boton-accion" />
+                  <String fx:value="secundario" />
+               </styleClass>
+            </Button>
          </children>
-      </GridPane>
+      </VBox>
       <StackPane fx:id="contenedorVistas" layoutX="150.0" prefHeight="720.0" prefWidth="1130.0" />
-      <Button fx:id="botonAgregarEvento" layoutX="25.0" layoutY="497.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Agregar evento" />
-      <Button fx:id="botonAgregarTarea" layoutX="25.0" layoutY="578.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Agregar tarea" />
    </children>
 </Pane>

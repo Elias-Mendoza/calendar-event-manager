@@ -6,10 +6,15 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
+import javafx.geometry.Rectangle2D;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.io.Serializable;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 
 public class VistaPrincipal implements Observer, Serializable{
@@ -51,6 +56,7 @@ public class VistaPrincipal implements Observer, Serializable{
             botonAgregarTarea = (Button) loader.getNamespace().get(("botonAgregarTarea"));
 
             Scene scene = new Scene(root);
+            EstiloUI.aplicar(scene);
             escenario.setScene(scene);
             escenario.setTitle("Calendario");
             escenario.setResizable(false);
@@ -67,6 +73,28 @@ public class VistaPrincipal implements Observer, Serializable{
         // Lógica para mostrar la vista correspondiente en el contenedor de vistas
             contenedorVistas.getChildren().clear();
             contenedorVistas.getChildren().add(vista.getRoot());
+            marcarBotonActivo(vista);
+    }
+
+    // Resalta en la barra lateral el botón de la vista que se está mostrando
+    private void marcarBotonActivo(Vista vista) {
+        Button[] botones = {botonVistaPorDia, botonVistaPorSemana, botonVistaPorMes};
+        for (Button boton : botones) {
+            if (boton != null) {
+                boton.getStyleClass().remove("activo");
+            }
+        }
+        Button activo = null;
+        if (vista instanceof VistaDia) {
+            activo = botonVistaPorDia;
+        } else if (vista instanceof VistaSemana) {
+            activo = botonVistaPorSemana;
+        } else if (vista instanceof VistaMes) {
+            activo = botonVistaPorMes;
+        }
+        if (activo != null) {
+            activo.getStyleClass().add("activo");
+        }
     }
     public void setVistas(VistaMes vistaMes){
         this.vistaMes = vistaMes;
@@ -89,16 +117,61 @@ public class VistaPrincipal implements Observer, Serializable{
         Platform.runLater(() -> mostrarNotificacion(mensaje));
     }
 
-    public void mostrarNotificacion(String mensaje) {
-        Label alarmaActivadaLabel = new Label("¡Alarma activada!");
-        Label mensajeLabel = new Label(mensaje);
-        VBox vbox = new VBox(alarmaActivadaLabel);
-        vbox.getChildren().add(mensajeLabel);
-        vbox.setAlignment(Pos.CENTER);
+    // Cantidad de avisos abiertos, para apilarlos sin que se tapen entre sí
+    private static int notificacionesAbiertas = 0;
+    private static final double ANCHO_NOTIFICACION = 340;
+    private static final double ALTO_NOTIFICACION = 150;
+    private static final double MARGEN_NOTIFICACION = 16;
 
-        Stage notificacionStage = new Stage();
+    public void mostrarNotificacion(String mensaje) {
+        Label encabezado = new Label("ALARMA  ·  " + LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm")));
+        encabezado.getStyleClass().add("encabezado-notificacion");
+
+        Label alarmaActivadaLabel = new Label(mensaje == null || mensaje.isBlank() ? "¡Alarma activada!" : mensaje);
+        alarmaActivadaLabel.getStyleClass().add("titulo-notificacion");
+        alarmaActivadaLabel.setWrapText(true);
+
+        Label mensajeLabel = new Label("Es momento de tu actividad.");
+        mensajeLabel.getStyleClass().add("mensaje-notificacion");
+        mensajeLabel.setWrapText(true);
+
+        Stage notificacionStage = new Stage(StageStyle.UNDECORATED);
         notificacionStage.setTitle("Notificación");
-        notificacionStage.setScene(new Scene(vbox, 300, 300));
+        notificacionStage.setAlwaysOnTop(true);
+
+        Button cerrar = new Button("×");
+        cerrar.getStyleClass().add("cerrar-notificacion");
+        cerrar.setOnAction(e -> notificacionStage.close());
+
+        Button entendido = new Button("Entendido");
+        entendido.getStyleClass().add("boton-notificacion");
+        entendido.setDefaultButton(true);
+        entendido.setOnAction(e -> notificacionStage.close());
+
+        Region separador = new Region();
+        HBox.setHgrow(separador, Priority.ALWAYS);
+        HBox filaSuperior = new HBox(encabezado, separador, cerrar);
+        filaSuperior.setAlignment(Pos.CENTER_LEFT);
+
+        HBox filaInferior = new HBox(entendido);
+        filaInferior.setAlignment(Pos.CENTER_RIGHT);
+
+        Region espacio = new Region();
+        VBox.setVgrow(espacio, Priority.ALWAYS);
+        VBox vbox = new VBox(filaSuperior, alarmaActivadaLabel, mensajeLabel, espacio, filaInferior);
+        vbox.getStyleClass().add("notificacion");
+
+        Scene escenaNotificacion = new Scene(vbox, ANCHO_NOTIFICACION, ALTO_NOTIFICACION);
+        EstiloUI.aplicar(escenaNotificacion);
+        notificacionStage.setScene(escenaNotificacion);
+
+        // Esquina inferior derecha de la pantalla, apilando si hay varias
+        Rectangle2D pantalla = Screen.getPrimary().getVisualBounds();
+        notificacionStage.setX(pantalla.getMaxX() - ANCHO_NOTIFICACION - MARGEN_NOTIFICACION);
+        notificacionStage.setY(pantalla.getMaxY() - (ALTO_NOTIFICACION + MARGEN_NOTIFICACION) * (notificacionesAbiertas + 1));
+        notificacionesAbiertas++;
+        notificacionStage.setOnHidden(e -> notificacionesAbiertas = Math.max(0, notificacionesAbiertas - 1));
+
         notificacionStage.show();
     }
 }

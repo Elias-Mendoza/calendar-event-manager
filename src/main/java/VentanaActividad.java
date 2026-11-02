@@ -1,7 +1,6 @@
-import javafx.geometry.Insets;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import java.util.List;
@@ -10,34 +9,28 @@ public class VentanaActividad extends Stage{
     public VentanaActividad(List<Evento> eventos, List<Tarea> tareas) {
 
         VBox root = new VBox();
-        root.setStyle("-fx-border-color: black; -fx-border-width: 1px;");
-        root.setPadding(new Insets(10));
+        root.getStyleClass().add("ventana-actividades");
+
+        Label titulo = new Label("Actividades del día");
+        titulo.getStyleClass().add("titulo-ventana");
+        root.getChildren().add(titulo);
+
         for(Evento evento : eventos){
-            String datosEvento = "Evento:\n"+"Titulo: "+evento.getTitulo()+"\nDescripcion: "+evento.getDescripcion()
-                    +"\nInicio: "+evento.getInicio()+"\nFin: "+evento.getFin();
-            root.getChildren().add(crearPanelConBordes(datosEvento));
+            root.getChildren().add(EstiloUI.tarjetaEvento(evento));
         }
-        /*
-        for(int i=0; i< eventos.size(); i++){
-            root.getChildren().add(crearPanelConBordes("Evento:\n" + "Titulo: "+eventos.get(i).getTitulo() +"\n"+"Descripcion: "+eventos.get(i).getDescripcion()
-                    + "\n" +"Inicio: " + eventos.get(i).getInicio() + "\n" + "Fin: " + eventos.get(i).getFin()));
-        }
-         */
         for(Tarea tarea : tareas){
-            String datosTarea = "Tarea: \nTitulo: " +tarea.getTitulo() +"\nDescripcion: "+ tarea.getDescripcion() +"\nCompletada: " +
-                        tarea.getEstaCompletada() + "\nFecha de vencimiento: " + tarea.getFechaYHoraVencimiento();
-            root.getChildren().add((crearPanelConBordes(datosTarea)));
+            root.getChildren().add(EstiloUI.tarjetaTarea(tarea));
         }
-        Scene scene = new Scene(root, 300, 400);
+
+        ScrollPane scroll = new ScrollPane(root);
+        scroll.setFitToWidth(true);
+        scroll.getStyleClass().add("scroll-actividades");
+        // Que el fondo cubra toda la ventana aunque haya pocas actividades
+        root.minHeightProperty().bind(scroll.heightProperty());
+
+        Scene scene = new Scene(scroll, 360, 420);
+        EstiloUI.aplicar(scene);
+        setTitle("Actividades");
         setScene(scene);
-    }
-    private BorderPane crearPanelConBordes(String content) {
-        BorderPane borderPane = new BorderPane();
-        borderPane.setStyle("-fx-border-color: black; -fx-border-width: 1px;");
-
-        Label label = new Label(content);
-        borderPane.setCenter(label);
-
-        return borderPane;
     }
 }

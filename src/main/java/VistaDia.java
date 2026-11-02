@@ -76,15 +76,11 @@ public class VistaDia extends Vista{
 
     public void mostrarActividadesEnVistaDia(List<Evento> eventos, List<Tarea> tareas) {
 
-        vistaPorDia.setStyle("-fx-border-color: black; -fx-border-width: 1px;");
-        vistaPorDia.setPadding(new Insets(10));
         for(Evento evento : eventos){
-            vistaPorDia.getChildren().add(crearPanelConBordes("Evento:\n" + "Titulo: "+evento.getTitulo() +"\n"+"Descripcion: "+evento.getDescripcion()
-                    + "\n" +"Inicio: " + evento.getInicio() + "\n" + "Fin: " + evento.getFin()));
+            vistaPorDia.getChildren().add(EstiloUI.tarjetaEvento(evento));
         }
         for(Tarea tarea: tareas){
-            vistaPorDia.getChildren().add(crearPanelConBordes("Tarea: \n" +"Titulo: " +tarea.getTitulo() +"\n"+"Descripcion: "+ tarea.getDescripcion() + "\n" +
-                    "Fecha de vencimiento: " + tarea.getFechaTarea() + "\n" + "Completada: " + tarea.getEstaCompletada() ));
+            vistaPorDia.getChildren().add(EstiloUI.tarjetaTarea(tarea));
         }
     }
     public VBox getVistaPorDia() {

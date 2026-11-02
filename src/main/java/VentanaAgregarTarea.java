@@ -1,6 +1,6 @@
 import javafx.scene.Parent;
 import javafx.scene.control.*;
-import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import jfxtras.scene.control.LocalTimePicker;
 
@@ -30,25 +30,35 @@ public class VentanaAgregarTarea extends Vista{
         diaCompletoCheckBox = new CheckBox("Día completo");
         horaVencimientoPicker = new LocalTimePicker();
         descripcionTextArea = new TextArea();
-        alarmaCheckBox = new CheckBox("Agregar Alarma");
+        alarmaCheckBox = new CheckBox("Activar alarma");
         minutosAlarmaTextField = new TextField();
 
 
-        // Configurar el contenido del diálogo
-        GridPane contenido = new GridPane();
-        contenido.setHgap(10);
-        contenido.setVgap(10);
-        contenido.addRow(0, new Label("Título:"), tituloTextField);
-        contenido.addRow(1, new Label("Fecha de vencimiento:"), fechaVencimientoPicker);
-        contenido.addRow(2, diaCompletoCheckBox);
-        contenido.addRow(3, new Label("Hora de vencimiento:"), horaVencimientoPicker);
-        contenido.addRow(4, new Label("Descripción:"), descripcionTextArea);
-        contenido.addRow(5, alarmaCheckBox);
-        contenido.addRow(6, new Label("Minutos antes del inicio para la alarma:"), minutosAlarmaTextField);
+        // Configurar el contenido del diálogo (solo disposición visual; los controles y sus ids no cambian)
+        tituloTextField.setPromptText("Ej: Entregar el TP");
+        descripcionTextArea.setPromptText("Opcional");
+        descripcionTextArea.setPrefRowCount(2);
+        descripcionTextArea.setWrapText(true);
+        fechaVencimientoPicker.setPromptText("Elegí una fecha");
+        minutosAlarmaTextField.setPromptText("15");
+
+        VBox contenido = EstiloUI.formulario(
+                EstiloUI.seccion("Detalles"),
+                EstiloUI.campo("Título", tituloTextField),
+                EstiloUI.campo("Descripción", descripcionTextArea),
+                EstiloUI.seccion("Vencimiento"),
+                EstiloUI.fila(EstiloUI.campo("Fecha", fechaVencimientoPicker),
+                              EstiloUI.campo("Hora", horaVencimientoPicker)),
+                diaCompletoCheckBox,
+                EstiloUI.seccion("Alarma"),
+                EstiloUI.opcionEnLinea(alarmaCheckBox, minutosAlarmaTextField, null, "minutos antes")
+        );
+        dialogo.setHeaderText("Nueva tarea");
         dialogo.getDialogPane().setContent(contenido);
+        EstiloUI.aplicar(dialogo.getDialogPane());
 
         // Agregar botones de confirmación y cancelación
-        ButtonType confirmarBoton = new ButtonType("Confirmar", ButtonBar.ButtonData.OK_DONE);
+        ButtonType confirmarBoton = new ButtonType("Crear tarea", ButtonBar.ButtonData.OK_DONE);
         dialogo.getDialogPane().getButtonTypes().addAll(confirmarBoton, ButtonType.CANCEL);
 
         // Obtener el botón correspondiente al ButtonType confirmarBoton

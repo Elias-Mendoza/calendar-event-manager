@@ -1,0 +1,524 @@
+/* =========================================================
+   Estilos de la interfaz del calendario
+   Solo apariencia: colores, tipografía, espaciado y bordes.
+   ========================================================= */
+
+.root {
+    -color-fondo: #f4f6fb;
+    -color-superficie: #ffffff;
+    -color-borde: #e2e6ef;
+    -color-texto: #1f2937;
+    -color-texto-suave: #6b7280;
+    -color-acento: #4f46e5;
+    -color-acento-hover: #4338ca;
+    -color-acento-suave: #eef2ff;
+    -color-lateral: #1e1b4b;
+    -color-lateral-hover: #312e81;
+    -color-evento: #4f46e5;
+    -color-evento-fondo: #eef2ff;
+    -color-tarea: #d97706;
+    -color-tarea-fondo: #fff7e6;
+    -color-completada: #059669;
+    -color-completada-fondo: #ecfdf5;
+
+    -fx-accent: -color-acento;
+    -fx-focus-color: -color-acento;
+    -fx-faint-focus-color: #4f46e522;
+
+    -fx-font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    -fx-font-size: 13px;
+    -fx-text-fill: -color-texto;
+    -fx-background-color: -color-fondo;
+}
+
+.label {
+    -fx-text-fill: -color-texto;
+}
+
+/* ---------- Barra lateral ---------- */
+
+.barra-lateral {
+    -fx-background-color: -color-lateral;
+    -fx-padding: 24 12 24 12;
+    -fx-spacing: 8;
+}
+
+.barra-lateral .titulo-app {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+.barra-lateral .subtitulo-app {
+    -fx-text-fill: #a5b4fc;
+    -fx-font-size: 11px;
+}
+
+.barra-lateral .seccion {
+    -fx-text-fill: #818cf8;
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+    -fx-padding: 18 0 2 6;
+}
+
+.boton-nav {
+    -fx-background-color: transparent;
+    -fx-text-fill: #c7d2fe;
+    -fx-font-size: 14px;
+    -fx-alignment: center-left;
+    -fx-padding: 10 14 10 14;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+}
+
+.boton-nav:hover {
+    -fx-background-color: -color-lateral-hover;
+    -fx-text-fill: #ffffff;
+}
+
+.boton-nav.activo {
+    -fx-background-color: -color-acento;
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+}
+
+.boton-accion {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: -color-lateral;
+    -fx-font-weight: bold;
+    -fx-padding: 10 14 10 14;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+}
+
+.boton-accion:hover {
+    -fx-background-color: #e0e7ff;
+}
+
+.boton-accion.secundario {
+    -fx-background-color: transparent;
+    -fx-text-fill: #ffffff;
+    -fx-border-color: #6366f1;
+    -fx-border-radius: 8;
+    -fx-border-width: 1.5;
+}
+
+.boton-accion.secundario:hover {
+    -fx-background-color: -color-lateral-hover;
+}
+
+/* ---------- Vistas (día / semana / mes) ---------- */
+
+.vista {
+    -fx-background-color: -color-fondo;
+}
+
+.encabezado-vista {
+    -fx-padding: 6 4 0 4;
+}
+
+.titulo-vista {
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -color-texto;
+}
+
+.anio-vista {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -color-acento;
+}
+
+.boton-fecha {
+    -fx-background-color: -color-superficie;
+    -fx-text-fill: -color-texto;
+    -fx-border-color: -color-borde;
+    -fx-border-radius: 18;
+    -fx-background-radius: 18;
+    -fx-padding: 7 16 7 16;
+    -fx-cursor: hand;
+}
+
+.boton-fecha:hover {
+    -fx-background-color: -color-acento-suave;
+    -fx-border-color: -color-acento;
+    -fx-text-fill: -color-acento;
+}
+
+.dias-semana {
+    -fx-background-color: -color-superficie;
+    -fx-background-radius: 8 8 0 0;
+    -fx-border-color: -color-borde;
+    -fx-border-radius: 8 8 0 0;
+}
+
+.dias-semana .label {
+    -fx-text-fill: -color-texto-suave;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+.fila-numeros {
+    -fx-background-color: -color-superficie;
+    -fx-border-color: transparent -color-borde -color-borde -color-borde;
+}
+
+.numeros-semana .label {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -color-texto;
+    -fx-padding: 3 10 3 10;
+    -fx-background-radius: 14;
+    -fx-border-radius: 14;
+}
+
+/* Día de hoy: anillo con el color de acento */
+.numeros-semana .label.hoy {
+    -fx-text-fill: -color-acento;
+    -fx-border-color: -color-acento;
+    -fx-border-width: 1.5;
+}
+
+/* Día seleccionado en la vista por día: pastilla rellena */
+.numeros-semana .label.seleccionado {
+    -fx-background-color: -color-acento;
+    -fx-text-fill: #ffffff;
+}
+
+/* Contenedor de actividades de la vista por día */
+.panel-actividades {
+    -fx-background-color: -color-superficie;
+    -fx-border-color: transparent -color-borde -color-borde -color-borde;
+    -fx-spacing: 10;
+}
+
+.scroll-actividades {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+.scroll-actividades > .viewport {
+    -fx-background-color: transparent;
+}
+
+/* Columnas de la vista por semana */
+.columna-semana {
+    -fx-background-color: -color-superficie;
+    -fx-border-color: transparent -color-borde -color-borde transparent;
+    -fx-padding: 6;
+    -fx-spacing: 6;
+    -fx-max-height: infinity;
+    -fx-max-width: infinity;
+}
+
+/* Celdas de la vista por mes */
+.celda-mes {
+    -fx-background-color: -color-superficie;
+    -fx-border-color: transparent -color-borde -color-borde transparent;
+}
+
+.celda-mes.fin-de-semana {
+    -fx-background-color: #fafbff;
+}
+
+.grilla-mes {
+    -fx-border-color: transparent transparent transparent -color-borde;
+}
+
+.numeros-mes > .label {
+    -fx-padding: 6 0 0 10;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -color-texto;
+}
+
+.numeros-mes > .button {
+    -fx-background-color: -color-acento-suave;
+    -fx-text-fill: -color-acento;
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+    -fx-padding: 4 10 4 10;
+    -fx-background-radius: 12;
+    -fx-cursor: hand;
+}
+
+.numeros-mes > .button:hover {
+    -fx-background-color: -color-acento;
+    -fx-text-fill: #ffffff;
+}
+
+/* ---------- Tarjetas de actividades ---------- */
+
+.tarjeta {
+    -fx-background-color: -color-evento-fondo;
+    -fx-background-radius: 8;
+    -fx-border-color: transparent transparent transparent -color-evento;
+    -fx-border-width: 0 0 0 4;
+    -fx-border-radius: 8 0 0 8;
+    -fx-padding: 8 10 8 10;
+    -fx-spacing: 2;
+}
+
+.tarjeta.tarea {
+    -fx-background-color: -color-tarea-fondo;
+    -fx-border-color: transparent transparent transparent -color-tarea;
+}
+
+.tarjeta.tarea.completada {
+    -fx-background-color: -color-completada-fondo;
+    -fx-border-color: transparent transparent transparent -color-completada;
+}
+
+.tarjeta .tipo {
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -color-evento;
+}
+
+.tarjeta.tarea .tipo {
+    -fx-text-fill: -color-tarea;
+}
+
+.tarjeta.tarea.completada .tipo {
+    -fx-text-fill: -color-completada;
+}
+
+.tarjeta .titulo {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.tarjeta .detalle {
+    -fx-font-size: 12px;
+    -fx-text-fill: -color-texto-suave;
+}
+
+/* Panel genérico (compatibilidad con crearPanelConBordes) */
+.panel-con-bordes {
+    -fx-background-color: -color-superficie;
+    -fx-border-color: -color-borde;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 8;
+}
+
+/* ---------- Ventanas y diálogos ---------- */
+
+.ventana-actividades {
+    -fx-background-color: -color-fondo;
+    -fx-padding: 16;
+    -fx-spacing: 10;
+}
+
+.ventana-actividades .titulo-ventana {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+
+.dialog-pane {
+    -fx-background-color: -color-superficie;
+}
+
+.dialog-pane > .header-panel {
+    -fx-background-color: -color-acento-suave;
+    -fx-padding: 16 24 16 24;
+    -fx-border-color: transparent transparent -color-borde transparent;
+}
+
+.dialog-pane > .header-panel .label {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -color-lateral;
+}
+
+.dialog-pane > .content {
+    -fx-padding: 20 24 8 24;
+}
+
+.dialog-pane > .button-bar > .container {
+    -fx-padding: 8 24 16 24;
+}
+
+.dialog-pane .button {
+    -fx-background-color: -color-superficie;
+    -fx-border-color: -color-borde;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-padding: 7 16 7 16;
+    -fx-cursor: hand;
+}
+
+.dialog-pane .button:default {
+    -fx-background-color: -color-acento;
+    -fx-border-color: -color-acento;
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+}
+
+.dialog-pane .button:default:hover {
+    -fx-background-color: -color-acento-hover;
+}
+
+/* ---------- Formularios de creación ---------- */
+
+.formulario {
+    -fx-spacing: 10;
+}
+
+.seccion-formulario {
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -color-acento;
+    -fx-padding: 8 0 0 0;
+}
+
+.formulario > .seccion-formulario:first-child {
+    -fx-padding: 0;
+}
+
+.campo {
+    -fx-spacing: 4;
+}
+
+.etiqueta-campo {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -color-texto-suave;
+}
+
+.fila-formulario {
+    -fx-spacing: 12;
+}
+
+.opcion-en-linea {
+    -fx-spacing: 8;
+    -fx-background-color: -color-fondo;
+    -fx-background-radius: 8;
+    -fx-padding: 8 12 8 12;
+}
+
+.texto-opcion {
+    -fx-text-fill: -color-texto-suave;
+}
+
+.formulario .text-field,
+.formulario .text-area,
+.formulario .date-picker {
+    -fx-background-color: -color-borde, -color-superficie;
+    -fx-background-insets: 0, 1;
+    -fx-background-radius: 6, 5;
+}
+
+.formulario .text-field:focused,
+.formulario .text-area:focused,
+.formulario .date-picker:focused {
+    -fx-background-color: -color-acento, -color-superficie;
+    -fx-background-insets: 0, 1.5;
+}
+
+.formulario .date-picker > .text-field {
+    -fx-background-color: transparent;
+}
+
+.formulario .text-area .content {
+    -fx-background-color: -color-superficie;
+    -fx-background-radius: 5;
+}
+
+.formulario .text-area .scroll-pane,
+.formulario .text-area .viewport {
+    -fx-background-color: transparent;
+}
+
+/* Selector de hora (jfxtras): la hora arriba y los deslizadores debajo */
+.formulario .LocalTimePicker {
+    -fx-background-color: -color-fondo;
+    -fx-background-radius: 8;
+    -fx-padding: 30 10 6 10;
+}
+
+.formulario .timeLabel {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-opacity: 1;
+    -fx-text-fill: -color-texto;
+    -fx-translate-y: -26;
+}
+
+.formulario .slider .thumb {
+    -fx-background-color: -color-acento;
+    -fx-background-radius: 8;
+    -fx-padding: 6;
+}
+
+.formulario .slider .track {
+    -fx-background-color: -color-borde;
+    -fx-background-radius: 3;
+    -fx-padding: 2;
+}
+
+.formulario .check-box {
+    -fx-font-weight: bold;
+}
+
+.formulario .check-box:selected > .box {
+    -fx-background-color: -color-acento;
+    -fx-background-radius: 3;
+}
+
+.formulario .check-box:selected > .box > .mark {
+    -fx-background-color: #ffffff;
+}
+
+/* ---------- Notificación de alarma (aviso en la esquina) ---------- */
+
+.notificacion {
+    -fx-background-color: -color-acento, -color-superficie;
+    -fx-background-insets: 0, 0 0 0 5;
+    -fx-border-color: -color-borde;
+    -fx-padding: 12 14 12 20;
+    -fx-spacing: 4;
+}
+
+.notificacion .encabezado-notificacion {
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -color-acento;
+}
+
+.notificacion .titulo-notificacion {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -color-texto;
+}
+
+.notificacion .mensaje-notificacion {
+    -fx-font-size: 12px;
+    -fx-text-fill: -color-texto-suave;
+}
+
+.cerrar-notificacion {
+    -fx-background-color: transparent;
+    -fx-text-fill: -color-texto-suave;
+    -fx-font-size: 16px;
+    -fx-padding: 0 4 0 4;
+    -fx-cursor: hand;
+}
+
+.cerrar-notificacion:hover {
+    -fx-text-fill: -color-texto;
+}
+
+.boton-notificacion {
+    -fx-background-color: -color-acento;
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+    -fx-background-radius: 6;
+    -fx-padding: 6 14 6 14;
+    -fx-cursor: hand;
+}
+
+.boton-notificacion:hover {
+    -fx-background-color: -color-acento-hover;
+}
