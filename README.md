@@ -49,23 +49,108 @@ classDiagram
 
 ## Tecnologías
 
-- Java 20, JavaFX 20, ControlsFX y JFXtras
+- Java 20 (compila con `release 20`), JavaFX 21, ControlsFX y JFXtras
 - JUnit 4 para los tests unitarios
 - Maven para la compilación y las dependencias
 
-## Cómo ejecutarlo
+## Instalación
 
-Requisitos: **JDK 20 o superior** y **Maven**. JavaFX lo descarga Maven, no hace falta instalarlo aparte.
+### Requisitos
+
+| Herramienta | Versión | Para qué |
+|---|---|---|
+| JDK | 20 o superior (recomendado: 21 LTS) | Compilar y ejecutar |
+| Maven | 3.9 o superior | Dependencias, build y tests |
+| Git | cualquiera | Clonar el repositorio |
+
+JavaFX, ControlsFX y JFXtras los descarga Maven automáticamente: no hace falta instalarlos aparte.
+
+### 1. Instalar el JDK
+
+**Windows** (con winget, desde PowerShell):
+
+```powershell
+winget install --id EclipseAdoptium.Temurin.21.JDK -e
+```
+
+También se puede descargar el instalador `.msi` de [Adoptium](https://adoptium.net/temurin/releases/?version=21).
+Durante la instalación conviene activar la opción **Set JAVA_HOME variable**.
+
+**macOS** (con Homebrew):
 
 ```bash
-# Ejecutar la aplicación
-mvn javafx:run
+brew install --cask temurin@21
+```
+
+**Linux** (Debian/Ubuntu):
+
+```bash
+sudo apt install openjdk-21-jdk
+```
+
+### 2. Instalar Maven
+
+**Windows**: elegí una de estas opciones (winget no incluye Maven).
+
+- **Con Chocolatey**: desde una PowerShell abierta **como administrador**:
+
+  ```powershell
+  choco install maven -y
+  ```
+
+- **Manual, sin permisos de administrador**:
+  1. Descargá el archivo `apache-maven-<versión>-bin.zip` desde la [página de descargas de Maven](https://maven.apache.org/download.cgi).
+  2. Descomprimilo, por ejemplo, en `C:\Users\<tu-usuario>\tools\`.
+  3. Agregá la carpeta `bin` de Maven al `Path` de tu usuario. Podés hacerlo desde *Editar las variables de entorno de esta cuenta*
+     o desde PowerShell (ajustá la ruta a la versión descargada):
+
+     ```powershell
+     $bin = "$env:USERPROFILE\tools\apache-maven-3.10.0\bin"
+     [Environment]::SetEnvironmentVariable('Path', [Environment]::GetEnvironmentVariable('Path','User') + ";$bin", 'User')
+     ```
+
+**macOS**:
+
+```bash
+brew install maven
+```
+
+**Linux** (Debian/Ubuntu):
+
+```bash
+sudo apt install maven
+```
+
+### 3. Verificar la instalación
+
+Abrí una **terminal nueva** (para que tome los cambios del `PATH`) y ejecutá:
+
+```bash
+java -version
+mvn -version
+```
+
+`mvn -version` tiene que mostrar una versión de Java 20 o superior. Si muestra otra versión o no encuentra Java,
+configurá la variable `JAVA_HOME` con la carpeta de instalación del JDK
+(por ejemplo, `C:\Program Files\Eclipse Adoptium\jdk-21...`).
+
+### 4. Clonar y ejecutar
+
+```bash
+git clone https://github.com/Elias-Mendoza/calendar-event-manager.git
+cd calendar-event-manager
 
 # Ejecutar los tests
 mvn test
+
+# Ejecutar la aplicación
+mvn javafx:run
 ```
 
-La primera vez se crea un calendario vacío; al agregar eventos o tareas se guarda en `calendario.dat`.
+La primera ejecución tarda un poco más porque Maven descarga las dependencias.
+
+La primera vez se crea un calendario vacío. Al agregar eventos o tareas se guarda en `calendario.dat`,
+en la carpeta desde la que se ejecuta el comando.
 
 ## Desarrollo por etapas
 
