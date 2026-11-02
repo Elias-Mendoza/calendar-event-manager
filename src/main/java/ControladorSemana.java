@@ -70,7 +70,7 @@ public class ControladorSemana {
         //vistaSemana.getVistaPorSemana().getChildren().clear();
         limpiarContenidoActividades();
         fechaActual = fechaActual.plusDays(cantidadSemanas*7);
-        vistaSemana.mostrarMesActual(fechaActual.getMonth().getDisplayName(TextStyle.FULL, new Locale("es", "ES")).toUpperCase());
+        vistaSemana.mostrarMesActual(fechaActual.getMonth().getDisplayName(TextStyle.FULL, Locale.of("es", "ES")).toUpperCase());
         vistaSemana.mostrarAnioActual(fechaActual.getYear());
 
         actualizarVistaDeLaSemana();

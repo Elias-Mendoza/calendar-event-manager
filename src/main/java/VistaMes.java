@@ -48,7 +48,7 @@ public class VistaMes extends Vista{
             vistaPorMes = (GridPane) loader.getNamespace().get("vistaPorMes");
             numerosDiasVistaMes = (GridPane) loader.getNamespace().get("numerosDiasVistaMes");
 
-            labelMesActualVistaMes.setText(LocalDate.now().getMonth().getDisplayName(TextStyle.FULL, new Locale("es", "ES")).toUpperCase());
+            labelMesActualVistaMes.setText(LocalDate.now().getMonth().getDisplayName(TextStyle.FULL, Locale.of("es", "ES")).toUpperCase());
             labelAnioActualVistaMes.setText(String.valueOf(LocalDate.now().getYear()));
             mostrarNumerosMeses();
 

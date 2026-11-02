@@ -47,7 +47,7 @@ public class VistaSemana extends Vista{
             vistaPorSemana = (GridPane) loader.getNamespace().get("vistaPorSemana");
             numerosDiasVistaSemana = (GridPane) loader.getNamespace().get("numerosDiasVistaSemana");
 
-            labelMesActualVistaSemana.setText(LocalDate.now().getMonth().getDisplayName(TextStyle.FULL, new Locale("es", "ES")).toUpperCase());
+            labelMesActualVistaSemana.setText(LocalDate.now().getMonth().getDisplayName(TextStyle.FULL, Locale.of("es", "ES")).toUpperCase());
             labelAnioActualVistaSemana.setText(String.valueOf(LocalDate.now().getYear()));
 
         } catch (IOException e) {

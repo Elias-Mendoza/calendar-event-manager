@@ -47,7 +47,7 @@ public class ControladorMes{
     private void plusMes(int cantidadMeses) {
         vistaMes.getNumerosDiasVistaMes().getChildren().clear();
         fechaActual = fechaActual.plusMonths(cantidadMeses);
-        String mesAnterior = fechaActual.getMonth().getDisplayName(TextStyle.FULL, new Locale("es", "ES")).toUpperCase();
+        String mesAnterior = fechaActual.getMonth().getDisplayName(TextStyle.FULL, Locale.of("es", "ES")).toUpperCase();
         vistaMes.mostrarAnio(fechaActual.getYear());
         vistaMes.mostrarMes(mesAnterior);
         actualizarNumerosDelMes();

@@ -35,7 +35,7 @@ public class ControladorDia{
         vistaDia.getVistaPorDia().getChildren().clear();
         fechaActual = fechaActual.plusDays(cantidadDias);
         int numeroDia = fechaActual.getDayOfMonth();
-        String mes = fechaActual.getMonth().getDisplayName(TextStyle.FULL, new Locale("es", "ES")).toUpperCase();
+        String mes = fechaActual.getMonth().getDisplayName(TextStyle.FULL, Locale.of("es", "ES")).toUpperCase();
         vistaDia.mostrarAnio(fechaActual.getYear());
         vistaDia.mostrarDiaYMes(numeroDia, mes);
         actualizarNumerosDeLaSemana();

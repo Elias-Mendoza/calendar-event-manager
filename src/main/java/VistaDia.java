@@ -52,7 +52,7 @@ public class VistaDia extends Vista{
             vistaPorDia = (VBox) loader.getNamespace().get("vistaPorDia");
             numerosDiasVistaDia = (GridPane) loader.getNamespace().get("numerosDiasVistaDia");
 
-            labelDiaYMesActualVistaDia.setText(LocalDate.now().getDayOfMonth() + " de " + LocalDate.now().getMonth().getDisplayName(TextStyle.FULL, new Locale("es", "ES")).toUpperCase());
+            labelDiaYMesActualVistaDia.setText(LocalDate.now().getDayOfMonth() + " de " + LocalDate.now().getMonth().getDisplayName(TextStyle.FULL, Locale.of("es", "ES")).toUpperCase());
             labelAnioActualVistaDia.setText(String.valueOf(LocalDate.now().getYear()));
 
         } catch (IOException e) {
