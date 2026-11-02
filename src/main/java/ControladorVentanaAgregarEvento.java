@@ -1,3 +1,4 @@
+import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -16,7 +17,14 @@ public class ControladorVentanaAgregarEvento{
         this.calendario = calendario;
     }
     public void iniciar() {
-        ventanaAgregarEvento.obtenerBotonConfirmar().setOnAction(event -> agregarEvento());
+        // Se usa un filtro (y no setOnAction) porque el Dialog cierra la ventana en su propio handler,
+        // que corre antes que onAction. Consumiendo el evento cuando los datos son inválidos,
+        // el diálogo queda abierto y no se pierde lo que el usuario cargó.
+        ventanaAgregarEvento.obtenerBotonConfirmar().addEventFilter(ActionEvent.ACTION, event -> {
+            if (!agregarEvento()) {
+                event.consume();
+            }
+        });
         ventanaAgregarEvento.obtenerCheckBox("diaCompletoCheckBox").setOnAction(evento ->deshabilitarCamposDeHora());
         ventanaAgregarEvento.obtenerCheckBox("repetirDiariamenteCheckBox").setOnAction(evento -> deshabilitarCampoDeRepeticion());
         ventanaAgregarEvento.obtenerCheckBox("alarmaCheckBox").setOnAction(evento -> deshabilitarCampoDeAlarma());
@@ -32,7 +40,8 @@ public class ControladorVentanaAgregarEvento{
         ventanaAgregarEvento.obtenerLocalTimePicker("horaInicioPicker").setDisable(ventanaAgregarEvento.obtenerCheckBox("diaCompletoCheckBox").isSelected());
         ventanaAgregarEvento.obtenerLocalTimePicker("horaFinPicker").setDisable(ventanaAgregarEvento.obtenerCheckBox("diaCompletoCheckBox").isSelected());
     }
-    public void agregarEvento(){
+    /** Devuelve true si el evento se creó; false si los datos no son válidos. */
+    public boolean agregarEvento(){
 
         LocalDate fechaInicio = ventanaAgregarEvento.obtenerDatePicker("fechaInicioPicker").getValue();
         LocalDate fechaFin = ventanaAgregarEvento.obtenerDatePicker("fechaFinPicker").getValue();
@@ -44,7 +53,7 @@ public class ControladorVentanaAgregarEvento{
         TextField minutosAntes = ventanaAgregarEvento.obtenerTextField("minutosAlarmaTextField");
         if( !comprobarFechas(fechaInicio, fechaFin, horaInicio, horaFin) || !comprobarCampos(intervalo, minutosAntes)){
             System.out.println("Los datos estan mal");
-            return;
+            return false;
         }
         else{
             Evento evento;
@@ -74,6 +83,7 @@ public class ControladorVentanaAgregarEvento{
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
+            return true;
         }
     }
     public boolean comprobarFechas(LocalDate fechaInicio, LocalDate fechaFin, LocalTime horaInicio, LocalTime horaFin) {
@@ -110,7 +120,22 @@ public class ControladorVentanaAgregarEvento{
             datosValidos = false;
             return datosValidos;
         }
+        if (ventanaAgregarEvento.obtenerCheckBox("repetirDiariamenteCheckBox").isSelected() && !esEnteroMayorOIgualA(intervalo.getText(), 1)) {
+            ventanaAgregarEvento.mostrarMensajeError("El intervalo de repetición debe ser un número entero mayor que 0");
+            return false;
+        }
+        if (ventanaAgregarEvento.obtenerCheckBox("alarmaCheckBox").isSelected() && !esEnteroMayorOIgualA(minutosAntes.getText(), 0)) {
+            ventanaAgregarEvento.mostrarMensajeError("Los minutos de la alarma deben ser un número entero (0 o más)");
+            return false;
+        }
         return datosValidos;
+    }
+    private boolean esEnteroMayorOIgualA(String texto, int minimo) {
+        try {
+            return Integer.parseInt(texto) >= minimo;
+        } catch (NumberFormatException e) {
+            return false;
+        }
     }
     private LocalTime getCustomLocalTimeSinSegundos(LocalTime time) {
         return LocalTime.of(time.getHour(), time.getMinute());

@@ -1,3 +1,4 @@
+import javafx.event.ActionEvent;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
@@ -18,7 +19,14 @@ public class ControladorVentanaAgregarTarea {
     }
 
     public void iniciar() {
-        ventanaAgregarTarea.obtenerBotonConfirmar().setOnAction(event -> agregarTarea());
+        // Se usa un filtro (y no setOnAction) porque el Dialog cierra la ventana en su propio handler,
+        // que corre antes que onAction. Consumiendo el evento cuando los datos son inválidos,
+        // el diálogo queda abierto y no se pierde lo que el usuario cargó.
+        ventanaAgregarTarea.obtenerBotonConfirmar().addEventFilter(ActionEvent.ACTION, event -> {
+            if (!agregarTarea()) {
+                event.consume();
+            }
+        });
         ventanaAgregarTarea.obtenerCheckBox("diaCompletoCheckBox").setOnAction(evento ->deshabilitarCamposDeHora());
         ventanaAgregarTarea.obtenerCheckBox("alarmaCheckBox").setOnAction(evento -> deshabilitarCampoDeAlarma());
     }
@@ -28,7 +36,8 @@ public class ControladorVentanaAgregarTarea {
     private void deshabilitarCamposDeHora(){
         ventanaAgregarTarea.obtenerLocalTimePicker("horaVencimientoPicker").setDisable(ventanaAgregarTarea.obtenerCheckBox("diaCompletoCheckBox").isSelected());
     }
-    public void agregarTarea(){
+    /** Devuelve true si la tarea se creó; false si los datos no son válidos. */
+    public boolean agregarTarea(){
 
         LocalDate fechaVencimiento = ventanaAgregarTarea.obtenerDatePicker("fechaVencimientoPicker").getValue();
         LocalTime horaVencimiento = getCustomLocalTimeSinSegundos(ventanaAgregarTarea.obtenerLocalTimePicker("horaVencimientoPicker").getLocalTime());
@@ -37,7 +46,7 @@ public class ControladorVentanaAgregarTarea {
         TextField intervalo = ventanaAgregarTarea.obtenerTextField("intervaloTextField");
         TextField minutosAntes = ventanaAgregarTarea.obtenerTextField("minutosAlarmaTextField");
         if(!comprobarCampos(intervalo, minutosAntes)){
-            return;
+            return false;
         }
         else{
             Tarea tarea;
@@ -62,6 +71,7 @@ public class ControladorVentanaAgregarTarea {
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
+            return true;
         }
     }
     public boolean comprobarCampos(TextField intervalo, TextField minutosAntes){
@@ -71,12 +81,27 @@ public class ControladorVentanaAgregarTarea {
             datosValidos = false;
             return datosValidos;
         }
+        else if (ventanaAgregarTarea.obtenerDatePicker("fechaVencimientoPicker").getValue() == null) {
+            ventanaAgregarTarea.mostrarMensajeError("Por favor, elija la fecha de vencimiento");
+            return false;
+        }
         else if(ventanaAgregarTarea.obtenerCheckBox("alarmaCheckBox").isSelected() && minutosAntes.getText().isEmpty()){
             ventanaAgregarTarea.mostrarMensajeError("Por favor, ingrese los datos de la alarma");
             datosValidos = false;
             return datosValidos;
         }
+        if (ventanaAgregarTarea.obtenerCheckBox("alarmaCheckBox").isSelected() && !esEnteroMayorOIgualA(minutosAntes.getText(), 0)) {
+            ventanaAgregarTarea.mostrarMensajeError("Los minutos de la alarma deben ser un número entero (0 o más)");
+            return false;
+        }
         return datosValidos;
+    }
+    private boolean esEnteroMayorOIgualA(String texto, int minimo) {
+        try {
+            return Integer.parseInt(texto) >= minimo;
+        } catch (NumberFormatException e) {
+            return false;
+        }
     }
     private LocalTime getCustomLocalTimeSinSegundos(LocalTime time) {
         return LocalTime.of(time.getHour(), time.getMinute());
